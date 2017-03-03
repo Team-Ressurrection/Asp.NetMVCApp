@@ -11,9 +11,9 @@ assembly_info:
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
 before_build:
-  - ps: nuget restore .\SalaryCalculatorWeb\SalaryCalculatorWeb.sln
+  - ps: nuget restore .\SalaryCalculator\SalaryCalculator.sln
 build:
-  project: .\SalaryCalculatorWeb\SalaryCalculatorWeb.sln
+  project: .\SalaryCalculator\SalaryCalculator.sln
   verbosity: minimal
 notifications:
   - provider: Email
