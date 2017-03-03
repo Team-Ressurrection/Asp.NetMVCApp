@@ -3,7 +3,7 @@ image: Visual Studio 2015
 branches:
   only:
   - master
-configuration: Release
+configuration: Debug
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
@@ -26,5 +26,5 @@ environment:
   COVERALLS_REPO_TOKEN:
     secure: ghd3wcmMDkCGJiiDs0vyaQEyr1fk9VzTmxbfUT6ykaBCTJ5UJSre9UoMZ36kMd6P
 after_test:
-  - SalaryCalculator\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"SalaryCalculator\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single  SalaryCalculator\SalaryCalculatorWeb.Tests\bin\Release\SalaryCalculatorWeb.Tests.dll" -output:coverage.xml
+  - SalaryCalculator\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"SalaryCalculator\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single  SalaryCalculator\SalaryCalculatorWeb.Tests\bin\Debug\SalaryCalculatorWeb.Tests.dll" -output:coverage.xml
   - SalaryCalculator\packages\coveralls.io.1.3.4\tools\coveralls.net.exe --opencover coverage.xml --full-sources
