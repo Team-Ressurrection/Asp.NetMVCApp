@@ -37,6 +37,22 @@
       <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Moq, Version=4.7.1.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
@@ -94,8 +110,67 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data.EmployeeModels\Constructor_Should.cs" />
+    <Compile Include="Data.EmployeeModels\Properties_Should.cs" />
+    <Compile Include="Data.EmployeePaycheckModels\Constructor_Should.cs" />
+    <Compile Include="Data.EmployeePaycheckModels\Properties_Should.cs" />
+    <Compile Include="Data.RemunerationBillModels\Constructor_Should.cs" />
+    <Compile Include="Data.RemunerationBillModels\Properties_Should.cs" />
+    <Compile Include="Data.Repository\Constructor_Should.cs" />
+    <Compile Include="Data.Repository\Methods_Should.cs" />
+    <Compile Include="Data.SalaryCalculatorDbContextTests\Constructor_Should.cs" />
+    <Compile Include="Data.SalaryCalculatorDbContextTests\CreateMethod_Should.cs" />
+    <Compile Include="Data.Seed\Constructor_Should.cs" />
+    <Compile Include="Data.SelfEmploymentModels\Constructor_Should.cs" />
+    <Compile Include="Data.SelfEmploymentModels\Properties_Should.cs" />
+    <Compile Include="Data.Services\EmployeePaycheckServiceTests\Constructor_Should.cs" />
+    <Compile Include="Data.Services\EmployeePaycheckServiceTests\Create_Should.cs" />
+    <Compile Include="Data.Services\EmployeePaycheckServiceTests\Delete_Should.cs" />
+    <Compile Include="Data.Services\EmployeePaycheckServiceTests\GetAll_Should.cs" />
+    <Compile Include="Data.Services\EmployeePaycheckServiceTests\GetById_Should.cs" />
+    <Compile Include="Data.Services\EmployeePaycheckServiceTests\GetTop_Should.cs" />
+    <Compile Include="Data.Services\EmployeeServiceTests\Constructor_Should.cs" />
+    <Compile Include="Data.Services\EmployeeServiceTests\Create_Should.cs" />
+    <Compile Include="Data.Services\EmployeeServiceTests\Delete_Should.cs" />
+    <Compile Include="Data.Services\EmployeeServiceTests\GetAll_Should.cs" />
+    <Compile Include="Data.Services\EmployeeServiceTests\GetById_Should.cs" />
+    <Compile Include="Data.Services\EmployeeServiceTests\GetTop_Should.cs" />
+    <Compile Include="Data.Services\EmployeeServiceTests\Update_Should.cs" />
+    <Compile Include="Data.Services\RemunerationBillTests\Constructor_Should.cs" />
+    <Compile Include="Data.Services\RemunerationBillTests\Create_Should.cs" />
+    <Compile Include="Data.Services\RemunerationBillTests\Delete_Should.cs" />
+    <Compile Include="Data.Services\RemunerationBillTests\GetAll_Should.cs" />
+    <Compile Include="Data.Services\RemunerationBillTests\GetById_Should.cs" />
+    <Compile Include="Data.Services\RemunerationBillTests\GetTop_Should.cs" />
+    <Compile Include="Data.Services\RemunerationBillTests\UpdateById_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\Constructor_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\Create_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\Delete_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\GetAll_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\GetById_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\GetTop_Should.cs" />
+    <Compile Include="Data.Services\SelfEmploymentServiceTests\UpdateById_Should.cs" />
+    <Compile Include="Data.Services\UserServiceTests\Constructor_Should.cs" />
+    <Compile Include="Data.Services\UserServiceTests\Create_Should.cs" />
+    <Compile Include="Data.Services\UserServiceTests\Delete_Should.cs" />
+    <Compile Include="Data.Services\UserServiceTests\GetAll_Should.cs" />
+    <Compile Include="Data.Services\UserServiceTests\GetById_Should.cs" />
+    <Compile Include="Data.Services\UserServiceTests\GetTop_Should.cs" />
+    <Compile Include="Data.Services\UserServiceTests\Update_Should.cs" />
+    <Compile Include="Data.UserModels\Constructor_Should.cs" />
+    <Compile Include="Mocks\FakeEmployee.cs" />
+    <Compile Include="Mocks\FakeEmployeePaycheck.cs" />
+    <Compile Include="Mocks\FakePayroll.cs" />
+    <Compile Include="Mocks\FakeRemunerationBill.cs" />
+    <Compile Include="Mocks\FakeSelfEmployment.cs" />
+    <Compile Include="Mocks\FakeUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Utilities.Calculations\PayrollTests\CheckSocialSecurityIncome_Should.cs" />
+    <Compile Include="Utilities.Calculations\PayrollTests\GetGrossSalary_Should.cs" />
+    <Compile Include="Utilities.Calculations\PayrollTests\GetIncomeTax_Should.cs" />
+    <Compile Include="Utilities.Calculations\PayrollTests\GetNetWage_Should.cs" />
+    <Compile Include="Utilities.Calculations\PayrollTests\GetPersonalInsurance_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -104,11 +179,28 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SalaryCalculator.Data.Models\SalaryCalculator.Data.Models.csproj">
+      <Project>{83ee4bbd-2549-475c-a53b-100cdb9d5050}</Project>
+      <Name>SalaryCalculator.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SalaryCalculator.Data.Services\SalaryCalculator.Data.Services.csproj">
+      <Project>{05f71fbc-adcf-408f-9046-8e3cf74d5fe9}</Project>
+      <Name>SalaryCalculator.Data.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SalaryCalculator.Data\SalaryCalculator.Data.csproj">
+      <Project>{ec987265-7f76-4b0c-b210-c1ff9662f10a}</Project>
+      <Name>SalaryCalculator.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SalaryCalculator.Utilities\SalaryCalculator.Utilities.csproj">
+      <Project>{f7888cbc-3af2-4323-9d36-fc5b0ca313dd}</Project>
+      <Name>SalaryCalculator.Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SalaryCalculatorWeb\SalaryCalculatorWeb.csproj">
       <Project>{826DC2D2-572C-4D9C-9034-C8A401F3A00E}</Project>
       <Name>SalaryCalculatorWeb</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
