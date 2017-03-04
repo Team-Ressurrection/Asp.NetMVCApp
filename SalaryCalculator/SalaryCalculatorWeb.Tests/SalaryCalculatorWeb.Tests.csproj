@@ -142,6 +142,11 @@
     <Compile Include="Controllers\AccountControllerTests\Register_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\ResetPasswordConfirmation_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\ResetPassword_Should.cs" />
+    <Compile Include="Controllers\ManageControllerTests\SetPassword_Should.cs" />
+    <Compile Include="Controllers\ManageControllerTests\ChangePassword_Should.cs" />
+    <Compile Include="Controllers\ManageControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\ManageControllerTests\Properties_Should.cs" />
+    <Compile Include="Controllers\ManageControllerTests\AddPhoneNumber_Should.cs" />
     <Compile Include="Data.EmployeeModels\Constructor_Should.cs" />
     <Compile Include="Data.EmployeeModels\Properties_Should.cs" />
     <Compile Include="Data.EmployeePaycheckModels\Constructor_Should.cs" />
