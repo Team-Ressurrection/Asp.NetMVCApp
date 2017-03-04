@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SalaryCalculatorWeb.Models;
 using SalaryCalculator.Data.Models;
+using SalaryCalculatorWeb.Models.AccountViewModels;
 
 namespace SalaryCalculatorWeb.Controllers
 {
