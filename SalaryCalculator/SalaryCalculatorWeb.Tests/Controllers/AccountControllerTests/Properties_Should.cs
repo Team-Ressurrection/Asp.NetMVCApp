@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Moq;
 using NUnit.Framework;
@@ -15,20 +14,10 @@ using System.Threading.Tasks;
 namespace SalaryCalculatorWeb.Tests.Controllers.AccountControllerTests
 {
     [TestFixture]
-    public class Constructor_Should
+    public class Properties_Should
     {
         [Test]
-        public void CreateInstance_WhenDefaultConstructorIsInvoked()
-        {
-            // Arrange & Act
-            AccountController accController = new AccountController();
-
-            // Assert
-            Assert.IsInstanceOf<AccountController>(accController);
-        }
-
-        [Test]
-        public void CreateInstance_WhenOverloadConstructorIsInvoked()
+        public void SetSignInManagerProperty_WhenOverloadConstructorIsInvoked()
         {
             // Arrange
             var mockedStore = new Mock<IUserStore<User>>();
@@ -41,8 +30,24 @@ namespace SalaryCalculatorWeb.Tests.Controllers.AccountControllerTests
             AccountController accController = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
 
             // Assert
-            Assert.IsInstanceOf<AccountController>(accController);
+            Assert.AreEqual(mockedSignInManager.Object, accController.SignInManager);
         }
 
+        [Test]
+        public void SetUserManagerProperty_WhenOverloadConstructorIsInvoked()
+        {
+            // Arrange
+            var mockedStore = new Mock<IUserStore<User>>();
+            var mockedUserManager = new Mock<ApplicationUserManager>(mockedStore.Object);
+
+            var mockedAuthenticationManager = new Mock<IAuthenticationManager>();
+            var mockedSignInManager = new Mock<ApplicationSignInManager>(mockedUserManager.Object, mockedAuthenticationManager.Object);
+
+            // Act
+            AccountController accController = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
+
+            // Assert
+            Assert.AreEqual(mockedUserManager.Object, accController.UserManager);
+        }
     }
 }
