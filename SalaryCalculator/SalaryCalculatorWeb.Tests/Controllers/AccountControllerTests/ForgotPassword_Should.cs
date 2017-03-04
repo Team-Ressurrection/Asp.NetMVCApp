@@ -10,16 +10,16 @@ using System.Web.Mvc;
 namespace SalaryCalculatorWeb.Tests.Controllers.AccountControllerTests
 {
     [TestFixture]
-    public class Register_Should
+    public class ForgotPassword_Should
     {
         [Test]
-        public void ReturnViewResult_WhenRegisterIsCalled()
+        public void ReturnViewResult_WhenIsCalled()
         {
             // Arrange
             AccountController accController = new AccountController();
 
             // Act
-            ViewResult result = accController.Register() as ViewResult;
+            ViewResult result = accController.ForgotPassword() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);

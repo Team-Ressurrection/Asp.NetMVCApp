@@ -135,9 +135,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\AccountControllerTests\ForgotPassword_Should.cs" />
+    <Compile Include="Controllers\AccountControllerTests\ForgotPasswordConfirmation_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\Login_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\Properties_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\Register_Should.cs" />
+    <Compile Include="Controllers\AccountControllerTests\ResetPasswordConfirmation_Should.cs" />
+    <Compile Include="Controllers\AccountControllerTests\ResetPassword_Should.cs" />
     <Compile Include="Data.EmployeeModels\Constructor_Should.cs" />
     <Compile Include="Data.EmployeeModels\Properties_Should.cs" />
     <Compile Include="Data.EmployeePaycheckModels\Constructor_Should.cs" />
