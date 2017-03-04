@@ -25,10 +25,13 @@ namespace SalaryCalculator.Tests.Data.SelfEmploymentModels
         [TestCase(0)]
         public void WhenParameterGrossSalary_IsSetWithValidValue_ShouldSetUpCorrectly(decimal num)
         {
+            // Arrange
             var selfEmpl = new SelfEmployment();
 
+            // Act
             selfEmpl.GrossSalary = num;
 
+            // Assert
             Assert.AreEqual(num, selfEmpl.GrossSalary);
         }
 
@@ -38,14 +41,16 @@ namespace SalaryCalculator.Tests.Data.SelfEmploymentModels
         [TestCase(EmployeeIdProperty)]
         public void PropertiesWithRequiredAttribute_ShouldReturnTrue(string propertyName)
         {
+            // Arrange
             var selfEmpl = new SelfEmployment();
 
+            // Act
             var result = selfEmpl.GetType()
                             .GetProperty(propertyName)
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(RequiredAttribute))
                             .Any();
-
+            // Assert
             Assert.IsTrue(result);
         }
     }

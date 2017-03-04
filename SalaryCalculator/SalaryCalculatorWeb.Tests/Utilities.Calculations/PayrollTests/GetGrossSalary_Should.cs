@@ -13,10 +13,13 @@ namespace SalaryCalculator.Tests.Utilities.Calculations.PayrollTests
         [Test]
         public void ReturnSumOfAllParameters()
         {
+            // Arrange
             var parameters = new List<decimal>() { 450, 500, 50 };
 
+            // Act
             var payroll = new Payroll();
 
+            // Assert
             Assert.AreEqual(parameters.Sum(), payroll.GetGrossSalary(parameters));
         }
     }

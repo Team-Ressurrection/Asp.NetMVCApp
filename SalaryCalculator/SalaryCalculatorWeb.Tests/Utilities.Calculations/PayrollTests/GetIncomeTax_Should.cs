@@ -10,11 +10,14 @@ namespace SalaryCalculator.Tests.Utilities.Calculations.PayrollTests
         [Test]
         public void ReturnCorrectValueOfIncomeTax()
         {
+            // Arrange
             var salary = 1000;
             var insurance = 100;
 
+            // Act
             var payroll = new Payroll();
 
+            // Assert
             Assert.AreEqual(90m, payroll.GetIncomeTax(salary, insurance));
         }
     }
