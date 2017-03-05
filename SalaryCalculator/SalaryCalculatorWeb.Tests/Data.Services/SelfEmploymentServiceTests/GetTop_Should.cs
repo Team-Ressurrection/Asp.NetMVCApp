@@ -16,6 +16,7 @@ namespace SalaryCalculator.Tests.Data.Services.SelfEmploymentServiceTests
         [Test]
         public void ShouldInvokeOnlyOnce_WhenIsCalled()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<SelfEmployment>>();
 
             var selfEmplService = new SelfEmploymentService(mockedRepository.Object);
@@ -27,17 +28,21 @@ namespace SalaryCalculator.Tests.Data.Services.SelfEmploymentServiceTests
             mockedSelfEmpl2.Id = 3;
             mockedSelfEmpl3.Id = 4;
 
+            // Act
             selfEmplService.Create(mockedSelfEmpl);
             selfEmplService.Create(mockedSelfEmpl2);
             selfEmplService.Create(mockedSelfEmpl3);
 
             selfEmplService.GetTop(3);
+
+            // Assert
             mockedRepository.Verify(r => r.All, Times.Once);
         }
 
         [Test]
         public void ShouldReturnInstanceOfIQueryable()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<SelfEmployment>>();
 
             var selfEmplService = new SelfEmploymentService(mockedRepository.Object);
@@ -49,11 +54,14 @@ namespace SalaryCalculator.Tests.Data.Services.SelfEmploymentServiceTests
             mockedSelfEmpl2.Id = 3;
             mockedSelfEmpl3.Id = 4;
 
+            // Act
             selfEmplService.Create(mockedSelfEmpl);
             selfEmplService.Create(mockedSelfEmpl2);
             selfEmplService.Create(mockedSelfEmpl3);
 
             var query = selfEmplService.GetTop(3);
+
+            // Assert
             Assert.IsInstanceOf<IQueryable<SelfEmployment>>(query);
         }
     }

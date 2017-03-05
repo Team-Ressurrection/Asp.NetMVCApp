@@ -21,6 +21,7 @@ namespace SalaryCalculator.Tests.Data.Repository
         [Ignore("Not finished test.")]
         public void AddMethod_ShouldInvokedOnce_WhenParameterIsPassedCorrectly()
         {
+            // Arrange
             var fakeDbSet = new Mock<DbSet<FakeEmployee>>();
 
             var fakeDbModel = new FakeEmployee()
@@ -36,14 +37,17 @@ namespace SalaryCalculator.Tests.Data.Repository
 
             var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
 
+            // Act
             repo.Add(fakeDbModel);
 
+            // Assert
             mockDbContext.Verify(x => x.Entry<FakeEmployee>(fakeDbModel), Times.Once);
         }
 
         [Test]
         public void ShouldThrowArgumentNullException_WhenFilterParameterIsNull()
         {
+            // Arrange
             var mockDbSet = new Mock<DbSet<FakeEmployee>>();
             var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
             mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
@@ -64,6 +68,8 @@ namespace SalaryCalculator.Tests.Data.Repository
             mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
             Expression<Func<FakeEmployee, bool>> filter = null;
+
+            // Act & Assert
             Assert.That(
             () => repo.GetAll(filter),
             Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null."));
@@ -73,6 +79,7 @@ namespace SalaryCalculator.Tests.Data.Repository
         [Ignore("Not finished test.")]
         public void ShouldPassCorrectly_WhenFilterParameterIsValid()
         {
+            // Arrange
             var mockDbSet = new Mock<DbSet<FakeEmployee>>();
             var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
             mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
@@ -84,7 +91,10 @@ namespace SalaryCalculator.Tests.Data.Repository
             repo.Add(new FakeEmployee() { FirstName = "Georgi" });
             Expression<Func<FakeEmployee, bool>> filter = (FakeEmployee empl) => empl.FirstName.Equals("Alexander");
 
+            // Act
             var actualResult = repo.GetAll(filter);
+
+            // Assert
             Assert.That(actualResult.Count, Is.EqualTo(0));
         }
 
@@ -92,6 +102,7 @@ namespace SalaryCalculator.Tests.Data.Repository
         [Ignore("Not finished test.")]
         public void ShouldReturnCorrectCountOfItem_WhenItemIsFound()
         {
+            // Arrange
             var mockDbSet = new Mock<DbSet<FakeEmployee>>();
             var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
             mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
@@ -117,46 +128,54 @@ namespace SalaryCalculator.Tests.Data.Repository
 
             Expression<Func<FakeEmployee, bool>> filter = (FakeEmployee model) => model.Id == 1;
 
+            // Act
             var actualReturnedCollection = repo.GetAll(filter);
 
             var expectedCollection = new List<FakeEmployee>() { fakeModel.Object };
 
+            // Assert
             Assert.That(actualReturnedCollection.Count(), Is.Not.Null.And.EquivalentTo(expectedCollection));
         }
 
         [Test]
         public void Add_ShouldThrowArgumentNullException_WhenEntityIsNullable()
         {
+            // Arrange
             var mockDbSet = new Mock<DbSet<FakeEmployee>>();
             var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
             mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
 
             var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
 
+            // Act & Assert
             Assert.That(() => repo.Add(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null."));
         }
 
         [Test]
         public void Delete_ShouldThrowArgumentNullException_WhenEntityIsNullable()
         {
+            // Arrange
             var mockDbSet = new Mock<DbSet<FakeEmployee>>();
             var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
             mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
 
             var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
 
+            // Act & Assert
             Assert.That(() => repo.Delete(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null."));
         }
 
         [Test]
         public void Update_ShouldThrowArgumentNullException_WhenEntityIsNullable()
         {
+            // Arrange
             var mockDbSet = new Mock<DbSet<FakeEmployee>>();
             var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
             mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
 
             var repo = new SalaryCalculatorRepository<FakeEmployee>(mockDbContext.Object);
 
+            // Act & Assert
             Assert.That(() => repo.Update(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null."));
         }
 
@@ -164,6 +183,7 @@ namespace SalaryCalculator.Tests.Data.Repository
         [Ignore("Not finished test.")]
         public void GetAll_ShouldReturnAllData_WhenIsCalled()
         {
+            // Arrange
             var mockDbSet = new Mock<DbSet<FakeEmployee>>();
             var mockDbContext = new Mock<ISalaryCalculatorDbContext>();
             mockDbContext.Setup(mock => mock.Set<FakeEmployee>()).Returns(mockDbSet.Object);
@@ -186,8 +206,10 @@ namespace SalaryCalculator.Tests.Data.Repository
             mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.ElementType).Returns(fakeData.ElementType);
             mockDbSet.As<IQueryable<FakeEmployee>>().Setup(m => m.GetEnumerator()).Returns(fakeData.GetEnumerator());
 
+            // Act
             var employees = repo.GetAll();
 
+            // Assert
             Assert.AreEqual(fakeData.Count(), employees.Count());
         }
     }

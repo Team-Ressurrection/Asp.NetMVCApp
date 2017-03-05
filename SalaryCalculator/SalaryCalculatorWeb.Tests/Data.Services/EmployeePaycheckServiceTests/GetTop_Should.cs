@@ -16,6 +16,7 @@ namespace SalaryCalculator.Tests.Data.Services.EmployeePaycheckServiceTests
         [Test]
         public void GetTop_ShouldInvokeOnlyOnce()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<EmployeePaycheck>>();
 
             var paycheckService = new EmployeePaycheckService(mockedRepository.Object);
@@ -24,18 +25,21 @@ namespace SalaryCalculator.Tests.Data.Services.EmployeePaycheckServiceTests
             var employee2 = new FakeEmployeePaycheck() { Id = 2 };
             var employee3 = new FakeEmployeePaycheck() { Id = 3 };
 
+            // Act
             paycheckService.Create(employee);
             paycheckService.Create(employee2);
             paycheckService.Create(employee3);
 
             paycheckService.GetTop(3);
+
+            // Assert
             mockedRepository.Verify(r => r.All, Times.Once);
         }
 
         [Test]
         public void GetTop_ShouldReturnInstanceOfIQueryable()
         {
-
+            // Arrange
             var mockedRepository = new Mock<IRepository<EmployeePaycheck>>();
 
             var paycheckService = new EmployeePaycheckService(mockedRepository.Object);
@@ -44,11 +48,14 @@ namespace SalaryCalculator.Tests.Data.Services.EmployeePaycheckServiceTests
             var employee2 = new FakeEmployeePaycheck() { Id = 6 };
             var employee3 = new FakeEmployeePaycheck() { Id = 7 };
 
+            // Act
             paycheckService.Create(employee);
             paycheckService.Create(employee2);
             paycheckService.Create(employee3);
 
             var query = paycheckService.GetTop(3);
+
+            // Assert
             Assert.IsInstanceOf<IQueryable<EmployeePaycheck>>(query);
         }
     }

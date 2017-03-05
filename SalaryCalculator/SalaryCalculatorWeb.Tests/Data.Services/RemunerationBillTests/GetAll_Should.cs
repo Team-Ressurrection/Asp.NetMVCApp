@@ -14,15 +14,20 @@ namespace SalaryCalculator.Tests.Data.Services.RemunerationBillTests
         [Test]
         public void GetAll_ShouldInvokeOnlyOnce()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<RemunerationBill>>();
 
             var billService = new RemunerationBillService(mockedRepository.Object);
 
             var mockedBill = new FakeRemunerationBill();
             mockedBill.Id = 2;
+
+            // Act
             billService.Create(mockedBill);
 
             billService.GetAll();
+
+            // Assert
             mockedRepository.Verify(r => r.All, Times.Once);
         }
     }

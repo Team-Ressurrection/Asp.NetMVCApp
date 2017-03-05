@@ -15,10 +15,13 @@ namespace SalaryCalculator.Tests.Data.Services.EmployeePaycheckServiceTests
         [Test]
         public void Constructor_ShouldCreateInstance_WhenParameterIRepositoryIsPassedCorrectly()
         {
+            // Arrange
             var repo = new Mock<IRepository<EmployeePaycheck>>();
 
+            // Act
             var paycheckService = new EmployeePaycheckService(repo.Object);
 
+            // Assert
             Assert.IsInstanceOf<IEmployeePaycheckService>(paycheckService);
         }
     }

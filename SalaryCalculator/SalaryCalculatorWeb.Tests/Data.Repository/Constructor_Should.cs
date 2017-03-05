@@ -20,7 +20,10 @@ namespace SalaryCalculator.Tests.Data.Repository
         [Test]
         public void Constructor_ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenDbContextParameterIsNull()
         {
+            // Arrange
             ISalaryCalculatorDbContext nullableDbContext = null;
+
+            // Act & Assert
             Assert.That(
                 () => new SalaryCalculatorRepository<FakeEmployee>(nullableDbContext),
                 Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null"));
@@ -29,10 +32,13 @@ namespace SalaryCalculator.Tests.Data.Repository
         [Test]
         public void Constructor_ShouldCreateInstanceCorrectly_WhenParameterIsSetCorrectly()
         {
+            // Arrange
             var mockedDbContext = new Mock<ISalaryCalculatorDbContext>();
 
+            // Act
             var repository = new SalaryCalculatorRepository<FakeEmployee>(mockedDbContext.Object);
 
+            // Assert
             Assert.IsInstanceOf(typeof(IRepository<FakeEmployee>), repository);
         }
     }

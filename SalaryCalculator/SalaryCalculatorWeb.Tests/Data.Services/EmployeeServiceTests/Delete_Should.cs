@@ -14,15 +14,19 @@ namespace SalaryCalculator.Tests.Data.Services.EmployeeServiceTests
         [Test]
         public void Delete_ShouldInvokeOnce_WhenValidId_IsPassedCorrectly()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<Employee>>();
 
             var emplService = new EmployeeService(mockedRepository.Object);
 
             Employee employee = new FakeEmployee();
             employee.Id = 2;
+
+            // Act
             emplService.Create(employee);
             emplService.DeleteById(2);
 
+            // Assert
             mockedRepository.Verify(r => r.Delete(It.IsAny<int>()), Times.Once);
         }
     }

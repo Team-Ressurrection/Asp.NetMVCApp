@@ -14,6 +14,7 @@ namespace SalaryCalculator.Tests.Data.Services.EmployeeServiceTests
         [Test]
         public void Update_ShouldUpdateEmployeeCorrectly()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<Employee>>();
 
             var emplService = new EmployeeService(mockedRepository.Object);
@@ -21,10 +22,12 @@ namespace SalaryCalculator.Tests.Data.Services.EmployeeServiceTests
             Employee employee = new FakeEmployee();
             employee.Id = 2;
 
+            // Act
             emplService.Create(employee);
 
             emplService.UpdateById(2, employee);
 
+            // Assert
             mockedRepository.Verify(x => x.Update(employee), Times.Once);
         }
     }

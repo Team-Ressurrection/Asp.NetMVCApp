@@ -14,14 +14,17 @@ namespace SalaryCalculator.Tests.Data.Services.UserServiceTests
         [Test]
         public void Create_ShouldInvokeOnce_WhenParameterIsPassedCorrectly()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<User>>();
 
             var userService = new UserService(mockedRepository.Object);
 
             var user = new FakeUser();
 
+            // Act
             userService.Create(user);
 
+            // Assert
             mockedRepository.Verify(r => r.Add(It.IsAny<User>()), Times.Once);
         }
 

@@ -13,8 +13,10 @@ namespace SalaryCalculator.Tests.Data.SalaryCalculatorDbContextTests
         [Test]
         public void ConstructorWhenPassed_ShouldCreateInstance()
         {
+            // Arrange & Act
             var dbContext = new SalaryCalculatorDbContext();
 
+            // Assert
             Assert.IsInstanceOf(typeof(IdentityDbContext<User>), dbContext);
         }
     }

@@ -14,10 +14,13 @@ namespace SalaryCalculator.Tests.Data.Services.RemunerationBillTests
         [Test]
         public void Constructor_WhenValidParameterIsPassed_ShouldReturnNewInstance()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<RemunerationBill>>();
 
+            // Act
             var billService = new RemunerationBillService(mockedRepository.Object);
 
+            // Assert
             Assert.IsInstanceOf(typeof(RemunerationBillService), billService);
         }
     }

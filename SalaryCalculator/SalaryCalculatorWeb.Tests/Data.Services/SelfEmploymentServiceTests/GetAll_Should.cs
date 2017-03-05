@@ -14,15 +14,20 @@ namespace SalaryCalculator.Tests.Data.Services.SelfEmploymentServiceTests
         [Test]
         public void ShouldInvokeOnlyOnce_WhenIsCalled()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<SelfEmployment>>();
 
             var selfEmplService = new SelfEmploymentService(mockedRepository.Object);
 
             var mockedSelfEmployment = new FakeSelfEmployment();
             mockedSelfEmployment.Id = 2;
+
+            // Act
             selfEmplService.Create(mockedSelfEmployment);
 
             selfEmplService.GetAll();
+
+            // Assert
             mockedRepository.Verify(r => r.All, Times.Once);
         }
     }

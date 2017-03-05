@@ -30,50 +30,61 @@ namespace SalaryCalculator.Tests.Data.RemunerationBillModels
         [TestCase(EmployeeIdProperty)]
         public void PropertiesWithRequiredAttribute_ShouldReturnTrue(string propertyName)
         {
+            // Arrange
             var bill = new RemunerationBill();
 
+            // Act
             var result = bill.GetType()
                             .GetProperty(propertyName)
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(RequiredAttribute))
                             .Any();
 
+            // Assert
             Assert.IsTrue(result);
         }
 
         [Test]
         public void PropertyWithKeyAttribute_ShouldReturnTrue()
         {
+            // Arrange
             var bill = new RemunerationBill();
 
+            // Act
             var result = bill.GetType()
                              .GetProperty(IdProperty)
                              .GetCustomAttributes(false)
                              .Where(x => x.GetType() == typeof(KeyAttribute))
                              .Any();
 
+            // Assert
             Assert.IsTrue(result);
         }
 
         [Test]
         public void PropertyWithForeignKeyAttribute_ShouldReturnTrue()
         {
+            // Arrange
             var bill = new RemunerationBill();
 
+            // Act
             var result = bill.GetType()
                              .GetProperty("Employee")
                              .GetCustomAttributes(false)
                              .Where(x => x.GetType() == typeof(ForeignKeyAttribute))
                              .Any();
 
+            // Assert
             Assert.IsTrue(result);
         }
 
         [TestCase(SocialSecurityIncomeProperty)]
         public void SocialSecurityIncomeProperty_WithRangeAttribute_MustReturnMaxSocialSecurityIncomeValue(string propertyName)
         {
+            // Arrange
             var bill = new RemunerationBill();
 
+            // Act
             var result = bill.GetType()
                             .GetProperty(SocialSecurityIncomeProperty)
                              .GetCustomAttributes(false)
@@ -81,6 +92,7 @@ namespace SalaryCalculator.Tests.Data.RemunerationBillModels
                              .Select(x => (System.ComponentModel.DataAnnotations.RangeAttribute)x)
                              .FirstOrDefault();
 
+            // Assert
             Assert.AreEqual(ValidationConstants.MaxSocialSecurityIncome, result.Maximum);
         }
     }

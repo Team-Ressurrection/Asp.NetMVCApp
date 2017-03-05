@@ -14,15 +14,19 @@ namespace SalaryCalculator.Tests.Data.Services.SelfEmploymentServiceTests
         [Test]
         public void InvokeOnce_WhenValidId_IsPassedCorrectly()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<SelfEmployment>>();
 
             var selfEmplService = new SelfEmploymentService(mockedRepository.Object);
 
             SelfEmployment bill = new FakeSelfEmployment();
             bill.Id = 2;
+
+            // Act
             selfEmplService.Create(bill);
             selfEmplService.DeleteById(2);
 
+            // Assert
             mockedRepository.Verify(r => r.Delete(It.IsAny<int>()), Times.Once);
         }
     }

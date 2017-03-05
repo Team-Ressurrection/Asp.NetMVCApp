@@ -16,38 +16,46 @@ namespace SalaryCalculator.Tests.Data.Services.SelfEmploymentServiceTests
         [Test]
         public void ThrowArgumentNullException_WhenParameterIsNull()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<SelfEmployment>>();
 
             var selfEmplService = new SelfEmploymentService(mockedRepository.Object);
 
+            // Act & Assert
             Assert.That(() => selfEmplService.Create(null), Throws.InstanceOf<ArgumentNullException>().With.Message.Contains("The argument is null"));
         }
 
         [Test]
         public void InvokeOnce_WhenParameterIsPassedCorrectly()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<SelfEmployment>>();
 
             var selfEmplService = new SelfEmploymentService(mockedRepository.Object);
 
             var mockedSelfEmployment = new FakeSelfEmployment();
 
+            // Act
             selfEmplService.Create(mockedSelfEmployment);
 
+            // Assert
             mockedRepository.Verify(r => r.Add(It.IsAny<SelfEmployment>()), Times.Once);
         }
 
         [Test]
         public void InvokeOnce_WhenParameterIsCorrect()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<SelfEmployment>>();
 
             var selfEmplService = new SelfEmploymentService(mockedRepository.Object);
 
             var mockedSelfEmployment = new FakeSelfEmployment();
 
+            // Act
             selfEmplService.Create(mockedSelfEmployment);
 
+            // Assert
             mockedRepository.Verify(r => r.Add(mockedSelfEmployment), Times.Once);
 
         }

@@ -14,15 +14,20 @@ namespace SalaryCalculator.Tests.Data.Services.EmployeeServiceTests
         [Test]
         public void GetById_ShouldInvokeOnlyOnce()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<Employee>>();
 
             var emplService = new EmployeeService(mockedRepository.Object);
 
             var employee = new FakeEmployee();
             employee.Id = 2;
+
+            // Act
             emplService.Create(employee);
 
             emplService.GetById(employee.Id);
+
+            // Assert
             mockedRepository.Verify(r => r.GetById(employee.Id), Times.Once);
         }
     }

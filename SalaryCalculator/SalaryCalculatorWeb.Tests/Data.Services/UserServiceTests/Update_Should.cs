@@ -14,6 +14,7 @@ namespace SalaryCalculator.Tests.Data.Services.UserServiceTests
         [Test]
         public void Update_ShouldUpdateUserCorrectly()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<User>>();
 
             var userService = new UserService(mockedRepository.Object);
@@ -21,10 +22,12 @@ namespace SalaryCalculator.Tests.Data.Services.UserServiceTests
             User user = new FakeUser();
             user.Id = "1234567890";
 
+            // Act
             userService.Create(user);
 
             userService.UpdateById("1234567890", user);
 
+            // Assert
             mockedRepository.Verify(x => x.Update(user), Times.Once);
         }
     }

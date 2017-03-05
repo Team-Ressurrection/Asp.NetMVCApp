@@ -14,15 +14,20 @@ namespace SalaryCalculator.Tests.Data.Services.UserServiceTests
         [Test]
         public void GetAll_ShouldInvokeOnlyOnce()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<User>>();
 
             var userService = new UserService(mockedRepository.Object);
 
             var user = new FakeUser();
             user.Id = "2";
+
+            // Act
             userService.Create(user);
 
             userService.GetAll();
+
+            // Assert
             mockedRepository.Verify(r => r.All, Times.Once);
         }
     }

@@ -14,10 +14,13 @@ namespace SalaryCalculator.Tests.Data.Services.SelfEmploymentServiceTests
         [Test]
         public void WhenValidParameterIsPassed_ShouldReturnNewInstance()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<SelfEmployment>>();
 
+            // Act
             var selfEmplService = new SelfEmploymentService(mockedRepository.Object);
 
+            // Assert
             Assert.IsInstanceOf(typeof(SelfEmploymentService), selfEmplService);
         }
     }

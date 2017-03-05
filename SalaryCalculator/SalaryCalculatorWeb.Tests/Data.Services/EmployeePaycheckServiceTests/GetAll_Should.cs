@@ -14,15 +14,20 @@ namespace SalaryCalculator.Tests.Data.Services.EmployeePaycheckServiceTests
         [Test]
         public void GetAll_ShouldInvokeOnlyOnce()
         {
+            // Arrange
             var mockedRepository = new Mock<IRepository<EmployeePaycheck>>();
 
             var paycheckService = new EmployeePaycheckService(mockedRepository.Object);
 
             var employee = new FakeEmployeePaycheck();
             employee.Id = 2;
+
+            // Act
             paycheckService.Create(employee);
 
             paycheckService.GetAll();
+
+            // Assert
             mockedRepository.Verify(r => r.All, Times.Once);
         }
     }

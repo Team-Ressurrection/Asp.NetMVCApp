@@ -25,12 +25,15 @@ namespace SalaryCalculator.Tests.Data.EmployeePaycheckModels
         [TestCase(0, 0, 0)]
         public void WhenParameterFirstName_IsSetWithValidValue_ShouldSetUpCorrectly(decimal num1, decimal num2, decimal num3)
         {
+            // Arrange
             var paycheck = new EmployeePaycheck();
 
+            // Act
             paycheck.GrossSalary = num1;
             paycheck.GrossFixedBonus = num2;
             paycheck.GrossNonFixedBonus = num3;
 
+            // Assert
             Assert.AreEqual(num1, paycheck.GrossSalary);
             Assert.AreEqual(num2, paycheck.GrossFixedBonus);
             Assert.AreEqual(num3, paycheck.GrossNonFixedBonus);
@@ -44,14 +47,17 @@ namespace SalaryCalculator.Tests.Data.EmployeePaycheckModels
         [TestCase(NetWageProperty)]
         public void PropertiesWithRequiredAttribute_ShouldReturnTrue(string propertyName)
         {
+            // Arrange
             var paycheck = new EmployeePaycheck();
 
+            // Act
             var result = paycheck.GetType()
                             .GetProperty(propertyName)
                             .GetCustomAttributes(false)
                             .Where(x => x.GetType() == typeof(RequiredAttribute))
                             .Any();
 
+            // Assert
             Assert.IsTrue(result);
         }
     }
