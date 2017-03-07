@@ -142,6 +142,8 @@
     <Compile Include="Controllers\AccountControllerTests\Register_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\ResetPasswordConfirmation_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\ResetPassword_Should.cs" />
+    <Compile Include="Controllers\EmployeeControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\EmployeeControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\SetPassword_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\ChangePassword_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\Constructor_Should.cs" />
