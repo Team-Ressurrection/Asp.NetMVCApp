@@ -15,23 +15,10 @@ using System.Web.Mvc;
 namespace SalaryCalculatorWeb.Tests.Controllers.ManageControllerTests
 {
     [TestFixture]
-    public class ChangePassword_Should
+    public class VerifyPhoneNumber_Should
     {
         [Test]
-        public void ReturnViewResult_WhenIsCalled()
-        {
-            // Arrange
-            ManageController manageController = new ManageController();
-
-            // Act
-            ViewResult result = manageController.ChangePassword() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
-
-        [Test]
-        public void ReturnChangePasswordViewModel_WhenModelStateIsNotValid()
+        public void ReturnVerifyPhoneNumberViewModel_WhenModelStateIsInvalid()
         {
             // Arrange
             var mockedStore = new Mock<IUserStore<User>>();
@@ -40,17 +27,17 @@ namespace SalaryCalculatorWeb.Tests.Controllers.ManageControllerTests
             var mockedAuthenticationManager = new Mock<IAuthenticationManager>();
             var mockedSignInManager = new Mock<ApplicationSignInManager>(mockedUserManager.Object, mockedAuthenticationManager.Object);
 
-            var mockedViewModel = new Mock<ChangePasswordViewModel>();
+            var mockedViewModel = new Mock<VerifyPhoneNumberViewModel>();
             ManageController manageController = new ManageController(mockedUserManager.Object, mockedSignInManager.Object);
             manageController.ModelState.AddModelError("invalid", "invalid");
 
             // Act
-            var actionResultTask = manageController.ChangePassword(mockedViewModel.Object);
+            var actionResultTask = manageController.VerifyPhoneNumber(mockedViewModel.Object);
             actionResultTask.Wait();
             var viewResult = actionResultTask.Result as ViewResult;
 
             // Assert
-            Assert.IsInstanceOf<ChangePasswordViewModel>(viewResult.Model);
+            Assert.IsInstanceOf<VerifyPhoneNumberViewModel>(viewResult.Model);
         }
     }
 }

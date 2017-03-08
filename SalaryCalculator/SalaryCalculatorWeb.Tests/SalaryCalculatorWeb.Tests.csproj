@@ -153,6 +153,7 @@
     <Compile Include="Controllers\ManageControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\Properties_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\AddPhoneNumber_Should.cs" />
+    <Compile Include="Controllers\ManageControllerTests\VerifyPhoneNumber_Should.cs" />
     <Compile Include="Data.EmployeeModels\Constructor_Should.cs" />
     <Compile Include="Data.EmployeeModels\Properties_Should.cs" />
     <Compile Include="Data.EmployeePaycheckModels\Constructor_Should.cs" />
