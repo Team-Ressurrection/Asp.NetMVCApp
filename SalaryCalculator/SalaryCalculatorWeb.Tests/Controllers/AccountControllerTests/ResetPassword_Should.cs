@@ -78,6 +78,29 @@ namespace SalaryCalculatorWeb.Tests.Controllers.AccountControllerTests
 
             var mockedViewModel = new Mock<ResetPasswordViewModel>();
             mockedViewModel.SetupProperty(x => x.Email, "pesho@abv.bg");
+
+            AccountController accController = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
+
+            // Act
+            var actionResultTask = accController.ResetPassword(mockedViewModel.Object);
+            actionResultTask.Wait();
+
+            // Assert
+            Assert.IsNotNull(actionResultTask.Result);
+        }
+
+        [Test]
+        public void ReturnActionResult_WhenModelStateIsValidAndUserIsNotNull()
+        {
+            // Arrange
+            var mockedStore = new Mock<IUserStore<User>>();
+            var mockedUserManager = new Mock<ApplicationUserManager>(mockedStore.Object);
+
+            var mockedAuthenticationManager = new Mock<IAuthenticationManager>();
+            var mockedSignInManager = new Mock<ApplicationSignInManager>(mockedUserManager.Object, mockedAuthenticationManager.Object);
+
+            var mockedViewModel = new Mock<ResetPasswordViewModel>();
+            mockedViewModel.SetupProperty(x => x.Email, "pesho@abv.bg");
             mockedViewModel.SetupProperty(x => x.Code, "1234");
             mockedViewModel.SetupProperty(x => x.Password, "123456");
 
@@ -90,7 +113,6 @@ namespace SalaryCalculatorWeb.Tests.Controllers.AccountControllerTests
             // Act
             var actionResultTask = accController.ResetPassword(mockedViewModel.Object);
             actionResultTask.Wait();
-            //var viewResult = actionResultTask.Result as ViewResult;
 
             // Assert
             Assert.IsNotNull(actionResultTask.Result);
