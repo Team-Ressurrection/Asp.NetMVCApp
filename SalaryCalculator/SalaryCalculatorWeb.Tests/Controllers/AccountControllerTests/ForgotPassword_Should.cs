@@ -1,5 +1,10 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using Moq;
+using NUnit.Framework;
+using SalaryCalculator.Data.Models;
 using SalaryCalculatorWeb.Controllers;
+using SalaryCalculatorWeb.Models.AccountViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +28,51 @@ namespace SalaryCalculatorWeb.Tests.Controllers.AccountControllerTests
 
             // Assert
             Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void ReturnForgotPasswordViewModel_WhenModelStateIsNotValid()
+        {
+            // Arrange
+            var mockedStore = new Mock<IUserStore<User>>();
+            var mockedUserManager = new Mock<ApplicationUserManager>(mockedStore.Object);
+
+            var mockedAuthenticationManager = new Mock<IAuthenticationManager>();
+            var mockedSignInManager = new Mock<ApplicationSignInManager>(mockedUserManager.Object, mockedAuthenticationManager.Object);
+
+            var mockedViewModel = new Mock<ForgotPasswordViewModel>();
+            AccountController accController = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
+            accController.ModelState.AddModelError("invalid", "invalid");
+
+            // Act
+            var actionResultTask = accController.ForgotPassword(mockedViewModel.Object);
+            actionResultTask.Wait();
+            var viewResult = actionResultTask.Result as ViewResult;
+
+            // Assert
+            Assert.IsInstanceOf<ForgotPasswordViewModel>(viewResult.Model);
+        }
+
+        [Test]
+        public void ReturnForgotPasswordConfirmationViewName_WhenModelStateIsValidAndUserIsNull()
+        {
+            // Arrange
+            var mockedStore = new Mock<IUserStore<User>>();
+            var mockedUserManager = new Mock<ApplicationUserManager>(mockedStore.Object);
+
+            var mockedAuthenticationManager = new Mock<IAuthenticationManager>();
+            var mockedSignInManager = new Mock<ApplicationSignInManager>(mockedUserManager.Object, mockedAuthenticationManager.Object);
+
+            var mockedViewModel = new Mock<ForgotPasswordViewModel>();
+            AccountController accController = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
+
+            // Act
+            var actionResultTask = accController.ForgotPassword(mockedViewModel.Object);
+            actionResultTask.Wait();
+            var viewResult = actionResultTask.Result as ViewResult;
+
+            // Assert
+            Assert.AreEqual("ForgotPasswordConfirmation",viewResult.ViewName);
         }
     }
 }

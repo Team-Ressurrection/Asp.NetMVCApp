@@ -77,7 +77,6 @@ namespace SalaryCalculatorWeb.Tests.Controllers.AccountControllerTests
             mockedSignInManager.Setup(x => x.TwoFactorSignInAsync("gosho", "123456", true, false)).Verifiable();
 
             var mockedViewModel = new Mock<VerifyCodeViewModel>();
-            var url = "http://localhost:51763/Account/Login";
             AccountController accController = new AccountController(mockedUserManager.Object, mockedSignInManager.Object);
 
             // Act
