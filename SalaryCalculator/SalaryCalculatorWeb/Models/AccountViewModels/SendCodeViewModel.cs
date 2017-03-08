@@ -5,7 +5,7 @@ namespace SalaryCalculatorWeb.Models.AccountViewModels
 {
     public class SendCodeViewModel
     {
-        public string SelectedProvider { get; set; }
+        public virtual string SelectedProvider { get; set; }
 
         public ICollection<SelectListItem> Providers { get; set; }
 

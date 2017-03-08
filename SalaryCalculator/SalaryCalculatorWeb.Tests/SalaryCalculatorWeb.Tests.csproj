@@ -136,6 +136,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountControllerTests\ConfirmEmail_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\AccountControllerTests\SendCode_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\ForgotPassword_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\ForgotPasswordConfirmation_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\Login_Should.cs" />
