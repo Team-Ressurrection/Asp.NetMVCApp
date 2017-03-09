@@ -1,8 +1,10 @@
 ﻿using Bytes2you.Validation;
+using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -28,7 +30,16 @@ namespace SalaryCalculatorWeb.Controllers
         // GET: Employees/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = employeeService.GetById(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
         }
 
         // GET: Employees/Create
@@ -56,45 +67,54 @@ namespace SalaryCalculatorWeb.Controllers
         // GET: Employees/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = this.employeeService.GetById(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
         }
 
         // POST: Employees/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include ="Id,FirstName, MiddleName,LastName,PersonalId")] Employee employee)
+        {   
+            if (this.ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                this.employeeService.UpdateById(employee.Id,employee);
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(employee);
         }
 
         // GET: Employees/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = this.employeeService.GetById(id);
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+            return View(employee);
         }
 
         // POST: Employees/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            this.employeeService.DeleteById(id);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }
