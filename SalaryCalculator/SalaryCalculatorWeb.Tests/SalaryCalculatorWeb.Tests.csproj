@@ -173,6 +173,7 @@
     <Compile Include="Data.Services\EmployeePaycheckServiceTests\GetAll_Should.cs" />
     <Compile Include="Data.Services\EmployeePaycheckServiceTests\GetById_Should.cs" />
     <Compile Include="Data.Services\EmployeePaycheckServiceTests\GetTop_Should.cs" />
+    <Compile Include="Data.Services\EmployeePaycheckServiceTests\Update_Should.cs" />
     <Compile Include="Data.Services\EmployeeServiceTests\Constructor_Should.cs" />
     <Compile Include="Data.Services\EmployeeServiceTests\Create_Should.cs" />
     <Compile Include="Data.Services\EmployeeServiceTests\Delete_Should.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="Utilities.Calculations\PayrollTests\GetIncomeTax_Should.cs" />
     <Compile Include="Utilities.Calculations\PayrollTests\GetNetWage_Should.cs" />
     <Compile Include="Utilities.Calculations\PayrollTests\GetPersonalInsurance_Should.cs" />
+    <Compile Include="ViewModelsTests\AccountViewModelsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
