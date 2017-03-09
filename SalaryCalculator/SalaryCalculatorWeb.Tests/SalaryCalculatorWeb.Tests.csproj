@@ -216,6 +216,7 @@
     <Compile Include="Utilities.Calculations\PayrollTests\GetIncomeTax_Should.cs" />
     <Compile Include="Utilities.Calculations\PayrollTests\GetNetWage_Should.cs" />
     <Compile Include="Utilities.Calculations\PayrollTests\GetPersonalInsurance_Should.cs" />
+    <Compile Include="ViewModelsTests\ManageViewModelsTest.cs" />
     <Compile Include="ViewModelsTests\AccountViewModelsTest.cs" />
   </ItemGroup>
   <ItemGroup>
