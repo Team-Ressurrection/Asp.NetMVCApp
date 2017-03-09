@@ -10,6 +10,14 @@ namespace SalaryCalculatorWeb.Models.AccountViewModels
         public virtual string Email { get; set; }
 
         [Required]
+        [Display(Name = "CompanyName")]
+        public virtual string CompanyName { get; set; }
+
+        [Required]
+        [Display(Name = "CompanyAddress")]
+        public virtual string CompanyAddress { get; set; }
+
+        [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]

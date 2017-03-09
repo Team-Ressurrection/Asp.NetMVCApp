@@ -96,11 +96,15 @@ namespace SalaryCalculatorWeb.Tests.ViewModelsTests
 
             // Act
             registerViewModel.Email = "pesho@abv.bg";
+            registerViewModel.CompanyName = "Payroll";
+            registerViewModel.CompanyAddress = "Al. Stamboliiski";
             registerViewModel.Password = "123456";
             registerViewModel.ConfirmPassword = "123456";
 
             // Assert
             Assert.AreEqual("pesho@abv.bg", registerViewModel.Email);
+            Assert.AreEqual("Payroll", registerViewModel.CompanyName);
+            Assert.AreEqual("Al. Stamboliiski", registerViewModel.CompanyAddress);
             Assert.AreEqual("123456", registerViewModel.Password);
             Assert.AreEqual("123456", registerViewModel.ConfirmPassword);
         }
