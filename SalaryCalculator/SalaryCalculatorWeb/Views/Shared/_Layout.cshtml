@@ -17,13 +17,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Salary Calculator", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Salary Calculator", "Index", "Home", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-euro" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { @class = "glyphicon glyphicon-home"})</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { @class = "glyphicon glyphicon-info-sign" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { @class = "glyphicon glyphicon-phone" })</li>
                     <li>@Html.ActionLink("Employee", "Index", "Employees")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -34,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
         </footer>
     </div>
 
