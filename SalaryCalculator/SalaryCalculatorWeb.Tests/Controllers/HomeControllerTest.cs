@@ -6,6 +6,10 @@ using System.Web.Mvc;
 using SalaryCalculatorWeb;
 using SalaryCalculatorWeb.Controllers;
 using NUnit.Framework;
+using Moq;
+using SalaryCalculator.Configuration.Caching;
+using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculatorWeb.Models.HomeViewModels;
 
 namespace SalaryCalculatorWeb.Tests.Controllers
 {
@@ -16,10 +20,13 @@ namespace SalaryCalculatorWeb.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            var cacheService = new Mock<ICacheService>();
+            var userService = new Mock<IUserService>();
+            HomeController controller = new HomeController(cacheService.Object, userService.Object);
 
+            var infoViewModel = new Mock<InfoViewModel>();
             // Act
-            ViewResult result = controller.Index() as ViewResult;
+            ViewResult result = controller.Index(infoViewModel.Object) as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
@@ -29,7 +36,9 @@ namespace SalaryCalculatorWeb.Tests.Controllers
         public void About()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            var cacheService = new Mock<ICacheService>();
+            var userService = new Mock<IUserService>();
+            HomeController controller = new HomeController(cacheService.Object, userService.Object);
 
             // Act
             ViewResult result = controller.About() as ViewResult;
@@ -42,7 +51,9 @@ namespace SalaryCalculatorWeb.Tests.Controllers
         public void Contact()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            var cacheService = new Mock<ICacheService>();
+            var userService = new Mock<IUserService>();
+            HomeController controller = new HomeController(cacheService.Object, userService.Object);
 
             // Act
             ViewResult result = controller.Contact() as ViewResult;

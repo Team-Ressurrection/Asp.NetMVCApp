@@ -226,6 +226,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SalaryCalculator.Configuration\SalaryCalculator.Configuration.csproj">
+      <Project>{136b7d59-06d4-474d-bf10-322403a1674f}</Project>
+      <Name>SalaryCalculator.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SalaryCalculator.Data.Models\SalaryCalculator.Data.Models.csproj">
       <Project>{83ee4bbd-2549-475c-a53b-100cdb9d5050}</Project>
       <Name>SalaryCalculator.Data.Models</Name>
