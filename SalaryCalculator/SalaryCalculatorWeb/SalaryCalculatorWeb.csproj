@@ -235,6 +235,7 @@
     <Compile Include="Models\AccountViewModels\SendCodeViewModel.cs" />
     <Compile Include="Models\AccountViewModels\ExternalLoginListViewModel.cs" />
     <Compile Include="Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Models\HomeViewModels\InfoViewModel.cs" />
     <Compile Include="Models\ManageViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="Models\ManageViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="Models\ManageViewModels\ConfigureTwoFactorViewModel.cs" />
@@ -322,6 +323,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SalaryCalculator.Configuration\SalaryCalculator.Configuration.csproj">
+      <Project>{136b7d59-06d4-474d-bf10-322403a1674f}</Project>
+      <Name>SalaryCalculator.Configuration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SalaryCalculator.Data.Models\SalaryCalculator.Data.Models.csproj">
       <Project>{83ee4bbd-2549-475c-a53b-100cdb9d5050}</Project>
       <Name>SalaryCalculator.Data.Models</Name>

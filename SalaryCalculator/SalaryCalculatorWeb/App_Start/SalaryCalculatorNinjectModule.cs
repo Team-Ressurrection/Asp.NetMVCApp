@@ -1,6 +1,6 @@
 ﻿using Ninject.Modules;
 using Ninject.Web.Common;
-
+using SalaryCalculator.Configuration.Caching;
 using SalaryCalculator.Data;
 using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;
@@ -28,6 +28,8 @@ namespace SalaryCalculatorWeb.App_Start
             this.Bind<RemunerationBill>().ToSelf();
             this.Bind<EmployeePaycheck>().ToSelf();
             this.Bind<SelfEmployment>().ToSelf();
+
+            this.Bind<ICacheService>().To<HttpCacheService>();
         }
     }
 }

@@ -3,6 +3,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 
 using SalaryCalculatorWeb.App_Start;
+using SalaryCalculator.Configuration.Mappings;
+using System.Reflection;
 
 namespace SalaryCalculatorWeb
 {
@@ -15,6 +17,8 @@ namespace SalaryCalculatorWeb
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DbConfig.Initialize();
+            var autoMapperConfig = new AutoMapperConfiguration();
+            autoMapperConfig.Config(Assembly.GetExecutingAssembly());
         }
     }
 }

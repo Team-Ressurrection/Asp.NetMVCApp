@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Bytes2you.Validation;
+using SalaryCalculator.Configuration.Caching;
+using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculatorWeb.Models.HomeViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +12,24 @@ namespace SalaryCalculatorWeb.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly ICacheService cacheService;
+        private readonly IUserService userService;
+
+        public HomeController(ICacheService cacheService, IUserService userService)
         {
-            return View();
+            Guard.WhenArgument(cacheService, "cacheService").IsNull().Throw();
+            Guard.WhenArgument(userService, "userService").IsNull().Throw();
+
+            this.cacheService = cacheService;
+            this.userService = userService;
+        }
+
+        public ActionResult Index(InfoViewModel infoViewModel)
+        {
+            var registeredUsers = this.cacheService.Get("totalRegisteredUsers", () => this.userService.GetAll().Count(), 60);
+
+            infoViewModel.TotalRegisteredUsers = registeredUsers;
+            return View(infoViewModel);
         }
 
         public ActionResult About()
