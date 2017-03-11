@@ -147,6 +147,11 @@
     <Compile Include="Controllers\AccountControllerTests\ResetPassword_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\VerifyCode.cs" />
     <Compile Include="Controllers\EmployeeControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\EmployeeControllerTests\Create_Should.cs" />
+    <Compile Include="Controllers\EmployeeControllerTests\DeleteConfirmed_Should.cs" />
+    <Compile Include="Controllers\EmployeeControllerTests\Edit_Should.cs" />
+    <Compile Include="Controllers\EmployeeControllerTests\Delete_Should.cs" />
+    <Compile Include="Controllers\EmployeeControllerTests\Details_Should.cs" />
     <Compile Include="Controllers\EmployeeControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\SetPassword_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\ChangePassword_Should.cs" />

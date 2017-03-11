@@ -1,12 +1,11 @@
-﻿using Bytes2you.Validation;
+﻿using System.Linq;
+using System.Net;
+using System.Web.Mvc;
+
+using Bytes2you.Validation;
+
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
 
 namespace SalaryCalculatorWeb.Controllers
 {
@@ -30,10 +29,10 @@ namespace SalaryCalculatorWeb.Controllers
         // GET: Employees/Details/5
         public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Employee employee = employeeService.GetById(id);
             if (employee == null)
             {
@@ -67,10 +66,10 @@ namespace SalaryCalculatorWeb.Controllers
         // GET: Employees/Edit/5
         public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Employee employee = this.employeeService.GetById(id);
             if (employee == null)
             {
@@ -95,10 +94,10 @@ namespace SalaryCalculatorWeb.Controllers
         // GET: Employees/Delete/5
         public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Employee employee = this.employeeService.GetById(id);
             if (employee == null)
             {
