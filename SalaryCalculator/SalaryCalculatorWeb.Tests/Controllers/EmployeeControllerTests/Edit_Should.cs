@@ -5,6 +5,7 @@ using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculatorWeb.Controllers;
+using SalaryCalculatorWeb.Models.SettingsViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +59,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.EmployeeControllerTests
             var mockedMappService = new Mock<IMapService>();
             var employeeService = new Mock<IEmployeeService>();
             EmployeesController emplController = new EmployeesController(mockedMappService.Object, employeeService.Object);
-            Employee employee = null;
+            EmployeeViewModel employee = null;
             emplController.ModelState.AddModelError("invalid", "invalid");
             // Act
             emplController.Edit(employee);
@@ -74,7 +75,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.EmployeeControllerTests
             var mockedMappService = new Mock<IMapService>();
             var employeeService = new Mock<IEmployeeService>();
             EmployeesController emplController = new EmployeesController(mockedMappService.Object, employeeService.Object);
-            var employee = new Employee()
+            var employee = new EmployeeViewModel()
             {
                 Id = 5,
                 FirstName = "Alex",
@@ -83,7 +84,16 @@ namespace SalaryCalculatorWeb.Tests.Controllers.EmployeeControllerTests
                 PersonalId = "9010103040"
             };
 
-            employeeService.Setup(x => x.UpdateById(5, employee)).Verifiable();
+            var employeeViewModel = new Employee()
+            {
+                Id = 5,
+                FirstName = "Alex",
+                MiddleName = "Parvanov",
+                LastName = "Petrov",
+                PersonalId = "9010103040"
+            };
+            employeeService.Setup(x => x.UpdateById(5, employeeViewModel)).Verifiable();
+            mockedMappService.Setup(x => x.Map<Employee>(employee)).Returns(employeeViewModel);
             // Act
             emplController.Edit(employee);
 
