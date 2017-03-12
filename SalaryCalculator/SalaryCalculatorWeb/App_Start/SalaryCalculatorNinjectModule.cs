@@ -1,12 +1,16 @@
-﻿using Ninject.Modules;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Ninject.Modules;
 using Ninject.Web.Common;
 using SalaryCalculator.Configuration.Caching;
+using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data;
 using SalaryCalculator.Data.Contracts;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Repositories;
 using SalaryCalculator.Data.Services;
 using SalaryCalculator.Data.Services.Contracts;
+using System;
 
 namespace SalaryCalculatorWeb.App_Start
 {
@@ -22,14 +26,14 @@ namespace SalaryCalculatorWeb.App_Start
             this.Bind<IUserService>().To<UserService>().InRequestScope();
             this.Bind<ISelfEmploymentService>().To<SelfEmploymentService>().InRequestScope();
             this.Bind<IEmployeeService>().To<EmployeeService>().InRequestScope();
+            this.Bind<IMapService>().To<MapService>();
+            this.Bind<ICacheService>().To<HttpCacheService>();
 
             this.Bind<User>().ToSelf();
             this.Bind<Employee>().ToSelf();
             this.Bind<RemunerationBill>().ToSelf();
             this.Bind<EmployeePaycheck>().ToSelf();
             this.Bind<SelfEmployment>().ToSelf();
-
-            this.Bind<ICacheService>().To<HttpCacheService>();
         }
     }
 }

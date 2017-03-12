@@ -1,4 +1,4 @@
-﻿@model SalaryCalculator.Data.Models.Employee
+﻿@model SalaryCalculatorWeb.Models.SettingsViewModels.EmployeeViewModel
 
 <div>
     <h4>Employee</h4>
@@ -38,6 +38,11 @@
 
     </dl>
 </div>
+<p>
+    @Html.ActionLink("Add Labor Contract", "CreateLaborContract", "LaborContract", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+    @Html.ActionLink("Add Non-Labor Contract", "CreateNonLaborContract", "NonLaborContract", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+    @Html.ActionLink("Add Freelance Contract","CreateFreelanceContract","FreelanceContract", new { id = Model.Id }, htmlAttributes: new { @class="btn btn-primary"})
+</p>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning" }) 
     @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-primary" })

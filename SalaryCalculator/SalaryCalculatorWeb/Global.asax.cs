@@ -17,8 +17,7 @@ namespace SalaryCalculatorWeb
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DbConfig.Initialize();
-            var autoMapperConfig = new AutoMapperConfiguration();
-            autoMapperConfig.Config(Assembly.GetExecutingAssembly());
+            AutoMapperConfig.Config(Assembly.GetExecutingAssembly());
         }
     }
 }

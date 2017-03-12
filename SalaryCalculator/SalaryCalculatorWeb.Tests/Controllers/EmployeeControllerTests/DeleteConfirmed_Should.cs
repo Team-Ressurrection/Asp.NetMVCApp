@@ -1,5 +1,7 @@
-﻿using Moq;
+﻿using AutoMapper;
+using Moq;
 using NUnit.Framework;
+using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculatorWeb.Controllers;
@@ -19,8 +21,9 @@ namespace SalaryCalculatorWeb.Tests.Controllers.EmployeeControllerTests
         public void ReturnRedirectToRouteResult_WhenIdIsCorrect()
         {
             // Arrange
+            var mockedMappService = new Mock<IMapService>();
             var employeeService = new Mock<IEmployeeService>();
-            EmployeesController emplController = new EmployeesController(employeeService.Object);
+            EmployeesController emplController = new EmployeesController(mockedMappService.Object, employeeService.Object);
             var employeeId = 5;
             employeeService.Setup(x => x.DeleteById(employeeId)).Verifiable();
             // Act

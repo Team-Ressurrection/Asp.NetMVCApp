@@ -6,17 +6,24 @@ using Bytes2you.Validation;
 
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
+using AutoMapper;
+using SalaryCalculatorWeb.Models.SettingsViewModels;
+using Ninject;
+using SalaryCalculator.Configuration.Mappings;
 
 namespace SalaryCalculatorWeb.Controllers
 {
     public class EmployeesController : Controller
     {
+        private readonly IMapService mapService;
         private readonly IEmployeeService employeeService;
 
-        public EmployeesController(IEmployeeService employeeService)
+        public EmployeesController(IMapService mapService, IEmployeeService employeeService)
         {
+            Guard.WhenArgument(mapService, "mapService").IsNull().Throw();
             Guard.WhenArgument(employeeService, "employeeService").IsNull().Throw();
 
+            this.mapService = mapService;
             this.employeeService = employeeService;
         }
 
@@ -38,7 +45,10 @@ namespace SalaryCalculatorWeb.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employee);
+
+            var employeeViewModel = this.mapService.Map<EmployeeViewModel>(employee);
+
+            return View(employeeViewModel);
         }
 
         // GET: Employees/Create
@@ -51,15 +61,16 @@ namespace SalaryCalculatorWeb.Controllers
         // POST: Employees/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName, MiddleName,LastName,PersonalId")] Employee employee)
+        public ActionResult Create(EmployeeViewModel employeeViewModel)
         {
             if (this.ModelState.IsValid)
             {
+                var employee = this.mapService.Map<Employee>(employeeViewModel);
                 this.employeeService.Create(employee);
                 return RedirectToAction("Index");
             }
 
-            return View(employee);
+            return View(employeeViewModel);
         }
 
         // GET: Employees/Edit/5
@@ -74,20 +85,22 @@ namespace SalaryCalculatorWeb.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            var employeeViewModel = this.mapService.Map<EmployeeViewModel>(employee);
+            return View(employeeViewModel);
         }
 
         // POST: Employees/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName, MiddleName,LastName,PersonalId")] Employee employee)
+        public ActionResult Edit(EmployeeViewModel employeeViewModel)
         {
             if (this.ModelState.IsValid)
             {
+                var employee = this.mapService.Map<Employee>(employeeViewModel);
                 this.employeeService.UpdateById(employee.Id, employee);
                 return RedirectToAction("Index");
             }
-            return View(employee);
+            return View(employeeViewModel);
         }
 
         // GET: Employees/Delete/5
@@ -102,7 +115,9 @@ namespace SalaryCalculatorWeb.Controllers
             {
                 return HttpNotFound();
             }
-            return View(employee);
+
+            var employeeViewModel = this.mapService.Map<EmployeeViewModel>(employee);
+            return View(employeeViewModel);
         }
 
         // POST: Employees/Delete/5

@@ -47,10 +47,11 @@
   <ItemGroup>
     <Compile Include="Caching\HttpCacheService.cs" />
     <Compile Include="Caching\ICacheService.cs" />
-    <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Mappings\IHaveCustomMappings.cs" />
     <Compile Include="Mappings\IMapFrom.cs" />
+    <Compile Include="Mappings\IMapService.cs" />
     <Compile Include="Mappings\IMapTo.cs" />
+    <Compile Include="Mappings\MapService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
