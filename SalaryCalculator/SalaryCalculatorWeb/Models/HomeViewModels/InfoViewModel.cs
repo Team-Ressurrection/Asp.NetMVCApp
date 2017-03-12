@@ -7,12 +7,12 @@ namespace SalaryCalculatorWeb.Models.HomeViewModels
 {
     public class InfoViewModel
     {
-        public int TotalRegisteredUsers { get; set; }
-
-        public int TotalPaychecks { get; set; }
-
-        public int TotalRemunerationBills { get; set; }
-
-        public int TotalSelfEmployments { get; set; }
+        public virtual int TotalRegisteredUsers { get; set; }
+               
+        public virtual int TotalPaychecks { get; set; }
+               
+        public virtual int TotalRemunerationBills { get; set; }
+              
+        public virtual int TotalSelfEmployments { get; set; }
     }
 }
