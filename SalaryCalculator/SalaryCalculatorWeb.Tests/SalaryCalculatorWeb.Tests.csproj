@@ -153,6 +153,10 @@
     <Compile Include="Controllers\EmployeeControllerTests\Delete_Should.cs" />
     <Compile Include="Controllers\EmployeeControllerTests\Details_Should.cs" />
     <Compile Include="Controllers\EmployeeControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\HomeControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\HomeControllerTests\About_Should.cs" />
+    <Compile Include="Controllers\HomeControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\HomeControllerTests\Information_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\SetPassword_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\ChangePassword_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\Constructor_Should.cs" />
@@ -215,7 +219,7 @@
     <Compile Include="Mocks\FakeSelfEmployment.cs" />
     <Compile Include="Mocks\FakeUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Controllers\HomeControllerTests\Contact_Should.cs" />
     <Compile Include="Utilities.Calculations\PayrollTests\CheckSocialSecurityIncome_Should.cs" />
     <Compile Include="Utilities.Calculations\PayrollTests\GetGrossSalary_Should.cs" />
     <Compile Include="Utilities.Calculations\PayrollTests\GetIncomeTax_Should.cs" />
