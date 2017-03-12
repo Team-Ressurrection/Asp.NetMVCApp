@@ -42,6 +42,7 @@ namespace SalaryCalculatorWeb.Controllers
         }
 
         // GET: Employees/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -49,18 +50,16 @@ namespace SalaryCalculatorWeb.Controllers
 
         // POST: Employees/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,FirstName, MiddleName,LastName,PersonalId")] Employee employee)
         {
-            try
+            if (this.ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                this.employeeService.Create(employee);
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(employee);
         }
 
         // GET: Employees/Edit/5
@@ -81,11 +80,11 @@ namespace SalaryCalculatorWeb.Controllers
         // POST: Employees/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include ="Id,FirstName, MiddleName,LastName,PersonalId")] Employee employee)
-        {   
+        public ActionResult Edit([Bind(Include = "Id,FirstName, MiddleName,LastName,PersonalId")] Employee employee)
+        {
             if (this.ModelState.IsValid)
             {
-                this.employeeService.UpdateById(employee.Id,employee);
+                this.employeeService.UpdateById(employee.Id, employee);
                 return RedirectToAction("Index");
             }
             return View(employee);
