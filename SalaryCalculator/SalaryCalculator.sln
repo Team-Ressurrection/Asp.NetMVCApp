@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryCalculator.Utilities"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryCalculator.Configuration", "SalaryCalculator.Configuration\SalaryCalculator.Configuration.csproj", "{136B7D59-06D4-474D-BF10-322403A1674F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryCalculator.IntegrationTests", "SalaryCalculator.IntegrationTests\SalaryCalculator.IntegrationTests.csproj", "{C94FD3A1-8872-4559-B7CC-36FA25C4E1E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalaryCalculator.FunctionalTests", "SalaryCalculator.FunctionalTests\SalaryCalculator.FunctionalTests.csproj", "{8B4B5F32-198B-46D6-98E0-1961F7B0A4D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{136B7D59-06D4-474D-BF10-322403A1674F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{136B7D59-06D4-474D-BF10-322403A1674F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{136B7D59-06D4-474D-BF10-322403A1674F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C94FD3A1-8872-4559-B7CC-36FA25C4E1E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94FD3A1-8872-4559-B7CC-36FA25C4E1E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94FD3A1-8872-4559-B7CC-36FA25C4E1E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94FD3A1-8872-4559-B7CC-36FA25C4E1E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B4B5F32-198B-46D6-98E0-1961F7B0A4D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B4B5F32-198B-46D6-98E0-1961F7B0A4D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B4B5F32-198B-46D6-98E0-1961F7B0A4D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B4B5F32-198B-46D6-98E0-1961F7B0A4D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
