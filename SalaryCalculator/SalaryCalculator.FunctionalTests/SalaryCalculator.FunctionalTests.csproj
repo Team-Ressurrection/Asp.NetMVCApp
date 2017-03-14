@@ -87,7 +87,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="HomePageTests.cs" />
+    <Compile Include="LoginPageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationPageTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
