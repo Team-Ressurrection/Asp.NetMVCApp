@@ -12,33 +12,33 @@ namespace SalaryCalculator.FunctionalTests
     [TestFixture]
     public class RegistrationPageTests
     {
-        private IWebDriver driver;
+        //private IWebDriver driver;
 
-        [Test]
-        public void ShouldEnterAllFieldsAndClickRegisterButton()
-        {
-            this.driver = new ChromeDriver();
-            this.driver.Navigate().GoToUrl("http://www.salarycalculatormvc.com/account/register");
+        //[Test]
+        //public void ShouldEnterAllFieldsAndClickRegisterButton()
+        //{
+        //    this.driver = new ChromeDriver();
+        //    this.driver.Navigate().GoToUrl("http://www.salarycalculatormvc.com/account/register");
 
-            IWebElement userNameInput = this.driver.FindElement(By.Id("Email"));
-            userNameInput.SendKeys("Alexander");
+        //    IWebElement userNameInput = this.driver.FindElement(By.Id("Email"));
+        //    userNameInput.SendKeys("Alexander");
 
-            IWebElement companyNameInput = this.driver.FindElement(By.Id("CompanyName"));
-            companyNameInput.SendKeys("Payroll Ltd.");
+        //    IWebElement companyNameInput = this.driver.FindElement(By.Id("CompanyName"));
+        //    companyNameInput.SendKeys("Payroll Ltd.");
 
-            IWebElement companyAddressInput = this.driver.FindElement(By.Id("CompanyAddress"));
-            companyAddressInput.SendKeys("bul. Bulgaria 90");
+        //    IWebElement companyAddressInput = this.driver.FindElement(By.Id("CompanyAddress"));
+        //    companyAddressInput.SendKeys("bul. Bulgaria 90");
 
-            IWebElement passwordInput = this.driver.FindElement(By.Id("Password"));
-            passwordInput.SendKeys("123456");
+        //    IWebElement passwordInput = this.driver.FindElement(By.Id("Password"));
+        //    passwordInput.SendKeys("123456");
 
-            IWebElement confirmPasswordInput = this.driver.FindElement(By.Id("ConfirmPassword"));
-            confirmPasswordInput.SendKeys("123456");
+        //    IWebElement confirmPasswordInput = this.driver.FindElement(By.Id("ConfirmPassword"));
+        //    confirmPasswordInput.SendKeys("123456");
 
-            IWebElement registerButton = this.driver.FindElement(By.ClassName("btn-default"));
-            registerButton.Click();
+        //    IWebElement registerButton = this.driver.FindElement(By.ClassName("btn-default"));
+        //    registerButton.Click();
 
-            this.driver.Quit();
-        }
+        //    this.driver.Quit();
+        //}
     }
 }

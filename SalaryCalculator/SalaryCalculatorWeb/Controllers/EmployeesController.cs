@@ -13,6 +13,7 @@ using SalaryCalculator.Configuration.Mappings;
 
 namespace SalaryCalculatorWeb.Controllers
 {
+    [Authorize]
     public class EmployeesController : Controller
     {
         private readonly IMapService mapService;
