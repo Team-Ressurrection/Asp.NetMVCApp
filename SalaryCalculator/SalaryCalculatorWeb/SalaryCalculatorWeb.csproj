@@ -227,6 +227,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LaborContractController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -240,6 +241,7 @@
     <Compile Include="Models\AccountViewModels\SendCodeViewModel.cs" />
     <Compile Include="Models\AccountViewModels\ExternalLoginListViewModel.cs" />
     <Compile Include="Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Models\ContractViewModels\CreateEmployeePaycheckViewModel.cs" />
     <Compile Include="Models\HomeViewModels\InfoViewModel.cs" />
     <Compile Include="Models\ManageViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="Models\ManageViewModels\ChangePasswordViewModel.cs" />
@@ -314,6 +316,7 @@
     <Content Include="Views\Employees\Delete.cshtml" />
     <Content Include="Views\Home\InformationPartial.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\LaborContract\CreateLaborContract.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
