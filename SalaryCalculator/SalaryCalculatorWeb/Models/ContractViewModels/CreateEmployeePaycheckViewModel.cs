@@ -22,5 +22,17 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
         public decimal GrossFixedBonus { get; set; }
 
         public decimal GrossNonFixedBonus { get; set; }
+
+        public decimal SocialSecurityIncome { get; set; }
+
+        public decimal PersonalInsurance { get; set; }
+
+        public decimal IncomeTax { get; set; }
+
+        public decimal NetWage { get; set; }
+
+        public int EmployeeId { get; set; }
+
+        public Employee Employee { get; set; }
     }
 }

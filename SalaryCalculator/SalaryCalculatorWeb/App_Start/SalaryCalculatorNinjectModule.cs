@@ -10,6 +10,7 @@ using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Repositories;
 using SalaryCalculator.Data.Services;
 using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Utilities.Calculations;
 using System;
 
 namespace SalaryCalculatorWeb.App_Start
@@ -34,6 +35,8 @@ namespace SalaryCalculatorWeb.App_Start
             this.Bind<RemunerationBill>().ToSelf();
             this.Bind<EmployeePaycheck>().ToSelf();
             this.Bind<SelfEmployment>().ToSelf();
+
+            this.Bind<Payroll>().ToSelf();
         }
     }
 }

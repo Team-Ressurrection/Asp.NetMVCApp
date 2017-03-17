@@ -2,6 +2,9 @@
 using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Utilities.Calculations;
+using SalaryCalculator.Utilities.Constants;
+using SalaryCalculatorWeb.Models.ContractViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +18,9 @@ namespace SalaryCalculatorWeb.Controllers
         private IMapService mapService;
         private IEmployeeService employeeService;
         private IEmployeePaycheckService employeePaycheckService;
+        private Payroll calculate;
 
-        public LaborContractController(IMapService mapService, IEmployeeService employeeService, IEmployeePaycheckService employeePaycheckService)
+        public LaborContractController(IMapService mapService, IEmployeeService employeeService, IEmployeePaycheckService employeePaycheckService, Payroll calculate)
         {
             Guard.WhenArgument(mapService, "mapService").IsNull().Throw();
             Guard.WhenArgument(employeeService, "employeeService").IsNull().Throw();
@@ -25,6 +29,7 @@ namespace SalaryCalculatorWeb.Controllers
             this.mapService = mapService;
             this.employeeService = employeeService;
             this.employeePaycheckService = employeePaycheckService;
+            this.calculate = calculate;
         }
         // GET: LaborContract
         public ActionResult Index()
@@ -45,24 +50,29 @@ namespace SalaryCalculatorWeb.Controllers
             var employee = this.employeeService.GetById(id);
             employeePaycheck.EmployeeId = id;
             employeePaycheck.Employee = employee;
-            var laborContractModel = this.mapService.Map<EmployeePaycheck>(employeePaycheck);
+            var laborContractModel = this.mapService.Map<CreateEmployeePaycheckViewModel>(employeePaycheck);
             return View(laborContractModel);
         }
 
         // POST: LaborContract/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CreateEmployeePaycheckViewModel paycheckViewModel)
         {
-            try
+            if (this.ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                var grossSalary = paycheckViewModel.GrossSalary + paycheckViewModel.GrossFixedBonus + paycheckViewModel.GrossNonFixedBonus;
+                var isMaxSSI = this.calculate.CheckMaxSocialSecurityIncome(grossSalary);
+                paycheckViewModel.SocialSecurityIncome = grossSalary;
+                paycheckViewModel.PersonalInsurance = this.calculate.GetPersonalInsurance(grossSalary);
+                paycheckViewModel.IncomeTax = this.calculate.GetIncomeTax(grossSalary, paycheckViewModel.PersonalInsurance);
+                paycheckViewModel.NetWage = this.calculate.GetNetWage(grossSalary, paycheckViewModel.PersonalInsurance, paycheckViewModel.IncomeTax);
+                var paycheck = this.mapService.Map<EmployeePaycheck>(paycheckViewModel);
+                this.employeePaycheckService.Create(paycheck);
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(paycheckViewModel);
         }
 
         // GET: LaborContract/Edit/5

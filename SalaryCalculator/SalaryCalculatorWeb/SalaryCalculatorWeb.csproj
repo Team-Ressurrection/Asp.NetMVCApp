@@ -349,6 +349,10 @@
       <Project>{ec987265-7f76-4b0c-b210-c1ff9662f10a}</Project>
       <Name>SalaryCalculator.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SalaryCalculator.Utilities\SalaryCalculator.Utilities.csproj">
+      <Project>{F7888CBC-3AF2-4323-9D36-FC5B0CA313DD}</Project>
+      <Name>SalaryCalculator.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
