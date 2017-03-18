@@ -13,80 +13,81 @@ using System.Web.Mvc;
 
 namespace SalaryCalculatorWeb.Controllers
 {
-    public class LaborContractController : Controller
+    public class NonLaborContractController : Controller
     {
         private IMapService mapService;
         private IEmployeeService employeeService;
-        private IEmployeePaycheckService employeePaycheckService;
+        private IRemunerationBillService remunerationBillService;
         private Payroll calculate;
 
-        public LaborContractController(IMapService mapService, IEmployeeService employeeService, IEmployeePaycheckService employeePaycheckService, Payroll calculate)
+        public NonLaborContractController(IMapService mapService, IEmployeeService employeeService, IRemunerationBillService remunerationBillService, Payroll calculate)
         {
             Guard.WhenArgument(mapService, "mapService").IsNull().Throw();
             Guard.WhenArgument(employeeService, "employeeService").IsNull().Throw();
-            Guard.WhenArgument(employeePaycheckService, "employeePaycheckService").IsNull().Throw();
+            Guard.WhenArgument(remunerationBillService, "employeePaycheckService").IsNull().Throw();
             Guard.WhenArgument(calculate, "calculate").IsNull().Throw();
 
             this.mapService = mapService;
             this.employeeService = employeeService;
-            this.employeePaycheckService = employeePaycheckService;
+            this.remunerationBillService = remunerationBillService;
             this.calculate = calculate;
         }
-        // GET: LaborContract
+
+        // GET: NonLaborContract
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: LaborContract/Details/5
+        // GET: NonLaborContract/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: LaborContract/CreateLaborContract/5
+        // GET: NonLaborContract/Create
         [HttpGet]
-        public ActionResult CreateLaborContract(int id, EmployeePaycheck employeePaycheck)
+        public ActionResult CreateNonLaborContract(int id, RemunerationBill remunerationBill)
         {
             var employee = this.employeeService.GetById(id);
-            employeePaycheck.EmployeeId = id;
-            employeePaycheck.Employee = employee;
-            var laborContractModel = this.mapService.Map<CreateEmployeePaycheckViewModel>(employeePaycheck);
-            return View(laborContractModel);
+            remunerationBill.EmployeeId = id;
+            remunerationBill.Employee = employee;
+            var nonLaborContractModel = this.mapService.Map<CreateRemunerationBillViewModel>(remunerationBill);
+            return View(nonLaborContractModel);
         }
 
-        // POST: LaborContract/Create
+        // POST: NonLaborContract/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateLaborContract(int id, PreviewEmployeePaycheckViewModel laborContractModel)
+        public ActionResult CreateNonLaborContract(int id, PreviewRemunerationBillViewModel nonLaborContractModel)
         {
-            var grossSalary = laborContractModel.GrossSalary + laborContractModel.GrossFixedBonus + laborContractModel.GrossNonFixedBonus;
+            var grossSalary = nonLaborContractModel.GrossSalary;
             var isMaxSSI = this.calculate.CheckMaxSocialSecurityIncome(grossSalary);
-            laborContractModel.SocialSecurityIncome = isMaxSSI ? ValidationConstants.MaxSocialSecurityIncome : grossSalary;
-            laborContractModel.PersonalInsurance = this.calculate.GetPersonalInsurance(grossSalary);
-            laborContractModel.IncomeTax = this.calculate.GetIncomeTax(grossSalary, laborContractModel.PersonalInsurance);
-            laborContractModel.NetWage = this.calculate.GetNetWage(grossSalary, laborContractModel.PersonalInsurance, laborContractModel.IncomeTax);
-            laborContractModel.EmployeeId = id;
+            nonLaborContractModel.SocialSecurityIncome = isMaxSSI ? ValidationConstants.MaxSocialSecurityIncome : grossSalary;
+            nonLaborContractModel.PersonalInsurance = this.calculate.GetPersonalInsurance(grossSalary);
+            nonLaborContractModel.IncomeTax = this.calculate.GetIncomeTax(grossSalary, nonLaborContractModel.PersonalInsurance);
+            nonLaborContractModel.NetWage = this.calculate.GetNetWage(grossSalary, nonLaborContractModel.PersonalInsurance, nonLaborContractModel.IncomeTax);
+            nonLaborContractModel.EmployeeId = id;
             var employee = this.employeeService.GetById(id);
-            laborContractModel.EmployeeFullName = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
+            nonLaborContractModel.EmployeeFullName = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
 
             if (this.ModelState.IsValid)
             {
-                var paycheck = this.mapService.Map<EmployeePaycheck>(laborContractModel);
-                this.employeePaycheckService.Create(paycheck);
-                return View("Details", laborContractModel);
+                var bill = this.mapService.Map<RemunerationBill>(nonLaborContractModel);
+                this.remunerationBillService.Create(bill);
+                return View("Details", nonLaborContractModel);
             }
 
-            return View(laborContractModel);
+            return View(nonLaborContractModel);
         }
 
-        // GET: LaborContract/Edit/5
+        // GET: NonLaborContract/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: LaborContract/Edit/5
+        // POST: NonLaborContract/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -102,13 +103,13 @@ namespace SalaryCalculatorWeb.Controllers
             }
         }
 
-        // GET: LaborContract/Delete/5
+        // GET: NonLaborContract/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: LaborContract/Delete/5
+        // POST: NonLaborContract/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

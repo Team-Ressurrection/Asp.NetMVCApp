@@ -1,0 +1,33 @@
+﻿@model SalaryCalculatorWeb.Models.ContractViewModels.PreviewRemunerationBillViewModel
+
+<div>
+    <h1>Сметка за изплатени суми на: <h2>@Html.DisplayFor(model => model.EmployeeFullName)</h2></h1>
+    <hr />
+    <div class="jumbotron">
+        <div>
+            Дата на съставяне: <strong>@Html.DisplayFor(model => model.CreatedDate)</strong>
+        </div>
+
+        <div>
+            1. Сума по тази сметка: <strong>@Html.DisplayFor(model => model.GrossSalary) лв.</strong>
+        </div>
+
+        <div>
+            5.	Осигурителен доход от сумата на р.1, върху който се дължат осигурителни вноски: <strong>@Html.DisplayFor(model => model.SocialSecurityIncome) лв.</strong>>
+        </div>
+        <div>
+            6. Общо осигурителни вноски: <strong>@Html.DisplayFor(model => model.PersonalInsurance) лв.</strong>
+        </div>
+
+        <div>
+            8. Дължим авансов данък общ доход: <strong>@Html.DisplayFor(model => model.IncomeTax) лв.</strong>
+        </div>
+
+        <div>
+            9. Сума за получаване(р.1 - р.6 - р.8) <strong>@Html.DisplayFor(model => model.NetWage) лв.</strong>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", "Employees", null,new { @class = "btn btn-primary" })
+</p>

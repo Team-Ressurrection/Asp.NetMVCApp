@@ -9,7 +9,7 @@ using System.Web;
 
 namespace SalaryCalculatorWeb.Models.ContractViewModels
 {
-    public class PreviewEmployeePaycheckViewModel : IMapFrom<EmployeePaycheck>
+    public class PreviewRemunerationBillViewModel : IMapFrom<RemunerationBill>
     {
         public int Id { get; set; }
 
@@ -17,10 +17,6 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
         public DateTime CreatedDate { get; set; }
 
         public virtual decimal GrossSalary { get; set; }
-
-        public virtual decimal GrossFixedBonus { get; set; }
-
-        public virtual decimal GrossNonFixedBonus { get; set; }
 
         public decimal SocialSecurityIncome { get; set; }
 
