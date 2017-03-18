@@ -157,6 +157,8 @@
     <Compile Include="Controllers\EmployeeControllerTests\Delete_Should.cs" />
     <Compile Include="Controllers\EmployeeControllerTests\Details_Should.cs" />
     <Compile Include="Controllers\EmployeeControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\FreelanceContractControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\FreelanceContractControllerTests\CreateFreelanceContract_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\About_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Index_Should.cs" />
