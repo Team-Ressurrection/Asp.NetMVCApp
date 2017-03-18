@@ -1,28 +1,28 @@
 ﻿@model SalaryCalculatorWeb.Models.HomeViewModels.InfoViewModel
 
 <div class="row">
-    <div class="col-xs-2 jumbotron" style="margin: 5px">
+    <div class="col-xs-3 jumbotron" style="margin: 5px; padding: 2px">
 
-        <p class="text-left"><em>The info is updated every 60 seconds</em></p>
+        <span class="text-center"><em>Registered users:</em></span>
         <div></div>
-        <p class="col-xs-2 text-left"><b>Registered users: @Model.TotalRegisteredUsers</b></p>
+        <span class="col-xs-3 text-center"><b> @Model.TotalRegisteredUsers</b></span>
     </div>
-    <div class="col-xs-2 jumbotron" style="margin: 5px">
+    <div class="col-xs-3 jumbotron" style="margin: 5px; padding: 2px">
 
-        <p class="text-left"><em>The info is updated every 60 seconds</em></p>
+        <span class="text-center"><em>Paychecks:</em></span>
         <div></div>
-        <p class="col-xs-2 text-left"><b>Paychecks: @Model.TotalPaychecks</b></p>
+        <span class="col-xs-3 text-center"><b> @Model.TotalPaychecks</b></span>
     </div>
-    <div class="col-xs-2 jumbotron" style="margin: 5px">
+    <div class="col-xs-3 jumbotron" style="margin: 5px; padding: 2px">
 
-        <p class="text-left"><em>The info is updated every 60 seconds</em></p>
+        <span class="text-center"><em>Remuneration Bills: </em></span>
         <div></div>
-        <p class="col-xs-2 text-left"><b>Remuneration Bills: @Model.TotalRemunerationBills</b></p>
+        <span class="col-xs-3 text-center"><b>@Model.TotalRemunerationBills</b></span>
     </div>
-    <div class="col-xs-2 jumbotron" style="margin: 5px">
+    <div class="col-xs-3 jumbotron" style="margin: 5px; padding: 2px">
 
-        <p class="text-left"><em>The info is updated every 60 seconds</em></p>
+        <span class="text-center"><em>SelfEmployments: </em></span>
         <div></div>
-        <p class="col-xs-2 text-left"><b>SelfEmployments: @Model.TotalSelfEmployments</b></p>
+        <span class="col-xs-3 text-center"><b>@Model.TotalSelfEmployments</b></span>
     </div>
 </div>
