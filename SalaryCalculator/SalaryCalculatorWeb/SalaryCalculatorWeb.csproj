@@ -226,6 +226,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\FreelanceContractController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LaborContractController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -242,8 +243,10 @@
     <Compile Include="Models\AccountViewModels\SendCodeViewModel.cs" />
     <Compile Include="Models\AccountViewModels\ExternalLoginListViewModel.cs" />
     <Compile Include="Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Models\ContractViewModels\CreateSelfEmploymentViewModel.cs" />
     <Compile Include="Models\ContractViewModels\CreateRemunerationBillViewModel.cs" />
     <Compile Include="Models\ContractViewModels\CreateEmployeePaycheckViewModel.cs" />
+    <Compile Include="Models\ContractViewModels\PreviewSelfEmploymentViewModel.cs" />
     <Compile Include="Models\ContractViewModels\PreviewRemunerationBillViewModel.cs" />
     <Compile Include="Models\ContractViewModels\PreviewEmployeePaycheckViewModel.cs" />
     <Compile Include="Models\HomeViewModels\InfoViewModel.cs" />
@@ -324,6 +327,8 @@
     <Content Include="Views\LaborContract\Details.cshtml" />
     <Content Include="Views\NonLaborContract\CreateNonLaborContract.cshtml" />
     <Content Include="Views\NonLaborContract\Details.cshtml" />
+    <Content Include="Views\FreelanceContract\CreateFreelanceContract.cshtml" />
+    <Content Include="Views\FreelanceContract\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
