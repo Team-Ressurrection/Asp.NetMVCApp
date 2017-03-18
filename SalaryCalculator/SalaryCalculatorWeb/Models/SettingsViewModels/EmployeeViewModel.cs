@@ -18,5 +18,7 @@ namespace SalaryCalculatorWeb.Models.SettingsViewModels
         public string LastName { get; set; }
 
         public string PersonalId { get; set; }
+
+        public IEnumerable<EmployeePaycheck> EmployeePaychecks { get; set; }
     }
 }

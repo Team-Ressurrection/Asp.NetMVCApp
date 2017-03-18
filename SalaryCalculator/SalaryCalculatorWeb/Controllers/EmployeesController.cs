@@ -35,6 +35,7 @@ namespace SalaryCalculatorWeb.Controllers
         }
 
         // GET: Employees/Details/5
+        [HttpGet]
         public ActionResult Details(int id)
         {
             //if (id == null)

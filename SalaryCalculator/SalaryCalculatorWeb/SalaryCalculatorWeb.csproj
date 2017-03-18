@@ -329,6 +329,7 @@
     <Content Include="Views\NonLaborContract\Details.cshtml" />
     <Content Include="Views\FreelanceContract\CreateFreelanceContract.cshtml" />
     <Content Include="Views\FreelanceContract\Details.cshtml" />
+    <Content Include="Views\Employees\DetailsPaychecks_Partial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
