@@ -63,7 +63,7 @@ namespace SalaryCalculatorWeb.Controllers
         {
             var grossSalary = laborContractModel.GrossSalary + laborContractModel.GrossFixedBonus + laborContractModel.GrossNonFixedBonus;
             var isMaxSSI = this.calculate.CheckMaxSocialSecurityIncome(grossSalary);
-            laborContractModel.SocialSecurityIncome = grossSalary;
+            laborContractModel.SocialSecurityIncome = isMaxSSI ? ValidationConstants.MaxSocialSecurityIncome:grossSalary ;
             laborContractModel.PersonalInsurance = this.calculate.GetPersonalInsurance(grossSalary);
             laborContractModel.IncomeTax = this.calculate.GetIncomeTax(grossSalary, laborContractModel.PersonalInsurance);
             laborContractModel.NetWage = this.calculate.GetNetWage(grossSalary, laborContractModel.PersonalInsurance, laborContractModel.IncomeTax);
