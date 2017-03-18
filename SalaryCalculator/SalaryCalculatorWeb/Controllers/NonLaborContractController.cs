@@ -1,15 +1,14 @@
-﻿using Bytes2you.Validation;
+﻿using System.Web.Mvc;
+
+using Bytes2you.Validation;
+
 using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Utilities.Calculations;
 using SalaryCalculator.Utilities.Constants;
+
 using SalaryCalculatorWeb.Models.ContractViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace SalaryCalculatorWeb.Controllers
 {
@@ -34,12 +33,14 @@ namespace SalaryCalculatorWeb.Controllers
         }
 
         // GET: NonLaborContract
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: NonLaborContract/Details/5
+        [HttpGet]
         public ActionResult Details(int id)
         {
             return View();
@@ -79,50 +80,6 @@ namespace SalaryCalculatorWeb.Controllers
             }
 
             return View(nonLaborContractModel);
-        }
-
-        // GET: NonLaborContract/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: NonLaborContract/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: NonLaborContract/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: NonLaborContract/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }
