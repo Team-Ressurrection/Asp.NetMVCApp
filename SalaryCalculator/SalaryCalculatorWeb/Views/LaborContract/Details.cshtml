@@ -1,0 +1,74 @@
+﻿@model SalaryCalculatorWeb.Models.ContractViewModels.PreviewEmployeePaycheckViewModel
+
+<div>
+    <h4>Employee: @Html.DisplayFor(model => model.EmployeeFullName)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrossSalary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrossSalary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrossFixedBonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrossFixedBonus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrossNonFixedBonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrossNonFixedBonus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialSecurityIncome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SocialSecurityIncome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonalInsurance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalInsurance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncomeTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncomeTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetWage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetWage)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", "Employees", null,new { @class = "btn btn-primary" })
+</p>

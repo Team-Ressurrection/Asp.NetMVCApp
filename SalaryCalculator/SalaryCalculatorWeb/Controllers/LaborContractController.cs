@@ -25,6 +25,7 @@ namespace SalaryCalculatorWeb.Controllers
             Guard.WhenArgument(mapService, "mapService").IsNull().Throw();
             Guard.WhenArgument(employeeService, "employeeService").IsNull().Throw();
             Guard.WhenArgument(employeePaycheckService, "employeePaycheckService").IsNull().Throw();
+            Guard.WhenArgument(calculate, "calculate").IsNull().Throw();
 
             this.mapService = mapService;
             this.employeeService = employeeService;
@@ -45,9 +46,10 @@ namespace SalaryCalculatorWeb.Controllers
 
         // GET: LaborContract/CreateLaborContract/5
         [HttpGet]
-        public ActionResult CreateLaborContract(int id, EmployeePaycheck employeePaycheck)
+        public ActionResult CreateLaborContract(int id)
         {
             var employee = this.employeeService.GetById(id);
+            EmployeePaycheck employeePaycheck = new EmployeePaycheck();
             employeePaycheck.EmployeeId = id;
             employeePaycheck.Employee = employee;
             var laborContractModel = this.mapService.Map<CreateEmployeePaycheckViewModel>(employeePaycheck);
@@ -57,22 +59,26 @@ namespace SalaryCalculatorWeb.Controllers
         // POST: LaborContract/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreateEmployeePaycheckViewModel paycheckViewModel)
+        public ActionResult CreateLaborContract(int id,PreviewEmployeePaycheckViewModel laborContractModel)
         {
+            var grossSalary = laborContractModel.GrossSalary + laborContractModel.GrossFixedBonus + laborContractModel.GrossNonFixedBonus;
+            var isMaxSSI = this.calculate.CheckMaxSocialSecurityIncome(grossSalary);
+            laborContractModel.SocialSecurityIncome = grossSalary;
+            laborContractModel.PersonalInsurance = this.calculate.GetPersonalInsurance(grossSalary);
+            laborContractModel.IncomeTax = this.calculate.GetIncomeTax(grossSalary, laborContractModel.PersonalInsurance);
+            laborContractModel.NetWage = this.calculate.GetNetWage(grossSalary, laborContractModel.PersonalInsurance, laborContractModel.IncomeTax);
+            laborContractModel.EmployeeId = id;
+            var employee = this.employeeService.GetById(id);
+            laborContractModel.EmployeeFullName = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
+
             if (this.ModelState.IsValid)
             {
-                var grossSalary = paycheckViewModel.GrossSalary + paycheckViewModel.GrossFixedBonus + paycheckViewModel.GrossNonFixedBonus;
-                var isMaxSSI = this.calculate.CheckMaxSocialSecurityIncome(grossSalary);
-                paycheckViewModel.SocialSecurityIncome = grossSalary;
-                paycheckViewModel.PersonalInsurance = this.calculate.GetPersonalInsurance(grossSalary);
-                paycheckViewModel.IncomeTax = this.calculate.GetIncomeTax(grossSalary, paycheckViewModel.PersonalInsurance);
-                paycheckViewModel.NetWage = this.calculate.GetNetWage(grossSalary, paycheckViewModel.PersonalInsurance, paycheckViewModel.IncomeTax);
-                var paycheck = this.mapService.Map<EmployeePaycheck>(paycheckViewModel);
+                var paycheck = this.mapService.Map<EmployeePaycheck>(laborContractModel);
                 this.employeePaycheckService.Create(paycheck);
-                return RedirectToAction("Index");
+                return View("Details", laborContractModel);
             }
 
-            return View(paycheckViewModel);
+            return View(laborContractModel);
         }
 
         // GET: LaborContract/Edit/5

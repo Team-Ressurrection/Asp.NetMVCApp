@@ -20,7 +20,7 @@ namespace SalaryCalculatorWeb.App_Start
         public override void Load()
         {
             this.Bind<ISalaryCalculatorDbContext>().To<SalaryCalculatorDbContext>().InRequestScope();
-            this.Bind(typeof(IRepository<>)).To(typeof(SalaryCalculatorRepository<>)).InSingletonScope();
+            this.Bind(typeof(IRepository<>)).To(typeof(SalaryCalculatorRepository<>)).InRequestScope();
 
             this.Bind<IRemunerationBillService>().To<RemunerationBillService>().InRequestScope();
             this.Bind<IEmployeePaycheckService>().To<EmployeePaycheckService>().InRequestScope();

@@ -8,8 +8,11 @@ using System.Web;
 
 namespace SalaryCalculatorWeb.Models.ContractViewModels
 {
-    public class CreateEmployeePaycheckViewModel : IMapFrom<EmployeePaycheck>
+    public class PreviewEmployeePaycheckViewModel : IMapFrom<EmployeePaycheck>
     {
+        public int Id { get; set; }
+
+
         public DateTime CreatedDate { get; set; }
 
         public decimal GrossSalary { get; set; }
@@ -18,9 +21,16 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
 
         public decimal GrossNonFixedBonus { get; set; }
 
+        public decimal SocialSecurityIncome { get; set; }
+
+        public decimal PersonalInsurance { get; set; }
+
+        public decimal IncomeTax { get; set; }
+
+        public decimal NetWage { get; set; }
+
         public int EmployeeId { get; set; }
 
-        [ForeignKey("EmployeeId")]
-        public virtual Employee Employee { get; set; }
+        public string EmployeeFullName { get; set; }
     }
 }

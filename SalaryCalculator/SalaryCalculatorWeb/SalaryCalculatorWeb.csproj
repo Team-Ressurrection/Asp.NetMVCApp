@@ -242,6 +242,7 @@
     <Compile Include="Models\AccountViewModels\ExternalLoginListViewModel.cs" />
     <Compile Include="Models\AccountViewModels\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="Models\ContractViewModels\CreateEmployeePaycheckViewModel.cs" />
+    <Compile Include="Models\ContractViewModels\PreviewEmployeePaycheckViewModel.cs" />
     <Compile Include="Models\HomeViewModels\InfoViewModel.cs" />
     <Compile Include="Models\ManageViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="Models\ManageViewModels\ChangePasswordViewModel.cs" />
@@ -317,6 +318,7 @@
     <Content Include="Views\Home\InformationPartial.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\LaborContract\CreateLaborContract.cshtml" />
+    <Content Include="Views\LaborContract\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
