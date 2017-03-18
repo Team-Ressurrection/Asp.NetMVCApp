@@ -162,6 +162,7 @@
     <Compile Include="Controllers\HomeControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Information_Should.cs" />
     <Compile Include="Controllers\LaborContractControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\LaborContractControllerTests\CreateLaborContract_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\SetPassword_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\ChangePassword_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\Constructor_Should.cs" />

@@ -46,10 +46,9 @@ namespace SalaryCalculatorWeb.Controllers
 
         // GET: LaborContract/CreateLaborContract/5
         [HttpGet]
-        public ActionResult CreateLaborContract(int id)
+        public ActionResult CreateLaborContract(int id, EmployeePaycheck employeePaycheck)
         {
             var employee = this.employeeService.GetById(id);
-            EmployeePaycheck employeePaycheck = new EmployeePaycheck();
             employeePaycheck.EmployeeId = id;
             employeePaycheck.Employee = employee;
             var laborContractModel = this.mapService.Map<CreateEmployeePaycheckViewModel>(employeePaycheck);

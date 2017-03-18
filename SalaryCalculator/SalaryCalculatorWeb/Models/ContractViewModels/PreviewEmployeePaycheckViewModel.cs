@@ -15,11 +15,11 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
 
         public DateTime CreatedDate { get; set; }
 
-        public decimal GrossSalary { get; set; }
+        public virtual decimal GrossSalary { get; set; }
 
-        public decimal GrossFixedBonus { get; set; }
+        public virtual decimal GrossFixedBonus { get; set; }
 
-        public decimal GrossNonFixedBonus { get; set; }
+        public virtual decimal GrossNonFixedBonus { get; set; }
 
         public decimal SocialSecurityIncome { get; set; }
 
