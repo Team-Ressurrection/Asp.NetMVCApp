@@ -82,6 +82,7 @@ namespace SalaryCalculatorWeb.Controllers
         }
 
         // GET: LaborContract/Edit/5
+        [HttpGet]
         public ActionResult Edit(int id, EmployeePaycheck paycheck)
         {
             paycheck = this.employeePaycheckService.GetById(id);
@@ -110,6 +111,29 @@ namespace SalaryCalculatorWeb.Controllers
                 return RedirectToAction("Details","Employees",new { id=employeePaycheck.EmployeeId});
             }
             return View(paycheckViewModel);
+        }
+
+        // GET: Employees/Delete/5
+        public ActionResult Delete(int id, EmployeePaycheck paycheck)
+        {
+            paycheck = this.employeePaycheckService.GetById(id);
+            if (paycheck == null)
+            {
+                return HttpNotFound();
+            }
+
+            var employeeViewModel = this.mapService.Map<PreviewEmployeePaycheckViewModel>(paycheck);
+            return View(employeeViewModel);
+        }
+
+        // POST: Employees/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id, PreviewEmployeePaycheckViewModel paycheckViewModel)
+        {
+            this.employeePaycheckService.DeleteById(id);
+
+            return RedirectToAction("Index","Employees");
         }
     }
 }
