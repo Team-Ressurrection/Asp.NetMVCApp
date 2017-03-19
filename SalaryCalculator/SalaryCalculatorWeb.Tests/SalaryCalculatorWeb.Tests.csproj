@@ -160,6 +160,7 @@
     <Compile Include="Controllers\FreelanceContractControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\FreelanceContractControllerTests\CreateFreelanceContract_Should.cs" />
     <Compile Include="Controllers\FreelanceContractControllerTests\Delete_Should.cs" />
+    <Compile Include="Controllers\FreelanceContractControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\About_Should.cs" />
     <Compile Include="Controllers\HomeControllerTests\Index_Should.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="Controllers\LaborContractControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\LaborContractControllerTests\CreateLaborContract_Should.cs" />
     <Compile Include="Controllers\LaborContractControllerTests\Delete_Should.cs" />
+    <Compile Include="Controllers\LaborContractControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\SetPassword_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\ChangePassword_Should.cs" />
     <Compile Include="Controllers\ManageControllerTests\Constructor_Should.cs" />
@@ -176,6 +178,7 @@
     <Compile Include="Controllers\NonLaborContractControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\NonLaborContractControllerTests\CreateLaborContract_Should.cs" />
     <Compile Include="Controllers\NonLaborContractControllerTests\Delete_Should.cs" />
+    <Compile Include="Controllers\NonLaborContractControllerTests\Edit_Should.cs" />
     <Compile Include="Data.EmployeeModels\Constructor_Should.cs" />
     <Compile Include="Data.EmployeeModels\Properties_Should.cs" />
     <Compile Include="Data.EmployeePaycheckModels\Constructor_Should.cs" />
