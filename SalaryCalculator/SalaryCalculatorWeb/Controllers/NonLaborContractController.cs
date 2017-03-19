@@ -12,6 +12,7 @@ using SalaryCalculatorWeb.Models.ContractViewModels;
 
 namespace SalaryCalculatorWeb.Controllers
 {
+    [Authorize]
     public class NonLaborContractController : Controller
     {
         private IMapService mapService;

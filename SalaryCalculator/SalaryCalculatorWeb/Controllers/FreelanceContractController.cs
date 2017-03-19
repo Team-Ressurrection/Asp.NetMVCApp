@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace SalaryCalculatorWeb.Controllers
 {
+    [Authorize]
     public class FreelanceContractController : Controller
     {
         private IMapService mapService;
