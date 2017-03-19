@@ -5,7 +5,7 @@ using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculatorWeb.Controllers;
-using SalaryCalculatorWeb.Models.SettingsViewModels;
+using SalaryCalculatorWeb.Models.EmployeeViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

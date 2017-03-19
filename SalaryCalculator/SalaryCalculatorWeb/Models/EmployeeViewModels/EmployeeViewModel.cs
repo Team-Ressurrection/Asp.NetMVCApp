@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SalaryCalculatorWeb.Models.SettingsViewModels
+namespace SalaryCalculatorWeb.Models.EmployeeViewModels
 {
     public class EmployeeViewModel : IMapFrom<Employee>
     {

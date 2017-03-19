@@ -1,0 +1,66 @@
+﻿@model SalaryCalculatorWeb.Models.EmployeeViewModels.EmployeeViewModel
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Created Date
+        </th>
+        <th>
+            Gross Salary
+        </th>
+        <th>
+            Fixed Bonus
+        </th>
+        <th>
+            Non Fixed Bonus
+        </th>
+        <th>
+            Social Security Income
+        </th>
+        <th>
+            Personal Insurance
+        </th>
+        <th>
+            Income Tax
+        </th>
+        <th>
+            Net Wage
+        </th>
+    </tr>
+
+    @foreach (var item in Model.EmployeePaychecks)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrossSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrossFixedBonus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GrossNonFixedBonus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialSecurityIncome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonalInsurance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncomeTax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetWage)
+            </td>
+        </tr>
+    }
+</table>

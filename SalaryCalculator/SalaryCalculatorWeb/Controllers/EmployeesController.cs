@@ -7,9 +7,8 @@ using Bytes2you.Validation;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using AutoMapper;
-using SalaryCalculatorWeb.Models.SettingsViewModels;
-using Ninject;
 using SalaryCalculator.Configuration.Mappings;
+using SalaryCalculatorWeb.Models.EmployeeViewModels;
 
 namespace SalaryCalculatorWeb.Controllers
 {
