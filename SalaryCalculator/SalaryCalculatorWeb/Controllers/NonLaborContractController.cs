@@ -82,7 +82,7 @@ namespace SalaryCalculatorWeb.Controllers
             return View(nonLaborContractModel);
         }
 
-        // GET: LaborContract/Edit/5
+        // GET: NonLaborContract/Edit/5
         [HttpGet]
         public ActionResult Edit(int id, RemunerationBill bill)
         {
@@ -99,7 +99,7 @@ namespace SalaryCalculatorWeb.Controllers
             return View(nonLaborContractModel);
         }
 
-        // POST: LaborContract/Edit/5
+        // POST: NonLaborContract/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(PreviewRemunerationBillViewModel remunerationBillViewModel)
@@ -114,7 +114,8 @@ namespace SalaryCalculatorWeb.Controllers
             return View(remunerationBillViewModel);
         }
 
-        // GET: Employees/Delete/5
+        // GET: NonLaborContract/Delete/5
+        [HttpGet]
         public ActionResult Delete(int id, RemunerationBill bill)
         {
             bill = this.remunerationBillService.GetById(id);
@@ -127,7 +128,7 @@ namespace SalaryCalculatorWeb.Controllers
             return View(nonLaborContractModel);
         }
 
-        // POST: Employees/Delete/5
+        // POST: NonLaborContract/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id, PreviewRemunerationBillViewModel remunerationBillViewModel)

@@ -82,5 +82,61 @@ namespace SalaryCalculatorWeb.Controllers
 
             return View(freelanceContractModel);
         }
+
+        // GET: FreelanceContract/Edit/5
+        [HttpGet]
+        public ActionResult Edit(int id, SelfEmployment selfEmployment)
+        {
+            selfEmployment = this.selfEmploymentService.GetById(id);
+            if (selfEmployment == null)
+            {
+                return HttpNotFound();
+            }
+            var freelanceContractModel = this.mapService.Map<PreviewSelfEmploymentViewModel>(selfEmployment);
+            var employee = this.employeeService.GetById(selfEmployment.EmployeeId);
+            freelanceContractModel.EmployeeId = employee.Id;
+            freelanceContractModel.EmployeeFullName = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
+
+            return View(freelanceContractModel);
+        }
+
+        // POST: FreelanceContract/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(PreviewSelfEmploymentViewModel selfEmploymentViewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var selfEmployment = this.mapService.Map<SelfEmployment>(selfEmploymentViewModel);
+                selfEmployment.EmployeeId = selfEmploymentViewModel.EmployeeId;
+                this.selfEmploymentService.UpdateById(selfEmployment.Id, selfEmployment);
+                return RedirectToAction("Details", "Employees", new { id = selfEmployment.EmployeeId });
+            }
+            return View(selfEmploymentViewModel);
+        }
+
+        // GET: FreelanceContract/Delete/5
+        [HttpGet]
+        public ActionResult Delete(int id, SelfEmployment selfEmployment)
+        {
+            selfEmployment = this.selfEmploymentService.GetById(id);
+            if (selfEmployment == null)
+            {
+                return HttpNotFound();
+            }
+
+            var freelanceContractModel = this.mapService.Map<PreviewSelfEmploymentViewModel>(selfEmployment);
+            return View(freelanceContractModel);
+        }
+
+        // POST: Freelance/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id, PreviewSelfEmploymentViewModel selfEmploymentViewModel)
+        {
+            this.selfEmploymentService.DeleteById(id);
+
+            return RedirectToAction("Index", "Employees");
+        }
     }
 }

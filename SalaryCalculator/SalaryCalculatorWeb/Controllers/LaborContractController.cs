@@ -113,7 +113,8 @@ namespace SalaryCalculatorWeb.Controllers
             return View(paycheckViewModel);
         }
 
-        // GET: Employees/Delete/5
+        // GET: LaborContract/Delete/5
+        [HttpGet]
         public ActionResult Delete(int id, EmployeePaycheck paycheck)
         {
             paycheck = this.employeePaycheckService.GetById(id);
@@ -126,7 +127,7 @@ namespace SalaryCalculatorWeb.Controllers
             return View(employeeViewModel);
         }
 
-        // POST: Employees/Delete/5
+        // POST: LaborContract/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id, PreviewEmployeePaycheckViewModel paycheckViewModel)

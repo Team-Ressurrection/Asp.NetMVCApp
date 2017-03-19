@@ -4,6 +4,12 @@
     <h1>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</h1>
     <hr />
 </div>
+<p>
+    @Html.ActionLink("Add Labor Contract", "CreateLaborContract", "LaborContract", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-primary btn-sm" })
+    @Html.ActionLink("Add Non-Labor Contract", "CreateNonLaborContract", "NonLaborContract", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-info btn-sm" })
+    @Html.ActionLink("Add Freelance Contract", "CreateFreelanceContract", "FreelanceContract", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-warning btn-sm" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-sm" })
+</p>
 @if (Model.EmployeePaychecks.Count() != 0)
 {
     <h2>Paychecks</h2>
@@ -201,9 +207,3 @@
         }
     </table>
 }
-<p>
-    @Html.ActionLink("Add Labor Contract", "CreateLaborContract", "LaborContract", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-primary btn-sm" })
-    @Html.ActionLink("Add Non-Labor Contract", "CreateNonLaborContract", "NonLaborContract", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-info btn-sm" })
-    @Html.ActionLink("Add Freelance Contract", "CreateFreelanceContract", "FreelanceContract", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-warning btn-sm" })
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-sm" })
-</p>
