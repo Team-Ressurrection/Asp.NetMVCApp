@@ -11,7 +11,7 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
 {
     public class CreateSelfEmploymentViewModel : IMapFrom<SelfEmployment>
     {
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime CreatedDate { get; set; }
 
         public virtual decimal SocialSecurityIncome { get; set; }

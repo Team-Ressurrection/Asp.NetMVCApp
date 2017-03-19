@@ -12,5 +12,7 @@
 
         public const decimal PersonalInsurancePercent = 0.129m;
         public const decimal IncomeTaxPercent = 0.1m;
+
+        public const decimal MinimumSalaryValue = 1m;
     }
 }

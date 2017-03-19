@@ -9,6 +9,7 @@ using SalaryCalculator.Utilities.Calculations;
 using SalaryCalculator.Utilities.Constants;
 
 using SalaryCalculatorWeb.Models.ContractViewModels;
+using System;
 
 namespace SalaryCalculatorWeb.Controllers
 {
@@ -54,6 +55,7 @@ namespace SalaryCalculatorWeb.Controllers
             employeePaycheck.EmployeeId = id;
             employeePaycheck.Employee = employee;
             var laborContractModel = this.mapService.Map<CreateEmployeePaycheckViewModel>(employeePaycheck);
+            laborContractModel.CreatedDate = DateTime.Today;
             return View(laborContractModel);
         }
 
