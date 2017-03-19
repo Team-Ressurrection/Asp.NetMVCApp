@@ -80,5 +80,20 @@ namespace SalaryCalculatorWeb.Controllers
 
             return View(laborContractModel);
         }
+
+        // GET: Employees/Edit/5
+        public ActionResult Edit(int id, EmployeePaycheck paycheck)
+        {
+            paycheck = this.employeePaycheckService.GetById(id);
+            if (paycheck == null)
+            {
+                return HttpNotFound();
+            }
+            var laborContractModel = this.mapService.Map<PreviewEmployeePaycheckViewModel>(paycheck);
+            var employee = this.employeeService.GetById(paycheck.EmployeeId);
+            laborContractModel.EmployeeFullName = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
+
+            return View(laborContractModel);
+        }
     }
 }

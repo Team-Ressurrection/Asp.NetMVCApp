@@ -13,7 +13,7 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
     {
         public int Id { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime CreatedDate { get; set; }
 
         public virtual decimal GrossSalary { get; set; }

@@ -35,6 +35,7 @@
             <th>
                 Net Wage
             </th>
+            <th></th>
         </tr>
 
         <h2>Paychecks</h2>
@@ -68,6 +69,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.NetWage)
                 </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "LaborContract", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" })
+                    @Html.ActionLink("Delete", "Delete", "LaborContract", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                </td>
             </tr>
         }
     </table>
@@ -98,6 +103,7 @@
             <th>
                 Net Wage
             </th>
+            <th></th>
         </tr>
 
         <h2>Remuneration Bills</h2>
@@ -124,6 +130,10 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.NetWage)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "NonLaborContract", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" })
+                    @Html.ActionLink("Delete", "Delete", "NonLaborContract", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
                 </td>
             </tr>
         }
@@ -155,9 +165,10 @@
             <th>
                 Net Wage
             </th>
+            <th></th>
         </tr>
 
-        <h2>Remuneration Bills</h2>
+        <h2>Self Insurance documents</h2>
         @foreach (var item in Model.SelfEmployments)
         {
             <tr>
@@ -181,6 +192,10 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.NetWage)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "FreelanceContract", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" })
+                    @Html.ActionLink("Delete", "Delete", "FreelanceContract", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
                 </td>
             </tr>
         }
