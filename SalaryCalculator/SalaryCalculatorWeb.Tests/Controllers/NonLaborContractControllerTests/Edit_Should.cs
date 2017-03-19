@@ -138,7 +138,6 @@ namespace SalaryCalculatorWeb.Tests.Controllers.NonLaborContractControllerTests
             var billService = new Mock<IRemunerationBillService>();
             var payrollCalculations = new Mock<Payroll>();
 
-            var id = 5;
             var nonLaborContractModel = new Mock<PreviewRemunerationBillViewModel>();
 
             // Act

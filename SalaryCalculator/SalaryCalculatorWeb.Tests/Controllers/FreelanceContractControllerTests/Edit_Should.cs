@@ -138,7 +138,6 @@ namespace SalaryCalculatorWeb.Tests.Controllers.FreelanceContractControllerTests
             var selfEmploymentService = new Mock<ISelfEmploymentService>();
             var payrollCalculations = new Mock<Payroll>();
 
-            var id = 5;
             var freelanceContractModel = new Mock<PreviewSelfEmploymentViewModel>();
 
             // Act
