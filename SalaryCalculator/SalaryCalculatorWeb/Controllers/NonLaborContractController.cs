@@ -81,5 +81,60 @@ namespace SalaryCalculatorWeb.Controllers
 
             return View(nonLaborContractModel);
         }
+
+        // GET: LaborContract/Edit/5
+        [HttpGet]
+        public ActionResult Edit(int id, RemunerationBill bill)
+        {
+            bill = this.remunerationBillService.GetById(id);
+            if (bill == null)
+            {
+                return HttpNotFound();
+            }
+            var nonLaborContractModel = this.mapService.Map<PreviewRemunerationBillViewModel>(bill);
+            var employee = this.employeeService.GetById(bill.EmployeeId);
+            nonLaborContractModel.EmployeeId = employee.Id;
+            nonLaborContractModel.EmployeeFullName = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
+
+            return View(nonLaborContractModel);
+        }
+
+        // POST: LaborContract/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(PreviewRemunerationBillViewModel remunerationBillViewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var remunerationBill = this.mapService.Map<RemunerationBill>(remunerationBillViewModel);
+                remunerationBill.EmployeeId = remunerationBillViewModel.EmployeeId;
+                this.remunerationBillService.UpdateById(remunerationBill.Id, remunerationBill);
+                return RedirectToAction("Details", "Employees", new { id = remunerationBill.EmployeeId });
+            }
+            return View(remunerationBillViewModel);
+        }
+
+        // GET: Employees/Delete/5
+        public ActionResult Delete(int id, RemunerationBill bill)
+        {
+            bill = this.remunerationBillService.GetById(id);
+            if (bill == null)
+            {
+                return HttpNotFound();
+            }
+
+            var nonLaborContractModel = this.mapService.Map<PreviewRemunerationBillViewModel>(bill);
+            return View(nonLaborContractModel);
+        }
+
+        // POST: Employees/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id, PreviewRemunerationBillViewModel remunerationBillViewModel)
+        {
+            this.remunerationBillService.DeleteById(id);
+
+            return RedirectToAction("Index", "Employees");
+        }
     }
 }

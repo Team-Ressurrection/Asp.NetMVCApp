@@ -1,4 +1,4 @@
-﻿@model SalaryCalculatorWeb.Models.ContractViewModels.PreviewEmployeePaycheckViewModel
+﻿@model SalaryCalculatorWeb.Models.ContractViewModels.PreviewRemunerationBillViewModel
 
 @using (Html.BeginForm())
 {
@@ -32,22 +32,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GrossSalary, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GrossSalary, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.GrossFixedBonus, "Gross Fixed Bonus", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GrossFixedBonus, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GrossFixedBonus, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.GrossNonFixedBonus, "Gross Non-Fixed Bonus", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GrossNonFixedBonus, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GrossNonFixedBonus, "", new { @class = "text-danger" })
             </div>
         </div>
 

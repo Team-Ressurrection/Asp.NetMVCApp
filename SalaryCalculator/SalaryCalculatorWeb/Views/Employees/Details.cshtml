@@ -6,6 +6,7 @@
 </div>
 @if (Model.EmployeePaychecks.Count() != 0)
 {
+    <h2>Paychecks</h2>
     <table class="table table-bordered table-hover table-responsive table-striped">
         <tr>
             <th>
@@ -38,7 +39,6 @@
             <th></th>
         </tr>
 
-        <h2>Paychecks</h2>
         @foreach (var item in Model.EmployeePaychecks)
         {
             <tr>
@@ -70,8 +70,8 @@
                     @Html.DisplayFor(modelItem => item.NetWage)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", "LaborContract", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" })
-                    @Html.ActionLink("Delete", "Delete", "LaborContract", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                    @Html.ActionLink("Edit", "Edit", "LaborContract", new { id = item.Id }, new { @class = "btn btn-warning btn-xs" })
+                    @Html.ActionLink("Delete", "Delete", "LaborContract", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
                 </td>
             </tr>
         }
@@ -80,6 +80,7 @@
 
 @if (Model.RemunerationBills.Count() != 0)
 {
+    <h2>Remuneration Bills</h2>
     <table class="table table-bordered table-hover table-responsive table-striped">
         <tr>
             <th>
@@ -106,7 +107,6 @@
             <th></th>
         </tr>
 
-        <h2>Remuneration Bills</h2>
         @foreach (var item in Model.RemunerationBills)
         {
             <tr>
@@ -132,8 +132,8 @@
                     @Html.DisplayFor(modelItem => item.NetWage)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", "NonLaborContract", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" })
-                    @Html.ActionLink("Delete", "Delete", "NonLaborContract", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                    @Html.ActionLink("Edit", "Edit", "NonLaborContract", new { id = item.Id }, new { @class = "btn btn-warning btn-xs" })
+                    @Html.ActionLink("Delete", "Delete", "NonLaborContract", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
                 </td>
             </tr>
         }
@@ -142,6 +142,7 @@
 
 @if (Model.SelfEmployments.Count() != 0)
 {
+    <h2>Self Insurance documents</h2>
     <table class="table table-bordered table-hover table-responsive table-striped">
         <tr>
             <th>
@@ -168,7 +169,6 @@
             <th></th>
         </tr>
 
-        <h2>Self Insurance documents</h2>
         @foreach (var item in Model.SelfEmployments)
         {
             <tr>
@@ -194,8 +194,8 @@
                     @Html.DisplayFor(modelItem => item.NetWage)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", "FreelanceContract", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" })
-                    @Html.ActionLink("Delete", "Delete", "FreelanceContract", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                    @Html.ActionLink("Edit", "Edit", "FreelanceContract", new { id = item.Id }, new { @class = "btn btn-warning btn-xs" })
+                    @Html.ActionLink("Delete", "Delete", "FreelanceContract", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
                 </td>
             </tr>
         }
