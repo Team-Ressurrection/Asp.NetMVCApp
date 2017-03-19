@@ -81,7 +81,7 @@ namespace SalaryCalculatorWeb.Controllers
             return View(laborContractModel);
         }
 
-        // GET: Employees/Edit/5
+        // GET: LaborContract/Edit/5
         public ActionResult Edit(int id, EmployeePaycheck paycheck)
         {
             paycheck = this.employeePaycheckService.GetById(id);
@@ -91,9 +91,25 @@ namespace SalaryCalculatorWeb.Controllers
             }
             var laborContractModel = this.mapService.Map<PreviewEmployeePaycheckViewModel>(paycheck);
             var employee = this.employeeService.GetById(paycheck.EmployeeId);
+            laborContractModel.EmployeeId = employee.Id;
             laborContractModel.EmployeeFullName = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;
 
             return View(laborContractModel);
+        }
+
+        // POST: LaborContract/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(PreviewEmployeePaycheckViewModel paycheckViewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var employeePaycheck = this.mapService.Map<EmployeePaycheck>(paycheckViewModel);
+                employeePaycheck.EmployeeId = paycheckViewModel.EmployeeId;
+                this.employeePaycheckService.UpdateById(employeePaycheck.Id, employeePaycheck);
+                return RedirectToAction("Details","Employees",new { id=employeePaycheck.EmployeeId});
+            }
+            return View(paycheckViewModel);
         }
     }
 }
