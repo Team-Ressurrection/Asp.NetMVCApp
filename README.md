@@ -22,18 +22,29 @@ You can view the youtube video here:
 ## Usage
 
 #### Basic usage
-  1. Registered users can create payroll documents such as: 
-    - Employee paychecks
-    - Remuneration Bills
-    - or can calculate personal insurance of selfemployment people.
-  2. Automatic calculation for each person:
-    - social security income
-    - income tax
-    - net wage
-  3. Could view reports for all documents of their employees:
-    - All Labor contracts
-    - All Non-Labor contracts
-    - All personal insurance information for selfemployment people
+  1. Register as a company or single user
+  2. Add Employees
+    Required parameters:
+      - First Name
+      - Surname
+      - Family Name
+      - Personal Id
+  3. Create documents
+      - Employee paychecks
+      - Remuneration Bills
+      - calculate personal insurance of selfemployment people.
+  4. Automatic calculation for each employee:
+      - personal insurance
+      - social security income
+      - income tax
+      - net wage
+  5. Could view reports for all documents of their employees:
+      - All Labor contracts
+      - All Non-Labor contracts
+      - All personal insurance information for selfemployment people
+      - Total insurance expenses
+      - Total income taxes
+      - Total payments for employees
 
 #### Registration
 You can register at our website in Register menu.
