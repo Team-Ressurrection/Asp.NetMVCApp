@@ -68,6 +68,7 @@ namespace SalaryCalculatorWeb.Controllers
             {
                 var employee = this.mapService.Map<Employee>(employeeViewModel);
                 this.employeeService.Create(employee);
+                
                 return RedirectToAction("Index");
             }
 

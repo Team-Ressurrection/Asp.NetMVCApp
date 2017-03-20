@@ -1,5 +1,6 @@
 ﻿using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
+using SalaryCalculator.Utilities.Constants;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,14 +17,21 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime CreatedDate { get; set; }
 
+        [Required(ErrorMessage = "Gross Salary is required and must be greater than zero.")]
+        [Range((double)ValidationConstants.MinimumSalaryValue, 1000000)]
         public virtual decimal GrossSalary { get; set; }
 
+        [Required(ErrorMessage = "Social Security Income is required and must be greater than zero.")]
+        [Range((double)ValidationConstants.MinSocialSecurityIncome, (double)ValidationConstants.MaxSocialSecurityIncome)]
         public virtual decimal SocialSecurityIncome { get; set; }
 
+        [Range(0, (double)ValidationConstants.MaximumSalaryValue, ErrorMessage = "The field must be between {1} and {2}.")]
         public decimal PersonalInsurance { get; set; }
 
+        [Range(0, (double)ValidationConstants.MaximumSalaryValue, ErrorMessage = "The field must be between {1} and {2}.")]
         public decimal IncomeTax { get; set; }
 
+        [Range(0, (double)ValidationConstants.MaximumSalaryValue, ErrorMessage = "The field must be between {1} and {2}.")]
         public decimal NetWage { get; set; }
 
         public int EmployeeId { get; set; }

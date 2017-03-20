@@ -33,19 +33,6 @@ namespace SalaryCalculatorWeb.Controllers
             this.selfEmploymentService = selfEmploymentService;
             this.calculate = calculate;
         }
-        // GET: LaborContract
-        [HttpGet]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: LaborContract/Details/5
-        [HttpGet]
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
         // GET: LaborContract/CreateLaborContract/5
         [HttpGet]
@@ -54,8 +41,9 @@ namespace SalaryCalculatorWeb.Controllers
             var employee = this.employeeService.GetById(id);
             selfEmployment.EmployeeId = id;
             selfEmployment.Employee = employee;
-            var laborContractModel = this.mapService.Map<CreateSelfEmploymentViewModel>(selfEmployment);
-            return View(laborContractModel);
+            var freelanceContractModel = this.mapService.Map<CreateSelfEmploymentViewModel>(selfEmployment);
+            freelanceContractModel.CreatedDate = DateTime.Now;
+            return View(freelanceContractModel);
         }
 
         // POST: LaborContract/Create

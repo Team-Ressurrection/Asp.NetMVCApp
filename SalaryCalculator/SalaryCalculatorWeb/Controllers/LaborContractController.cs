@@ -33,19 +33,6 @@ namespace SalaryCalculatorWeb.Controllers
             this.employeePaycheckService = employeePaycheckService;
             this.calculate = calculate;
         }
-        // GET: LaborContract
-        [HttpGet]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: LaborContract/Details/5
-        [HttpGet]
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
         // GET: LaborContract/CreateLaborContract/5
         [HttpGet]

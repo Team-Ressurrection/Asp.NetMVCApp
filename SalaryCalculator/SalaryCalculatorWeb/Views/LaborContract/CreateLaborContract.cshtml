@@ -5,15 +5,15 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>EmployeePaycheck</h4>
+        <h2>EmployeePaycheck</h2>
         <hr />
-        @Html.ValidationSummary("", new { @class = "text-danger" })
+        @Html.ValidationSummary(false,"", new { @class = "text-danger" })
 
         <div class="form-group">
             @Html.LabelFor(model => model.CreatedDate, "Created Date", htmlAttributes: new { @class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CreatedDate, "Date must be in format dd.MM.yyyy", new { @class = "text-danger" },"strong")
+                @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-primary" },"strong")
             </div>
         </div>
 
@@ -45,7 +45,7 @@
             @Html.LabelFor(model => model.GrossSalary, "Gross Salary", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GrossSalary, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GrossSalary, "Value must be greater than 0 (zero).", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.GrossSalary, "", new { @class = "text-primary" }, "strong")
             </div>
         </div>
 
@@ -53,7 +53,7 @@
             @Html.LabelFor(model => model.GrossFixedBonus, "Fixed Bonus", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GrossFixedBonus, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GrossFixedBonus, "Value cannot be less than 0 (zero).", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.GrossFixedBonus, "", new { @class = "text-primary" }, "strong")
             </div>
         </div>
 
@@ -61,7 +61,7 @@
             @Html.LabelFor(model => model.GrossNonFixedBonus, "NonFixed Bonus", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.GrossNonFixedBonus, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GrossNonFixedBonus, "Value cannot be less than 0 (zero).", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.GrossNonFixedBonus, "", new { @class = "text-primary" }, "strong")
             </div>
         </div>
 
@@ -72,4 +72,8 @@
             </div>
         </div>
     </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

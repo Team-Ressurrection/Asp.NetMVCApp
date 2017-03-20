@@ -9,6 +9,7 @@ using SalaryCalculator.Utilities.Calculations;
 using SalaryCalculator.Utilities.Constants;
 
 using SalaryCalculatorWeb.Models.ContractViewModels;
+using System;
 
 namespace SalaryCalculatorWeb.Controllers
 {
@@ -33,20 +34,6 @@ namespace SalaryCalculatorWeb.Controllers
             this.calculate = calculate;
         }
 
-        // GET: NonLaborContract
-        [HttpGet]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        // GET: NonLaborContract/Details/5
-        [HttpGet]
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: NonLaborContract/Create
         [HttpGet]
         public ActionResult CreateNonLaborContract(int id, RemunerationBill remunerationBill)
@@ -55,6 +42,7 @@ namespace SalaryCalculatorWeb.Controllers
             remunerationBill.EmployeeId = id;
             remunerationBill.Employee = employee;
             var nonLaborContractModel = this.mapService.Map<CreateRemunerationBillViewModel>(remunerationBill);
+            nonLaborContractModel.CreatedDate = DateTime.Now;
             return View(nonLaborContractModel);
         }
 

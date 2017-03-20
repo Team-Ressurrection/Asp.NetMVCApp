@@ -14,7 +14,7 @@
             @Html.LabelFor(model => model.FirstName, "First Name",htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-primary" },"strong")
             </div>
         </div>
 
@@ -22,7 +22,7 @@
             @Html.LabelFor(model => model.MiddleName, "Middle Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-primary" }, "strong")
             </div>
         </div>
 
@@ -30,7 +30,7 @@
             @Html.LabelFor(model => model.LastName, "Last Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-primary" }, "strong")
             </div>
         </div>
 
@@ -38,7 +38,7 @@
             @Html.LabelFor(model => model.PersonalId, "Personal Id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PersonalId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PersonalId, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.PersonalId, "", new { @class = "text-primary" }, "strong")
             </div>
         </div>
 
