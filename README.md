@@ -6,10 +6,10 @@
 [![Coverage Status](https://coveralls.io/repos/github/Team-Ressurrection/Asp.NetMVCApp/badge.svg?branch=master)](https://coveralls.io/github/Team-Ressurrection/Asp.NetMVCApp?branch=master)
 
 ###:mortar_board:Team Members
-| Name              | Academy Username      	|
+| Name              | Academy Username  |
 |-------------------|-------------------|
 |                   | :white_check_mark:|
-|Александър Несторов |__Alexander.N__	        |
+|Александър Несторов|__Alexander.N__	  |
 
 ## Project Description  
 
