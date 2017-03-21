@@ -10,26 +10,26 @@ using System.Threading.Tasks;
 namespace SalaryCalculator.FunctionalTests
 {
     [TestFixture]
-   public class LoginPageTests
+    public class LoginPageTests
     {
-        //private IWebDriver driver;
+        private IWebDriver driver;
 
-        //[Test]
-        //public void ShouldFillAllFieldsAndClickLoginButton()
-        //{
-        //    this.driver = new ChromeDriver();
-        //    this.driver.Navigate().GoToUrl("http://www.salarycalculatormvc.com/account/login");
+        [Test]
+        public void ShouldFillAllFieldsAndClickLoginButton()
+        {
+            this.driver = new ChromeDriver();
+            this.driver.Navigate().GoToUrl("http://www.salarycalculatormvc.com/account/login");
 
-        //    IWebElement userNameInput = this.driver.FindElement(By.Id("Email"));
-        //    userNameInput.SendKeys("Alexander");
+            IWebElement userNameInput = this.driver.FindElement(By.Id("Email"));
+            userNameInput.SendKeys("Alexander");
 
-        //    IWebElement passwordInput = this.driver.FindElement(By.Id("Password"));
-        //    passwordInput.SendKeys("123456");
+            IWebElement passwordInput = this.driver.FindElement(By.Id("Password"));
+            passwordInput.SendKeys("123456");
 
-        //    IWebElement loginButton = this.driver.FindElement(By.ClassName("btn-default"));
-        //    loginButton.Click();
+            IWebElement loginButton = this.driver.FindElement(By.ClassName("btn-primary"));
+            loginButton.Click();
 
-        //    this.driver.Quit();
-        //}
+            this.driver.Quit();
+        }
     }
 }

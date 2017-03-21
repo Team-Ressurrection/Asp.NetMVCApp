@@ -86,6 +86,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AddEmployeePage.cs" />
     <Compile Include="HomePageTests.cs" />
     <Compile Include="LoginPageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
