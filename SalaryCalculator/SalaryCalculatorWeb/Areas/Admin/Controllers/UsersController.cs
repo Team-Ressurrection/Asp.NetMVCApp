@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace SalaryCalculatorWeb.Areas.Admin.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
     public class UsersController : Controller
     {
         private readonly IMapService mapService;
@@ -26,13 +26,13 @@ namespace SalaryCalculatorWeb.Areas.Admin.Controllers
         }
 
         // GET: Admin/Users
-        public ActionResult Index(UsersViewModel usersViewModel)
+        public ActionResult Index(IEnumerable<UsersViewModel> usersViewModel)
         {
 
             var users = this.userService.GetAll().AsEnumerable();
-            //usersViewModel.Users = this.mapService.Map<UsersViewModel>(users).Users;
 
-            return View(usersViewModel);
+            usersViewModel = this.mapService.Map<IEnumerable<UsersViewModel>>(users);
+            return View("Index",usersViewModel);
         }
     }
 }

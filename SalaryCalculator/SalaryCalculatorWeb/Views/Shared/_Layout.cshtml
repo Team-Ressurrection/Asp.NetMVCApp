@@ -25,14 +25,14 @@
                     <li>@Html.ActionLink(" Home", "Index", "Home", routeValues:null, htmlAttributes: new { @class = "glyphicon glyphicon-home" })</li>
                     <li>@Html.ActionLink(" About", "About", "Home", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-info-sign" })</li>
                     <li>@Html.ActionLink(" Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-globe" })</li>
-                    @if (Request.IsAuthenticated)
+                    @if (Request.IsAuthenticated && this.User.IsInRole("user"))
                     {
                     <li>@Html.ActionLink(" Add Employee", "Create", "Employees", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-user" })</li>
                     <li>@Html.ActionLink(" Employees", "Index", "Employees", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-book" })</li>
                     }
                     @if (this.User.IsInRole("Admin"))
                     {
-                    <li>@Html.ActionLink(" Settings", "Index", "Users", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-settings" })</li>
+                    <li>@Html.ActionLink(" Settings","Index", "Users", routeValues: new { area="Admin"}, htmlAttributes: new { @class = "glyphicon glyphicon-settings" })</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
