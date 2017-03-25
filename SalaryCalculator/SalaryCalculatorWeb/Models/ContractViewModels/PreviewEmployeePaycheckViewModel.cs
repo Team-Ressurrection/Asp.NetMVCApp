@@ -14,7 +14,7 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
     {
         public int Id { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime CreatedDate { get; set; }
 
         [Required(ErrorMessage = "Gross Salary is required and must be greater than zero.")]
@@ -27,8 +27,8 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
         [Range(0, (double)ValidationConstants.MaximumSalaryValue, ErrorMessage = "The field must be between {0} and {1}.")]
         public virtual decimal GrossNonFixedBonus { get; set; }
 
-        [Required(ErrorMessage = "Social Security Income is required and must be greater than zero.")]
-        [Range((double)ValidationConstants.MinSocialSecurityIncome, (double)ValidationConstants.MaxSocialSecurityIncome)]
+        //[Required(ErrorMessage = "Social Security Income is required and must be greater than zero.")]
+        //[Range((double)ValidationConstants.MinSocialSecurityIncome, (double)ValidationConstants.MaxSocialSecurityIncome)]
         public decimal SocialSecurityIncome { get; set; }
 
         [Range(0, (double)ValidationConstants.MaximumSalaryValue, ErrorMessage = "The field must be between {1} and {2}.")]

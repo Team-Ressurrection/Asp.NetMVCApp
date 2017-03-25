@@ -14,7 +14,7 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
     {
         public int Id { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime CreatedDate { get; set; }
 
         [Required(ErrorMessage = "Gross Salary is required and must be greater than zero.")]

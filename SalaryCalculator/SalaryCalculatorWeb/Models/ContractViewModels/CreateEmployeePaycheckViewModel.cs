@@ -11,8 +11,8 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
 {
     public class CreateEmployeePaycheckViewModel : IMapFrom<EmployeePaycheck>
     {
-        [Required(ErrorMessage ="Date field is required")]
-        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString = "{0:MM/dd/yyyy}")]
+        [Required(ErrorMessage = "Date field is required")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [DefaultValue(typeof(DateTime))]
         public DateTime CreatedDate { get; set; }
 
