@@ -17,5 +17,8 @@
 
         public const decimal MinimumSalaryValue = 1m;
         public const decimal MaximumSalaryValue = 1000000m;
+
+        public const string AdminRole = "Admin";
+        public const string UserRole = "user";
     }
 }

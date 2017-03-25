@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using SalaryCalculatorWeb.Models;
 using SalaryCalculator.Data.Models;
 using SalaryCalculatorWeb.Models.AccountViewModels;
+using SalaryCalculator.Utilities.Constants;
 
 namespace SalaryCalculatorWeb.Controllers
 {
@@ -153,12 +154,13 @@ namespace SalaryCalculatorWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Email, Email = model.Email, CompanyName = model.CompanyName, CompanyAddress = model.CompanyAddress };
+                
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    this.UserManager.AddToRole(user.Id, ValidationConstants.UserRole);
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

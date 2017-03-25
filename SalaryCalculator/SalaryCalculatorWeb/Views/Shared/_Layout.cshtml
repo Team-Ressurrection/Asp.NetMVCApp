@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using SalaryCalculator.Utilities.Constants
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,15 +23,16 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @if (Request.IsAuthenticated && this.User.IsInRole("user"))
-                    {
+                   
                     <li>@Html.ActionLink(" Home", "Index", "Home", routeValues:null, htmlAttributes: new { @class = "glyphicon glyphicon-home" })</li>
                     <li>@Html.ActionLink(" About", "About", "Home", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-info-sign" })</li>
                     <li>@Html.ActionLink(" Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-globe" })</li>
+                   @if (Request.IsAuthenticated && this.User.IsInRole(ValidationConstants.UserRole))
+                   {
                     <li>@Html.ActionLink(" Add Employee", "Create", "Employees", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-user" })</li>
                     <li>@Html.ActionLink(" Employees", "Index", "Employees", routeValues: null, htmlAttributes: new { @class = "glyphicon glyphicon-book" })</li>
                     }
-                    @if (this.User.IsInRole("Admin"))
+                    @if (this.User.IsInRole(ValidationConstants.AdminRole))
                     {
                         <li class="dropdown" id="Settings">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-wrench"> Settings </span><span class="caret"></span></a>
