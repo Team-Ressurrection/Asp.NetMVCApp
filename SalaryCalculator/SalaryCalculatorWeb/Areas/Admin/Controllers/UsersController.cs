@@ -1,5 +1,6 @@
 ﻿using Bytes2you.Validation;
 using SalaryCalculator.Configuration.Mappings;
+using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculatorWeb.Areas.Admin.Models;
 using System;
@@ -33,6 +34,51 @@ namespace SalaryCalculatorWeb.Areas.Admin.Controllers
 
             usersViewModel = this.mapService.Map<IEnumerable<UsersViewModel>>(users);
             return View("Index",usersViewModel);
+        }
+
+        [HttpGet]
+        public ActionResult Edit(Guid id,UsersViewModel userModel)
+        {
+            var user = this.userService.GetById(id.ToString());
+            userModel = this.mapService.Map<UsersViewModel>(user);
+
+            return View("Edit", userModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(UsersViewModel userModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var user = this.mapService.Map<User>(userModel);
+
+                this.userService.UpdateById(user.Id, user);
+                return RedirectToAction("Index", "Users");
+            }
+            return View(userModel);
+        }
+
+        [HttpGet]
+        public ActionResult Delete(Guid id, User user)
+        {
+            user = this.userService.GetById(id.ToString());
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            var userViewModel = this.mapService.Map<UsersViewModel>(user);
+            return View(userViewModel);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(Guid id, UsersViewModel userViewModel)
+        {
+            this.userService.DeleteById(id.ToString());
+
+            return RedirectToAction("Index", "Users");
         }
     }
 }
