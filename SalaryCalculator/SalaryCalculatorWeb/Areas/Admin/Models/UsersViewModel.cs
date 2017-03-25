@@ -9,14 +9,14 @@ namespace SalaryCalculatorWeb.Areas.Admin.Models
 {
     public class UsersViewModel : IMapFrom<User>
     {
-        public string Id { get; set; }
+        public virtual string Id { get; set; }
 
-        public string Email { get; set; }
+        public virtual string Email { get; set; }
 
-        public string UserName { get; set; }
+        public virtual string UserName { get; set; }
 
-        public string CompanyName { get; set; }
+        public virtual string CompanyName { get; set; }
 
-        public string CompanyAddress { get; set; }
+        public virtual string CompanyAddress { get; set; }
     }
 }

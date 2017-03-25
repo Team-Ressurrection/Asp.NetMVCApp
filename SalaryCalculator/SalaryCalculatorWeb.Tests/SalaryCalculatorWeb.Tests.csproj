@@ -180,6 +180,9 @@
     <Compile Include="Controllers\NonLaborContractControllerTests\Delete_Should.cs" />
     <Compile Include="Controllers\NonLaborContractControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\UsersControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\UsersControllerTests\Delete_Should.cs" />
+    <Compile Include="Controllers\UsersControllerTests\Edit_Should.cs" />
+    <Compile Include="Controllers\UsersControllerTests\Index_Should.cs" />
     <Compile Include="Data.EmployeeModels\Constructor_Should.cs" />
     <Compile Include="Data.EmployeeModels\Properties_Should.cs" />
     <Compile Include="Data.EmployeePaycheckModels\Constructor_Should.cs" />
