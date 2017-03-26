@@ -1,27 +1,27 @@
 ﻿@{
-    ViewBag.Title = "Users";
+    ViewBag.Title = "EmployeeAdmin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using SalaryCalculatorWeb.Areas.Admin.Models
-@model SalaryCalculatorWeb.Areas.Admin.Models.PageViewModel<UsersViewModel>
+@model SalaryCalculatorWeb.Areas.Admin.Models.PageViewModel<EmployeesViewModel>
 
 <h2>Users</h2>
 <table class="table table-bordered table-hover table-responsive table-striped">
     <tr>
         <th>
-            User Id
+            Employee Id
         </th>
         <th>
-            UserName
+            First Name
         </th>
         <th>
-            Companyname
+            Middle Name
         </th>
         <th>
-            Company address
+            Last Name
         </th>
         <th>
-            E-mail
+            Personal Id
         </th>
         <th></th>
     </tr>
@@ -33,20 +33,20 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserName)
+                @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CompanyName)
+                @Html.DisplayFor(modelItem => item.MiddleName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CompanyAddress)
+                @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+                @Html.DisplayFor(modelItem => item.PersonalId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", "Users", new { id = item.Id }, new { @class = "btn btn-warning btn-xs" })
-                @Html.ActionLink("Delete", "Delete", "Users", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
+                @Html.ActionLink("Edit", "Edit", "EmployeeAdmin", new { id = item.Id }, new { @class = "btn btn-warning btn-xs" })
+                @Html.ActionLink("Delete", "Delete", "EmployeeAdmin", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
             </td>
         </tr>
     }
@@ -56,26 +56,26 @@
             @if (Model.Pager.CurrentPage > 1)
             {
                 <li>
-                    <a href="~/Admin/Users/Index">First</a>
+                    <a href="~/Admin/EmployeeAdmin/Index">First</a>
                 </li>
                 <li>
-                    <a href="~/Admin/Users/Index?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
+                    <a href="~/Admin/EmployeeAdmin/Index?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
                 </li>
             }
 
             @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
             {
                 <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
-                    <a href="~/Admin/Users/Index?page=@page">@page</a>
+                    <a href="~/Admin/EmployeeAdmin/Index?page=@page">@page</a>
                 </li>}
 
             @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
             {
                 <li>
-                    <a href="~/Admin/Users/Index?page=@(Model.Pager.CurrentPage + 1)">Next</a>
+                    <a href="~/Admin/EmployeeAdmin/Index?page=@(Model.Pager.CurrentPage + 1)">Next</a>
                 </li>
                 <li>
-                    <a href="~/Admin/Users/Index?page=@(Model.Pager.TotalPages)">Last</a>
+                    <a href="~/Admin/EmployeeAdmin/Index?page=@(Model.Pager.TotalPages)">Last</a>
                 </li>
             }
         </ul>

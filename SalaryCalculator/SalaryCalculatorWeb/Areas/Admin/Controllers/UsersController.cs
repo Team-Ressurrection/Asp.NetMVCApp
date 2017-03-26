@@ -35,7 +35,7 @@ namespace SalaryCalculatorWeb.Areas.Admin.Controllers
 
         // GET: Admin/Users
         [HttpGet]
-        public ActionResult Index(int? page, PageViewModel pageViewModel)
+        public ActionResult Index(int? page, PageViewModel<UsersViewModel> pageViewModel)
         {
 
             var users = this.userService.GetAll().OrderBy(x=> x.UserName).AsEnumerable();

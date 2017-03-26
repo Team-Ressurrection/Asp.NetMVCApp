@@ -29,7 +29,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             var mockedPagerFactory = new Mock<IPagerFactory>();
 
             var model = new Mock<UsersViewModel>();
-            var pageModel = new Mock<PageViewModel>();
+            var pageModel = new Mock<PageViewModel<UsersViewModel>>();
             var user = new FakeUser() { UserName = "Payroll" };
             model.SetupProperty(x => x.UserName, "Payroll");
             IEnumerable<User> collectionUsers = new List<User>() { user };
