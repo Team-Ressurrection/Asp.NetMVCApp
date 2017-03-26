@@ -1,9 +1,7 @@
-﻿using SalaryCalculator.Configuration.Mappings;
+﻿using System;
+
+using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace SalaryCalculatorWeb.Areas.Admin.Models
 {
