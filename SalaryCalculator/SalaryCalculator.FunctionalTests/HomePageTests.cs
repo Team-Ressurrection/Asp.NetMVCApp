@@ -40,7 +40,7 @@ namespace SalaryCalculator.FunctionalTests
             this.driver.Navigate().GoToUrl("http://www.salarycalculatormvc.com/account/login");
 
             IWebElement userNameInput = this.driver.FindElement(By.Id("Email"));
-            userNameInput.SendKeys("demo@mail.bg");
+            userNameInput.SendKeys("demouser@gmail.com");
 
             IWebElement passwordInput = this.driver.FindElement(By.Id("Password"));
             passwordInput.SendKeys("123456");
@@ -62,7 +62,7 @@ namespace SalaryCalculator.FunctionalTests
             this.driver.Navigate().GoToUrl("http://www.salarycalculatormvc.com/account/login");
 
             IWebElement userNameInput = this.driver.FindElement(By.Id("Email"));
-            userNameInput.SendKeys("demo@mail.bg");
+            userNameInput.SendKeys("demouser@gmail.com");
 
             IWebElement passwordInput = this.driver.FindElement(By.Id("Password"));
             passwordInput.SendKeys("123456");
