@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
+namespace SalaryCalculatorWeb.Tests.Controllers.AdminArea.EmployeeAdminControllerTests
 {
     [TestFixture]
     public class Constructor_Should
@@ -20,14 +20,14 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
         {
             // Arrange
             var mockedMapService = new Mock<IMapService>();
-            var mockedUserService = new Mock<IUserService>();
+            var mockedEmployeeService = new Mock<IEmployeeService>();
             var mockedPagerFactory = new Mock<IPagerFactory>();
 
             // Act
-            UsersController usersController = new UsersController(mockedMapService.Object, mockedPagerFactory.Object, mockedUserService.Object);
+            EmployeeAdminController employeeAdminController = new EmployeeAdminController(mockedMapService.Object, mockedPagerFactory.Object, mockedEmployeeService.Object);
 
             // Assert
-            Assert.IsInstanceOf<UsersController>(usersController);
+            Assert.IsInstanceOf<EmployeeAdminController>(employeeAdminController);
         }
 
         [Test]
@@ -35,11 +35,11 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
         {
             // Arrange
             IMapService mockedMapService = null;
-            var mockedUserService = new Mock<IUserService>();
+            var mockedUserService = new Mock<IEmployeeService>();
             var mockedPagerFactory = new Mock<IPagerFactory>();
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService, mockedPagerFactory.Object, mockedUserService.Object));
+            Assert.Throws<ArgumentNullException>(() => new EmployeeAdminController(mockedMapService, mockedPagerFactory.Object, mockedUserService.Object));
         }
 
         [Test]
@@ -47,11 +47,11 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
         {
             // Arrange
             var mockedMapService = new Mock<IMapService>();
-            IUserService mockedUserService = null;
+            IEmployeeService mockedUserService = null;
             var mockedPagerFactory = new Mock<IPagerFactory>();
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService.Object, mockedPagerFactory.Object, mockedUserService));
+            Assert.Throws<ArgumentNullException>(() => new EmployeeAdminController(mockedMapService.Object, mockedPagerFactory.Object, mockedUserService));
         }
 
         [Test]
@@ -59,11 +59,11 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
         {
             // Arrange
             var mockedMapService = new Mock<IMapService>();
-            var mockedUserService = new Mock<IUserService>();
+            var mockedUserService = new Mock<IEmployeeService>();
             IPagerFactory mockedPagerFactory = null;
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService.Object, mockedPagerFactory, mockedUserService.Object));
+            Assert.Throws<ArgumentNullException>(() => new EmployeeAdminController(mockedMapService.Object, mockedPagerFactory, mockedUserService.Object));
         }
     }
 }

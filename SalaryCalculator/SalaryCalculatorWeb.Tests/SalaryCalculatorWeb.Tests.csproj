@@ -150,6 +150,10 @@
     <Compile Include="Controllers\AccountControllerTests\ResetPasswordConfirmation_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\ResetPassword_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\VerifyCode.cs" />
+    <Compile Include="Controllers\AdminArea\EmployeeAdminControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\AdminArea\EmployeeAdminControllerTests\Delete_Should.cs" />
+    <Compile Include="Controllers\AdminArea\EmployeeAdminControllerTests\Edit_Should.cs" />
+    <Compile Include="Controllers\AdminArea\EmployeeAdminControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\EmployeeControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\EmployeeControllerTests\Create_Should.cs" />
     <Compile Include="Controllers\EmployeeControllerTests\DeleteConfirmed_Should.cs" />
@@ -181,10 +185,10 @@
     <Compile Include="Controllers\NonLaborContractControllerTests\Edit_Should.cs" />
     <Compile Include="Controllers\ReportsControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\ReportsControllerTests\LaborCost_Should.cs" />
-    <Compile Include="Controllers\UsersControllerTests\Constructor_Should.cs" />
-    <Compile Include="Controllers\UsersControllerTests\Delete_Should.cs" />
-    <Compile Include="Controllers\UsersControllerTests\Edit_Should.cs" />
-    <Compile Include="Controllers\UsersControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\AdminArea\UsersControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\AdminArea\UsersControllerTests\Delete_Should.cs" />
+    <Compile Include="Controllers\AdminArea\UsersControllerTests\Edit_Should.cs" />
+    <Compile Include="Controllers\AdminArea\UsersControllerTests\Index_Should.cs" />
     <Compile Include="Data.EmployeeModels\Constructor_Should.cs" />
     <Compile Include="Data.EmployeeModels\Properties_Should.cs" />
     <Compile Include="Data.EmployeePaycheckModels\Constructor_Should.cs" />

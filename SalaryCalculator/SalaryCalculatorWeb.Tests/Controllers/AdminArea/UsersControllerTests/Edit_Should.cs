@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
+namespace SalaryCalculatorWeb.Tests.Controllers.AdminArea.UsersControllerTests
 {
     [TestFixture]
    public class Edit_Should
