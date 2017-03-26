@@ -179,6 +179,8 @@
     <Compile Include="Controllers\NonLaborContractControllerTests\CreateLaborContract_Should.cs" />
     <Compile Include="Controllers\NonLaborContractControllerTests\Delete_Should.cs" />
     <Compile Include="Controllers\NonLaborContractControllerTests\Edit_Should.cs" />
+    <Compile Include="Controllers\ReportsControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\ReportsControllerTests\LaborCost_Should.cs" />
     <Compile Include="Controllers\UsersControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\UsersControllerTests\Delete_Should.cs" />
     <Compile Include="Controllers\UsersControllerTests\Edit_Should.cs" />

@@ -7,10 +7,10 @@ namespace SalaryCalculatorWeb.Models.ReportViewModel
 {
     public class TotalLaborCostViewModel
     {
-        public decimal TotalIncomeTaxes { get; set; }
+        public virtual decimal TotalIncomeTaxes { get; set; }
 
-        public decimal TotalSocialSecurityIncome { get; set; }
+        public virtual decimal TotalSocialSecurityIncome { get; set; }
 
-        public decimal TotalEmployerInsuranceTaxes { get; set; }
+        public virtual decimal TotalEmployerInsuranceTaxes { get; set; }
     }
 }
