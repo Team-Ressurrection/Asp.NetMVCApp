@@ -28,12 +28,26 @@ namespace SalaryCalculatorWeb.Controllers
         [HttpGet]
         public ActionResult LaborCost(TotalLaborCostViewModel costViewModel)
         {
-            var totalSocialSecurityIncomes =  this.paycheckService.GetAll().Sum(x => x.SocialSecurityIncome);
-            var totalEmployerSSI = totalSocialSecurityIncomes * ValidationConstants.EmployerInsurancePercent;
-            var totalTaxIncomes = this.paycheckService.GetAll().Sum(x => x.IncomeTax);
-            costViewModel.TotalIncomeTaxes = totalTaxIncomes;
-            costViewModel.TotalSocialSecurityIncome = totalSocialSecurityIncomes;
-            costViewModel.TotalEmployerInsuranceTaxes = totalEmployerSSI;
+            var totalLaborSocialSecurityIncomes =  this.paycheckService.GetAll().Sum(x => x.SocialSecurityIncome);
+            var totalLaborEmployerSSI = totalLaborSocialSecurityIncomes * ValidationConstants.EmployerInsurancePercent;
+            var totalLaborTaxIncomes = this.paycheckService.GetAll().Sum(x => x.IncomeTax);
+
+            var totalNonLaborSocialSecurityIncomes = this.billService.GetAll().Sum(x => x.SocialSecurityIncome);
+            var totalNonLaborEmployerSSI = totalNonLaborSocialSecurityIncomes * ValidationConstants.EmployerInsurancePercent;
+            var totalNonLaborTaxIncomes = this.billService.GetAll().Sum(x => x.IncomeTax);
+
+            costViewModel.TotalLaborIncomeTaxes = totalLaborTaxIncomes;
+            costViewModel.TotalLaborSocialSecurityIncome = totalLaborSocialSecurityIncomes;
+            costViewModel.TotalLaborEmployerInsuranceTaxes = totalLaborEmployerSSI;
+
+            costViewModel.TotalNonLaborIncomeTaxes = totalNonLaborTaxIncomes;
+            costViewModel.TotalNonLaborSocialSecurityIncome = totalNonLaborSocialSecurityIncomes;
+            costViewModel.TotalNonLaborEmployerInsuranceTaxes = totalNonLaborEmployerSSI;
+
+            costViewModel.TotalIncomeTaxes = totalLaborTaxIncomes + totalNonLaborTaxIncomes;
+            costViewModel.TotalSocialSecurityIncome = totalLaborSocialSecurityIncomes + totalNonLaborSocialSecurityIncomes;
+            costViewModel.TotalEmployerInsuranceTaxes = totalLaborEmployerSSI + totalNonLaborEmployerSSI;
+
             return View(costViewModel);
         }
     }
