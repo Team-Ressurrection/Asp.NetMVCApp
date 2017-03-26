@@ -41,7 +41,8 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             pageModel.SetupProperty(x => x.Items, collectionModelUsers);
             pageModel.SetupProperty(x => x.Pager, new Pager(collectionModelUsers.Count(),null));
             // Act
-            UsersController userController = new UsersController(mockedMapService.Object, mockedUserService.Object, mockedPagerFactory.Object);
+            UsersController userController = new UsersController(mockedMapService.Object, mockedPagerFactory.Object, mockedUserService.Object);
+
             var result = userController.Index(null, pageModel.Object) as ViewResult;
 
             // Assert

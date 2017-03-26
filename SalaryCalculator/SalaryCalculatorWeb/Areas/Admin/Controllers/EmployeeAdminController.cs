@@ -12,25 +12,21 @@ using SalaryCalculator.Utilities.Constants;
 using SalaryCalculator.Utilities.Pagination;
 using SalaryCalculatorWeb.Areas.Admin.Models;
 using SalaryCalculator.Utilities.Factories;
+using SalaryCalculatorWeb.Areas.Admin.Controllers.Base;
 
 namespace SalaryCalculatorWeb.Areas.Admin.Controllers
 {
     [Authorize(Roles = ValidationConstants.AdminRole)]
-    public class EmployeeAdminController : Controller
+    public class EmployeeAdminController : BaseController
     {
-        private readonly IMapService mapService;
         private readonly IEmployeeService employeeService;
-        private readonly IPagerFactory pagerFactory;
 
-        public EmployeeAdminController(IMapService mapService, IEmployeeService employeeService, IPagerFactory pagerFactory)
+        public EmployeeAdminController(IMapService mapService, IPagerFactory pagerFactory, IEmployeeService employeeService )
+            : base(mapService, pagerFactory)
         {
-            Guard.WhenArgument<IMapService>(mapService, "mapService").IsNull().Throw();
             Guard.WhenArgument<IEmployeeService>(employeeService, "employeeService").IsNull().Throw();
-            Guard.WhenArgument<IPagerFactory>(pagerFactory, "pagerFactory").IsNull().Throw();
 
-            this.mapService = mapService;
             this.employeeService = employeeService;
-            this.pagerFactory = pagerFactory;
         }
 
         // GET: Admin/Employees

@@ -1,6 +1,5 @@
 ﻿using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
-using SalaryCalculatorWeb.Areas.Admin.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Web;
 
 namespace SalaryCalculatorWeb.Areas.Admin.Models
 {
-    public class EmployeesViewModel : IBaseViewModel, IMapFrom<Employee>
+    public class EmployeesViewModel : IMapFrom<Employee>
     {
         public virtual int Id { get; set; }
 

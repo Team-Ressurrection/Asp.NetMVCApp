@@ -24,10 +24,10 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             var mockedPagerFactory = new Mock<IPagerFactory>();
 
             // Act
-            UsersController usersController = new UsersController(mockedMapService.Object, mockedUserService.Object, mockedPagerFactory.Object);
+            UsersController usersController = new UsersController(mockedMapService.Object, mockedPagerFactory.Object, mockedUserService.Object);
 
             // Assert
-            Assert.IsInstanceOf<UsersController>(usersController); 
+            Assert.IsInstanceOf<UsersController>(usersController);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             var mockedPagerFactory = new Mock<IPagerFactory>();
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(()=> new UsersController(mockedMapService, mockedUserService.Object, mockedPagerFactory.Object));
+            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService, mockedPagerFactory.Object, mockedUserService.Object));
         }
 
         [Test]
@@ -51,7 +51,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             var mockedPagerFactory = new Mock<IPagerFactory>();
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService.Object, mockedUserService, mockedPagerFactory.Object));
+            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService.Object, mockedPagerFactory.Object, mockedUserService));
         }
 
         [Test]
@@ -63,7 +63,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             IPagerFactory mockedPagerFactory = null;
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService.Object, mockedUserService.Object, mockedPagerFactory));
+            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService.Object, mockedPagerFactory, mockedUserService.Object));
         }
     }
 }

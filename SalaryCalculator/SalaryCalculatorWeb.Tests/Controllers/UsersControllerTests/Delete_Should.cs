@@ -27,7 +27,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             var mockedMapService = new Mock<IMapService>();
             var userService = new Mock<IUserService>();
             var mockedPagerFactory = new Mock<IPagerFactory>();
-            UsersController userController = new UsersController(mockedMapService.Object, userService.Object, mockedPagerFactory.Object);
+            UsersController userController = new UsersController(mockedMapService.Object, mockedPagerFactory.Object, userService.Object);
             var id = Guid.NewGuid();
             userService.Setup(x => x.GetById(id.ToString())).Returns(new User() { Id =id.ToString() });
 
@@ -42,7 +42,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             var mockedMapService = new Mock<IMapService>();
             var userService = new Mock<IUserService>();
             var mockedPagerFactory = new Mock<IPagerFactory>();
-            UsersController userController = new UsersController(mockedMapService.Object, userService.Object, mockedPagerFactory.Object);
+            UsersController userController = new UsersController(mockedMapService.Object, mockedPagerFactory.Object, userService.Object);
             var id = Guid.NewGuid();
             User user = null;
             userService.Setup(x => x.GetById(id.ToString())).Returns(user);
@@ -58,7 +58,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             var mockedMapService = new Mock<IMapService>();
             var userService = new Mock<IUserService>();
             var mockedPagerFactory = new Mock<IPagerFactory>();
-            UsersController userController = new UsersController(mockedMapService.Object, userService.Object, mockedPagerFactory.Object);
+            UsersController userController = new UsersController(mockedMapService.Object, mockedPagerFactory.Object, userService.Object);
             var id = Guid.NewGuid();
             userService.Setup(x => x.DeleteById(id.ToString())).Verifiable();
 

@@ -225,9 +225,9 @@
     <Compile Include="App_Start\SalaryCalculatorNinjectModule.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\Base\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
-    <Compile Include="Areas\Admin\Models\Base\BaseViewModel.cs" />
     <Compile Include="Areas\Admin\Models\EmployeesViewModel.cs" />
     <Compile Include="Areas\Admin\Models\PageViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UsersViewModel.cs" />
@@ -357,6 +357,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="JobContracts\" />
     <Folder Include="Reports\" />
     <Folder Include="Views\Settings\" />

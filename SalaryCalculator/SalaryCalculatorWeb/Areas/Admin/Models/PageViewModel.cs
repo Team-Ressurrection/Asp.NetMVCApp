@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
 using SalaryCalculator.Utilities.Pagination;
-using SalaryCalculatorWeb.Areas.Admin.Models.Base;
 
 namespace SalaryCalculatorWeb.Areas.Admin.Models
 {

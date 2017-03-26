@@ -41,8 +41,8 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             userService.Setup(x => x.GetById(id.ToString())).Returns(mockedUser).Verifiable();
             mapService.Setup(x => x.Map<UsersViewModel>(mockedUser)).Returns(userModel.Object).Verifiable();
             // Act
-            var usersController = new UsersController(mapService.Object, userService.Object, pagerFactory.Object);
-            var result = usersController.Edit(id, userModel.Object) as ViewResult;
+            UsersController userController = new UsersController(mapService.Object, pagerFactory.Object, userService.Object);
+            var result = userController.Edit(id, userModel.Object) as ViewResult;
 
             // Assert
             Assert.IsInstanceOf<UsersViewModel>(result.Model);
@@ -64,9 +64,9 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             userService.Setup(x => x.GetById(id.ToString())).Returns(mockedUser).Verifiable();
 
             // Act & Assert
-            var usersController = new UsersController(mapService.Object, userService.Object, pagerFactory.Object);
+            UsersController userController = new UsersController(mapService.Object, pagerFactory.Object, userService.Object);
 
-            Assert.IsInstanceOf<HttpNotFoundResult>(usersController.Edit(id, userModel.Object));
+            Assert.IsInstanceOf<HttpNotFoundResult>(userController.Edit(id, userModel.Object));
         }
 
         [Test]
@@ -92,10 +92,10 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             mapService.Setup(x => x.Map<User>(userModel.Object)).Returns(mockedUser).Verifiable();
 
             // Act
-            var usersController = new UsersController(mapService.Object, userService.Object, pagerFactory.Object);
+            UsersController userController = new UsersController(mapService.Object, pagerFactory.Object, userService.Object);
 
             // Assert
-            Assert.IsInstanceOf<RedirectToRouteResult>(usersController.Edit(userModel.Object));
+            Assert.IsInstanceOf<RedirectToRouteResult>(userController.Edit(userModel.Object));
         }
 
         [Test]
@@ -109,10 +109,10 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             var userModel = new Mock<UsersViewModel>();
 
             // Act
-            var usersController = new UsersController(mapService.Object, userService.Object, pagerFactory.Object);
-            usersController.ModelState.AddModelError("Invalid", "Invalid");
+            UsersController userController = new UsersController(mapService.Object, pagerFactory.Object, userService.Object);
+            userController.ModelState.AddModelError("Invalid", "Invalid");
 
-            var result = usersController.Edit(userModel.Object) as ViewResult;
+            var result = userController.Edit(userModel.Object) as ViewResult;
 
             // Assert
             Assert.IsInstanceOf<ViewResult>(result);

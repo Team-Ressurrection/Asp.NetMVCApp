@@ -1,10 +1,9 @@
 ﻿using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
-using SalaryCalculatorWeb.Areas.Admin.Models.Base;
 
 namespace SalaryCalculatorWeb.Areas.Admin.Models
 {
-    public class UsersViewModel : IBaseViewModel, IMapFrom<User> 
+    public class UsersViewModel : IMapFrom<User> 
     {
         public virtual string Id { get; set; }
 
