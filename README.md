@@ -19,7 +19,7 @@ This is a simple online salary calculator that allows people to calculate their 
 
 You can view the youtube video here:
 
-- [Youtube](https://www.youtube.com/watch?v=EYgRIzkijdc&feature=youtu.be)
+- [Youtube](https://www.youtube.com/watch?v=Sa-AEwULRps)
 
 ## Usage
 
@@ -46,6 +46,7 @@ You can view the youtube video here:
       - income tax
       - net wage
   5. Could view reports for all documents of their employees:
+ <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/ReportsPage.png"/>
       - All Labor contracts
       - All Non-Labor contracts
       - All personal insurance information for selfemployment people
@@ -72,11 +73,12 @@ Everyone can see information:
 #### Admin
 Users with role "admin" can edit or/and delete information in settings menu.
   - Paychecks
+<img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/SettingsPageWithPaging.png"/>
   - Remuneration bills
   - Users
   - Employees
   - Selfemployment insurance
- <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/SettingsPage.png"/>  
+<img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/SettingsPage.png"/>  
   
 #### User
 Users with role "user" can create, view their own documents.
