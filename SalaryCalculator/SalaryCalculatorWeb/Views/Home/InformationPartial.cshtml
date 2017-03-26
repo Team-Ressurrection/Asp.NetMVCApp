@@ -1,28 +1,23 @@
 ﻿@model SalaryCalculatorWeb.Models.HomeViewModels.InfoViewModel
 
 <div class="row">
-    <div class="col-xs-6 jumbotron" style="margin: 5px; padding: 2px">
+    <div class="accordionTitle js-accordionTrigger" style="margin: 5px; padding: 2px">
 
-        <span class="text-center"><em>Registered users:</em></span>
-        <div></div>
-        <span class="col-xs-6 text-center"><strong> @Model.TotalRegisteredUsers</strong></span>
+        <p class="text-center"><em>Registered users: @Model.TotalRegisteredUsers</em></p>
     </div>
-    <div class="col-xs-6 jumbotron" style="margin: 5px; padding: 2px">
+    
+    <div class="accordionTitle js-accordionTrigger" style="margin: 5px; padding: 2px">
 
-        <span class="text-center"><em>Paychecks:</em></span>
-        <div></div>
-        <span class="col-xs-6 text-center"><strong> @Model.TotalPaychecks</strong></span>
+        <p class="text-center"><em>Total Paychecks: @Model.TotalPaychecks</em></p>
     </div>
-    <div class="col-xs-6 jumbotron" style="margin: 5px; padding: 2px">
 
-        <span class="text-center"><em>Remuneration Bills: </em></span>
-        <div></div>
-        <span class="col-xs-6 text-center"><strong>@Model.TotalRemunerationBills</strong></span>
+    <div class="accordionTitle js-accordionTrigger" style="margin: 5px; padding: 2px">
+
+        <p class="text-center"><em>Total Remuneration Bills: @Model.TotalRemunerationBills</em></p>
     </div>
-    <div class="col-xs-6 jumbotron" style="margin: 5px; padding: 2px">
 
-        <span class="text-center"><em>SelfEmployments: </em></span>
-        <div></div>
-        <span class="col-xs-6 text-center"><strong>@Model.TotalSelfEmployments</strong></span>
+    <div class="accordionTitle js-accordionTrigger" style="margin: 5px; padding: 2px">
+
+        <p class="text-center"><em>Total Self insurance documents: @Model.TotalSelfEmployments</em></p>
     </div>
 </div>

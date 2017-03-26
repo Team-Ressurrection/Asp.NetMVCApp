@@ -43,7 +43,8 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.GrossSalary, "Gross Salary", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10 input-group">
+                <span class="input-group-addon">BGN</span>
                 @Html.EditorFor(model => model.GrossSalary, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GrossSalary, "", new { @class = "text-primary" }, "strong")
             </div>
@@ -51,7 +52,8 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.GrossFixedBonus, "Fixed Bonus", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10 input-group">
+                <span class="input-group-addon">BGN</span>
                 @Html.EditorFor(model => model.GrossFixedBonus, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GrossFixedBonus, "", new { @class = "text-primary" }, "strong")
             </div>
@@ -59,7 +61,8 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.GrossNonFixedBonus, "NonFixed Bonus", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-10 input-group">
+                <span class="input-group-addon">BGN</span>
                 @Html.EditorFor(model => model.GrossNonFixedBonus, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.GrossNonFixedBonus, "", new { @class = "text-primary" }, "strong")
             </div>

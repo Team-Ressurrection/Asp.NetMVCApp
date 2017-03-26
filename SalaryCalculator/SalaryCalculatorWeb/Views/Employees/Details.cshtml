@@ -12,8 +12,8 @@
 </p>
 @if (Model.EmployeePaychecks.Count() != 0)
 {
-    <h2>Paychecks</h2>
-    <table class="table table-bordered table-hover table-responsive table-striped">
+    <h2><a href="#accordeon" class="accordion-title accordionTitle js-accordionTrigger" data-toggle="collapse" aria-expanded="false" aria-controls="accordion1"> Paychecks</a></h2>
+    <table id="accordeon" aria-hidden="true" class="table table-bordered table-hover table-responsive table-striped collapse accordion-content accordionItem is-collapsed">
         <tr>
             <th>
                 Personal Id
@@ -52,7 +52,7 @@
                     @Html.DisplayFor(modelItem => item.Employee.PersonalId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CreatedDate,"{0:dd/MM/yyyy}")
+                    @Html.DisplayFor(modelItem => item.CreatedDate, "{0:dd/MM/yyyy}")
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.GrossSalary)
@@ -86,8 +86,8 @@
 
 @if (Model.RemunerationBills.Count() != 0)
 {
-    <h2>Remuneration Bills</h2>
-    <table class="table table-bordered table-hover table-responsive table-striped">
+    <h2><a href="#accordeonBills" class="accordion-title accordionTitle js-accordionTrigger" data-toggle="collapse" aria-expanded="false" aria-controls="accordion1"> Remuneration Bills</a></h2>
+    <table id="accordeonBills" aria-hidden="true" class="table table-bordered table-hover table-responsive table-striped collapse accordion-content accordionItem is-collapsed">
         <tr>
             <th>
                 Personal Id
@@ -148,8 +148,9 @@
 
 @if (Model.SelfEmployments.Count() != 0)
 {
-    <h2>Self Insurance documents</h2>
-    <table class="table table-bordered table-hover table-responsive table-striped">
+    <h2><a href="#accordeonSelf" class="accordion-title accordionTitle js-accordionTrigger" data-toggle="collapse" aria-expanded="false" aria-controls="accordion1"> Self insurance documents</a></h2>
+    <table id="accordeonSelf" aria-hidden="true" class="table table-bordered table-hover table-responsive table-striped collapse accordion-content accordionItem is-collapsed">
+
         <tr>
             <th>
                 Personal Id

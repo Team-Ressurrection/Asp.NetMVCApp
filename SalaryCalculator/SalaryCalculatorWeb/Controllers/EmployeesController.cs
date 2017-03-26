@@ -30,7 +30,7 @@ namespace SalaryCalculatorWeb.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            return View(this.employeeService.GetAll().ToList());
+            return View(this.employeeService.GetAll().OrderBy(x=> x.FirstName).ThenBy(x=> x.MiddleName).ThenBy(x=>x.LastName).ToList());
         }
 
         // GET: Employees/Details/5
