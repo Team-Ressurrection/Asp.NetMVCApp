@@ -15,6 +15,8 @@
 
 This is a simple online salary calculator that allows people to calculate their net wage, social security income, income tax and personal insurance taxes according to latest legislation changes in Labour Code. The calculator allows you to register as a company and create labor and non-labor contracts for employees and also view reports for them.
 
+<img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/HomePage.png"/>
+
 You can view the youtube video here:
 
 - [Youtube](https://www.youtube.com/watch?v=EYgRIzkijdc&feature=youtu.be)
@@ -22,17 +24,22 @@ You can view the youtube video here:
 ## Usage
 
 #### Basic usage
-  1. Register as a company or single user
-  2. Add Employees
+ 1. Register as a company or single user
+ 2. Add Employees
     Required parameters:
       - First Name
       - Surname
       - Family Name
       - Personal Id
-  3. Create documents
+ <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/AddEmployeePage.png"/> 
+ 
+ 3. Create documents
       - Employee paychecks
       - Remuneration Bills
       - calculate personal insurance of selfemployment people.
+  
+ <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/EmployeePage.png"/>
+  
   4. Automatic calculation for each employee:
       - personal insurance
       - social security income
@@ -68,7 +75,8 @@ Users with role "admin" can edit or/and delete information in settings menu.
   - Remuneration bills
   - Users
   - Employees
-  - Selfemployment people
+  - Selfemployment insurance
+ <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/SettingsPage.png"/>  
   
 #### User
 Users with role "user" can create, view their own documents.
@@ -86,7 +94,7 @@ MSSQL.
 
 ## Test Coverage
 
-This application is test covered almost 90% with more than 260 unit tests. 
+This application is test covered almost 85% with more than 300 unit tests.
 
 ## FAQ
 
