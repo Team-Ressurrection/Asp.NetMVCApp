@@ -4,6 +4,7 @@ using NUnit.Framework;
 using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Utilities.Factories;
 using SalaryCalculatorWeb.Areas.Admin.Controllers;
 using SalaryCalculatorWeb.Areas.Admin.Models;
 using SalaryCalculatorWeb.Controllers;
@@ -25,7 +26,8 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             var mockedMapService = new Mock<IMapService>();
             var userService = new Mock<IUserService>();
-            UsersController userController = new UsersController(mockedMapService.Object, userService.Object);
+            var mockedPagerFactory = new Mock<IPagerFactory>();
+            UsersController userController = new UsersController(mockedMapService.Object, userService.Object, mockedPagerFactory.Object);
             var id = Guid.NewGuid();
             userService.Setup(x => x.GetById(id.ToString())).Returns(new User() { Id =id.ToString() });
 
@@ -39,7 +41,8 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             var mockedMapService = new Mock<IMapService>();
             var userService = new Mock<IUserService>();
-            UsersController userController = new UsersController(mockedMapService.Object, userService.Object);
+            var mockedPagerFactory = new Mock<IPagerFactory>();
+            UsersController userController = new UsersController(mockedMapService.Object, userService.Object, mockedPagerFactory.Object);
             var id = Guid.NewGuid();
             User user = null;
             userService.Setup(x => x.GetById(id.ToString())).Returns(user);
@@ -54,7 +57,8 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             var mockedMapService = new Mock<IMapService>();
             var userService = new Mock<IUserService>();
-            UsersController userController = new UsersController(mockedMapService.Object, userService.Object);
+            var mockedPagerFactory = new Mock<IPagerFactory>();
+            UsersController userController = new UsersController(mockedMapService.Object, userService.Object, mockedPagerFactory.Object);
             var id = Guid.NewGuid();
             userService.Setup(x => x.DeleteById(id.ToString())).Verifiable();
 

@@ -11,6 +11,7 @@ using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Utilities.Constants;
 using SalaryCalculator.Utilities.Pagination;
 using SalaryCalculatorWeb.Areas.Admin.Models;
+using SalaryCalculator.Utilities.Factories;
 
 namespace SalaryCalculatorWeb.Areas.Admin.Controllers
 {
@@ -19,22 +20,26 @@ namespace SalaryCalculatorWeb.Areas.Admin.Controllers
     {
         private readonly IMapService mapService;
         private readonly IUserService userService;
+        private readonly IPagerFactory pagerFactory;
 
-        public UsersController(IMapService mapService, IUserService userService)
+        public UsersController(IMapService mapService, IUserService userService, IPagerFactory pagerFactory)
         {
             Guard.WhenArgument<IMapService>(mapService, "mapService").IsNull().Throw();
             Guard.WhenArgument<IUserService>(userService, "userService").IsNull().Throw();
+            Guard.WhenArgument<IPagerFactory>(pagerFactory, "pagerFactory").IsNull().Throw();
 
             this.mapService = mapService;
             this.userService = userService;
+            this.pagerFactory = pagerFactory;
         }
 
         // GET: Admin/Users
+        [HttpGet]
         public ActionResult Index(int? page, PageViewModel pageViewModel)
         {
 
             var users = this.userService.GetAll().OrderBy(x=> x.UserName).AsEnumerable();
-            var pager = new Pager(users.Count(), page);
+            var pager = this.pagerFactory.CreatePager(users.Count(), page);
 
             pageViewModel.Items = this.mapService.Map<IEnumerable<UsersViewModel>>(users)
                                                  .Skip((pager.CurrentPage - 1) * pager.PageSize)

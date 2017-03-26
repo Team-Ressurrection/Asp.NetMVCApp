@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Services.Contracts;
+using SalaryCalculator.Utilities.Factories;
 using SalaryCalculatorWeb.Areas.Admin.Controllers;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,10 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             var mockedMapService = new Mock<IMapService>();
             var mockedUserService = new Mock<IUserService>();
+            var mockedPagerFactory = new Mock<IPagerFactory>();
 
             // Act
-            UsersController usersController = new UsersController(mockedMapService.Object, mockedUserService.Object);
+            UsersController usersController = new UsersController(mockedMapService.Object, mockedUserService.Object, mockedPagerFactory.Object);
 
             // Assert
             Assert.IsInstanceOf<UsersController>(usersController); 
@@ -34,9 +36,10 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             IMapService mockedMapService = null;
             var mockedUserService = new Mock<IUserService>();
+            var mockedPagerFactory = new Mock<IPagerFactory>();
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(()=> new UsersController(mockedMapService, mockedUserService.Object));
+            Assert.Throws<ArgumentNullException>(()=> new UsersController(mockedMapService, mockedUserService.Object, mockedPagerFactory.Object));
         }
 
         [Test]
@@ -45,9 +48,22 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             var mockedMapService = new Mock<IMapService>();
             IUserService mockedUserService = null;
+            var mockedPagerFactory = new Mock<IPagerFactory>();
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService.Object, mockedUserService));
+            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService.Object, mockedUserService, mockedPagerFactory.Object));
+        }
+
+        [Test]
+        public void ThrowArgumentNullException_WhenParameterPagerFactoryIsNullable()
+        {
+            // Arrange
+            var mockedMapService = new Mock<IMapService>();
+            var mockedUserService = new Mock<IUserService>();
+            IPagerFactory mockedPagerFactory = null;
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => new UsersController(mockedMapService.Object, mockedUserService.Object, mockedPagerFactory));
         }
     }
 }

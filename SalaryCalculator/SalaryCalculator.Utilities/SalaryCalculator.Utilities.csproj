@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Calculations\Payroll.cs" />
     <Compile Include="Constants\ValidationConstants.cs" />
+    <Compile Include="Factories\PagerFactory.cs" />
     <Compile Include="Pagination\Pager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

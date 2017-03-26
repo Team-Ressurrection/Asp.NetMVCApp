@@ -4,6 +4,7 @@ using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Tests.Mocks;
+using SalaryCalculator.Utilities.Factories;
 using SalaryCalculator.Utilities.Pagination;
 using SalaryCalculatorWeb.Areas.Admin.Controllers;
 using SalaryCalculatorWeb.Areas.Admin.Models;
@@ -25,6 +26,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             var mockedMapService = new Mock<IMapService>();
             var mockedUserService = new Mock<IUserService>();
+            var mockedPagerFactory = new Mock<IPagerFactory>();
 
             var model = new Mock<UsersViewModel>();
             var pageModel = new Mock<PageViewModel>();
@@ -35,12 +37,12 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
 
             mockedUserService.Setup(x => x.GetAll()).Returns(collectionUsers.AsQueryable()).Verifiable();
             mockedMapService.Setup(x => x.Map<IEnumerable<UsersViewModel>>(collectionUsers)).Returns(collectionModelUsers).Verifiable();
-
+            mockedPagerFactory.Setup(x => x.CreatePager(1, null, 10)).Returns(new Pager(1, null, 10)).Verifiable();
             pageModel.SetupProperty(x => x.Items, collectionModelUsers);
             pageModel.SetupProperty(x => x.Pager, new Pager(collectionModelUsers.Count(),null));
             // Act
-            var usersController = new UsersController(mockedMapService.Object, mockedUserService.Object);
-            var result = usersController.Index(null, pageModel.Object) as ViewResult;
+            UsersController userController = new UsersController(mockedMapService.Object, mockedUserService.Object, mockedPagerFactory.Object);
+            var result = userController.Index(null, pageModel.Object) as ViewResult;
 
             // Assert
             Assert.IsInstanceOf<ViewResult>(result);

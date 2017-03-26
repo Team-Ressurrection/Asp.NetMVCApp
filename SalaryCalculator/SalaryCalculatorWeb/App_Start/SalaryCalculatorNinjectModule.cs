@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using Ninject.Web.Common;
 using SalaryCalculator.Configuration.Caching;
@@ -11,12 +12,16 @@ using SalaryCalculator.Data.Repositories;
 using SalaryCalculator.Data.Services;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Utilities.Calculations;
+using SalaryCalculator.Utilities.Factories;
+using SalaryCalculator.Utilities.Pagination;
 using System;
 
 namespace SalaryCalculatorWeb.App_Start
 {
     public class SalaryCalculatorNinjectModule : NinjectModule
     {
+        private const string Pager = "Pager";
+
         public override void Load()
         {
             this.Bind<ISalaryCalculatorDbContext>().To<SalaryCalculatorDbContext>().InRequestScope();
@@ -37,6 +42,9 @@ namespace SalaryCalculatorWeb.App_Start
             this.Bind<SelfEmployment>().ToSelf();
 
             this.Bind<Payroll>().ToSelf();
+            this.Bind<Pager>().ToSelf();
+
+            this.Bind<IPagerFactory>().ToFactory().InSingletonScope();
         }
     }
 }

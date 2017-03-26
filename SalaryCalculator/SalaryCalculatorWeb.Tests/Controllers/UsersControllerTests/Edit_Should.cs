@@ -4,6 +4,7 @@ using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Tests.Mocks;
+using SalaryCalculator.Utilities.Factories;
 using SalaryCalculatorWeb.Areas.Admin.Controllers;
 using SalaryCalculatorWeb.Areas.Admin.Models;
 using System;
@@ -24,6 +25,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             var mapService = new Mock<IMapService>();
             var userService = new Mock<IUserService>();
+            var pagerFactory = new Mock<IPagerFactory>();
 
             var id = Guid.NewGuid();
             var userModel = new Mock<UsersViewModel>();
@@ -39,7 +41,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             userService.Setup(x => x.GetById(id.ToString())).Returns(mockedUser).Verifiable();
             mapService.Setup(x => x.Map<UsersViewModel>(mockedUser)).Returns(userModel.Object).Verifiable();
             // Act
-            var usersController = new UsersController(mapService.Object, userService.Object);
+            var usersController = new UsersController(mapService.Object, userService.Object, pagerFactory.Object);
             var result = usersController.Edit(id, userModel.Object) as ViewResult;
 
             // Assert
@@ -52,6 +54,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             var mapService = new Mock<IMapService>();
             var userService = new Mock<IUserService>();
+            var pagerFactory = new Mock<IPagerFactory>();
 
             var id = Guid.NewGuid();
             var userModel = new Mock<UsersViewModel>();
@@ -61,7 +64,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             userService.Setup(x => x.GetById(id.ToString())).Returns(mockedUser).Verifiable();
 
             // Act & Assert
-            var usersController = new UsersController(mapService.Object, userService.Object);
+            var usersController = new UsersController(mapService.Object, userService.Object, pagerFactory.Object);
 
             Assert.IsInstanceOf<HttpNotFoundResult>(usersController.Edit(id, userModel.Object));
         }
@@ -72,6 +75,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             var mapService = new Mock<IMapService>();
             var userService = new Mock<IUserService>();
+            var pagerFactory = new Mock<IPagerFactory>();
 
             var id = Guid.NewGuid();
             var userModel = new Mock<UsersViewModel>();
@@ -88,7 +92,7 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             mapService.Setup(x => x.Map<User>(userModel.Object)).Returns(mockedUser).Verifiable();
 
             // Act
-            var usersController = new UsersController(mapService.Object, userService.Object);
+            var usersController = new UsersController(mapService.Object, userService.Object, pagerFactory.Object);
 
             // Assert
             Assert.IsInstanceOf<RedirectToRouteResult>(usersController.Edit(userModel.Object));
@@ -100,11 +104,12 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             // Arrange
             var mapService = new Mock<IMapService>();
             var userService = new Mock<IUserService>();
+            var pagerFactory = new Mock<IPagerFactory>();
 
             var userModel = new Mock<UsersViewModel>();
 
             // Act
-            var usersController = new UsersController(mapService.Object, userService.Object);
+            var usersController = new UsersController(mapService.Object, userService.Object, pagerFactory.Object);
             usersController.ModelState.AddModelError("Invalid", "Invalid");
 
             var result = usersController.Edit(userModel.Object) as ViewResult;
