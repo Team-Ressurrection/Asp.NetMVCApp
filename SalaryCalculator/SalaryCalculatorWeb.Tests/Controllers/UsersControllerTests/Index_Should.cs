@@ -4,6 +4,7 @@ using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Tests.Mocks;
+using SalaryCalculator.Utilities.Pagination;
 using SalaryCalculatorWeb.Areas.Admin.Controllers;
 using SalaryCalculatorWeb.Areas.Admin.Models;
 using System;
@@ -26,21 +27,24 @@ namespace SalaryCalculatorWeb.Tests.Controllers.UsersControllerTests
             var mockedUserService = new Mock<IUserService>();
 
             var model = new Mock<UsersViewModel>();
-            var user = new FakeUser() { UserName = "Payroll"};
+            var pageModel = new Mock<PageViewModel>();
+            var user = new FakeUser() { UserName = "Payroll" };
             model.SetupProperty(x => x.UserName, "Payroll");
-            IEnumerable<User> collectionUsers = new List<User>() { user};
-            IEnumerable<UsersViewModel> collectionModelUsers = new List<UsersViewModel>() { model.Object};
+            IEnumerable<User> collectionUsers = new List<User>() { user };
+            IEnumerable<UsersViewModel> collectionModelUsers = new List<UsersViewModel>() { model.Object };
 
             mockedUserService.Setup(x => x.GetAll()).Returns(collectionUsers.AsQueryable()).Verifiable();
             mockedMapService.Setup(x => x.Map<IEnumerable<UsersViewModel>>(collectionUsers)).Returns(collectionModelUsers).Verifiable();
 
+            pageModel.SetupProperty(x => x.Items, collectionModelUsers);
+            pageModel.SetupProperty(x => x.Pager, new Pager(collectionModelUsers.Count(),null));
             // Act
             var usersController = new UsersController(mockedMapService.Object, mockedUserService.Object);
-            var result = usersController.Index(collectionModelUsers) as ViewResult;
+            var result = usersController.Index(null, pageModel.Object) as ViewResult;
 
             // Assert
             Assert.IsInstanceOf<ViewResult>(result);
-            Assert.AreEqual(collectionModelUsers, result.Model);
+            Assert.AreEqual(pageModel.Object, result.Model);
         }
     }
 }

@@ -1,14 +1,16 @@
-﻿using Bytes2you.Validation;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+
+using Bytes2you.Validation;
+
 using SalaryCalculator.Configuration.Mappings;
 using SalaryCalculator.Data.Models;
 using SalaryCalculator.Data.Services.Contracts;
 using SalaryCalculator.Utilities.Constants;
+using SalaryCalculator.Utilities.Pagination;
 using SalaryCalculatorWeb.Areas.Admin.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace SalaryCalculatorWeb.Areas.Admin.Controllers
 {
@@ -28,13 +30,18 @@ namespace SalaryCalculatorWeb.Areas.Admin.Controllers
         }
 
         // GET: Admin/Users
-        public ActionResult Index(IEnumerable<UsersViewModel> usersViewModel)
+        public ActionResult Index(int? page, PageViewModel pageViewModel)
         {
 
             var users = this.userService.GetAll().OrderBy(x=> x.UserName).AsEnumerable();
+            var pager = new Pager(users.Count(), page);
 
-            usersViewModel = this.mapService.Map<IEnumerable<UsersViewModel>>(users);
-            return View("Index",usersViewModel);
+            pageViewModel.Items = this.mapService.Map<IEnumerable<UsersViewModel>>(users)
+                                                 .Skip((pager.CurrentPage - 1) * pager.PageSize)
+                                                 .Take(pager.PageSize);
+            pageViewModel.Pager = pager;
+
+            return View("Index",pageViewModel);
         }
 
         [HttpGet]

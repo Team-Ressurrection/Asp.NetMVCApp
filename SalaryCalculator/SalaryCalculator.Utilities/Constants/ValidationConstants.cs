@@ -21,5 +21,7 @@
 
         public const string AdminRole = "Admin";
         public const string UserRole = "user";
+
+        public const int DefaultPageItems = 10;
     }
 }
