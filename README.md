@@ -27,32 +27,32 @@ You can view the youtube video here:
  1. Register as a company or single user
  2. Add Employees
     Required parameters:
-      - First Name
-      - Surname
-      - Family Name
-      - Personal Id
+   - First Name
+   - Surname
+   - Family Name
+   - Personal Id
  <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/AddEmployeePage.png"/> 
  
  3. Create documents
-      - Employee paychecks
-      - Remuneration Bills
-      - calculate personal insurance of selfemployment people.
+   - Employee paychecks
+   - Remuneration Bills
+   - calculate personal insurance of selfemployment people.
   
  <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/EmployeePage.png"/>
   
   4. Automatic calculation for each employee:
-      - personal insurance
-      - social security income
-      - income tax
-      - net wage
+    - personal insurance
+    - social security income
+    - income tax
+    - net wage
   5. Could view reports for all documents of their employees:
  <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/ReportsPage.png"/>
-      - All Labor contracts
-      - All Non-Labor contracts
-      - All personal insurance information for selfemployment people
-      - Total insurance expenses
-      - Total income taxes
-      - Total payments for employees
+    - All Labor contracts
+    - All Non-Labor contracts
+    - All personal insurance information for selfemployment people
+    - Total insurance expenses
+    - Total income taxes
+    - Total payments for employees
 
 #### Registration
 You can register at our website in Register menu.
@@ -72,12 +72,12 @@ Everyone can see information:
 
 #### Admin
 Users with role "admin" can edit or/and delete information in settings menu.
-  - Paychecks
 <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/SettingsPageWithPaging.png"/>
-  - Remuneration bills
-  - Users
-  - Employees
-  - Selfemployment insurance
+- Paychecks
+- Remuneration bills
+- Users
+- Employees
+- Selfemployment insurance
 <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/SettingsPage.png"/>  
   
 #### User
