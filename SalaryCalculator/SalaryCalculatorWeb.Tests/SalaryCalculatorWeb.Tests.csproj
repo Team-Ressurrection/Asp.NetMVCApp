@@ -150,6 +150,10 @@
     <Compile Include="Controllers\AccountControllerTests\ResetPasswordConfirmation_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\ResetPassword_Should.cs" />
     <Compile Include="Controllers\AccountControllerTests\VerifyCode.cs" />
+    <Compile Include="Controllers\AdminArea\PaycheckControllerTests\Constructor_Should.cs" />
+    <Compile Include="Controllers\AdminArea\PaycheckControllerTests\Delete_Should.cs" />
+    <Compile Include="Controllers\AdminArea\PaycheckControllerTests\Edit_Should.cs" />
+    <Compile Include="Controllers\AdminArea\PaycheckControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\AdminArea\EmployeeAdminControllerTests\Constructor_Should.cs" />
     <Compile Include="Controllers\AdminArea\EmployeeAdminControllerTests\Delete_Should.cs" />
     <Compile Include="Controllers\AdminArea\EmployeeAdminControllerTests\Edit_Should.cs" />
