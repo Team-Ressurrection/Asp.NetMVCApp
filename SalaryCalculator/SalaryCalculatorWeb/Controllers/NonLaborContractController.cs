@@ -57,6 +57,9 @@ namespace SalaryCalculatorWeb.Controllers
             nonLaborContractModel.PersonalInsurance = this.calculate.GetPersonalInsurance(grossSalary);
             nonLaborContractModel.IncomeTax = this.calculate.GetIncomeTax(grossSalary, nonLaborContractModel.PersonalInsurance);
             nonLaborContractModel.NetWage = this.calculate.GetNetWage(grossSalary, nonLaborContractModel.PersonalInsurance, nonLaborContractModel.IncomeTax);
+            nonLaborContractModel.LawGrantedCosts = grossSalary * 0.25m;
+            nonLaborContractModel.TaxableAmount = grossSalary - nonLaborContractModel.LawGrantedCosts;
+            nonLaborContractModel.AdvanceTaxAmount = nonLaborContractModel.TaxableAmount - nonLaborContractModel.PersonalInsurance;
             nonLaborContractModel.EmployeeId = id;
             var employee = this.employeeService.GetById(id);
             nonLaborContractModel.EmployeeFullName = employee.FirstName + " " + employee.MiddleName + " " + employee.LastName;

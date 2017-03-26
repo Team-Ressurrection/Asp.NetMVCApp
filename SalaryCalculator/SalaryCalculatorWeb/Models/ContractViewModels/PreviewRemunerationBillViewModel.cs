@@ -37,5 +37,11 @@ namespace SalaryCalculatorWeb.Models.ContractViewModels
         public int EmployeeId { get; set; }
 
         public string EmployeeFullName { get; set; }
+
+        public decimal LawGrantedCosts { get; set; }
+
+        public decimal TaxableAmount { get; set; }
+
+        public decimal AdvanceTaxAmount { get; set; }
     }
 }

@@ -1,7 +1,8 @@
 ﻿@model SalaryCalculatorWeb.Models.ContractViewModels.PreviewRemunerationBillViewModel
 
 <div>
-    <h1>Сметка за изплатени суми на: <h2>@Html.DisplayFor(model => model.EmployeeFullName)</h2></h1>
+    <h1>Сметка за изплатени суми на: </h1>
+    <h2>@Html.DisplayFor(model => model.EmployeeFullName)</h2>
     <hr />
     <div class="jumbotron">
         <div>
@@ -13,14 +14,31 @@
         </div>
 
         <div>
-            5.	Осигурителен доход от сумата на р.1, върху който се дължат осигурителни вноски: <strong>@Html.DisplayFor(model => model.SocialSecurityIncome) лв.</strong>>
+            2. Нормативно признати разходи: <strong>@Html.DisplayFor(model => model.LawGrantedCosts) лв.</strong>
         </div>
+
+        <div>
+            3. Облагаем доход по тази сметка: <strong>@Html.DisplayFor(model => model.TaxableAmount) лв.</strong>
+        </div>
+
+        <div>
+            4. Облагаема част на сумата на р.3: <strong>@Html.DisplayFor(model => model.TaxableAmount) лв.</strong>
+        </div>
+
+        <div>
+            5.	Осигурителен доход от сумата на р.1, върху който се дължат осигурителни вноски: <strong>@Html.DisplayFor(model => model.SocialSecurityIncome) лв.</strong>
+        </div>
+        
         <div>
             6. Общо осигурителни вноски: <strong>@Html.DisplayFor(model => model.PersonalInsurance) лв.</strong>
         </div>
 
         <div>
-            8. Дължим авансов данък общ доход: <strong>@Html.DisplayFor(model => model.IncomeTax) лв.</strong>
+            7. Сума подлежаща на авансово облагане(р.4 - р.6): <strong>@Html.DisplayFor(model => model.AdvanceTaxAmount) лв.</strong>
+        </div>
+
+        <div>
+            8. Дължим авансов данък общ доход(р.7 / 10%): <strong>@Html.DisplayFor(model => model.IncomeTax) лв.</strong>
         </div>
 
         <div>
