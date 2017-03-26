@@ -1,0 +1,31 @@
+﻿@model SalaryCalculatorWeb.Models.ReportViewModel.TotalLaborCostViewModel
+
+<div>
+    <h2>Labor cost report:</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalIncomeTaxes)
+        </dt>
+        
+        <dd>
+            @Html.DisplayFor(model => model.TotalIncomeTaxes) lv.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalSocialSecurityIncome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalSocialSecurityIncome) lv.
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalEmployerInsuranceTaxes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalEmployerInsuranceTaxes) lv.
+        </dd>
+        </dl>
+    </div>
