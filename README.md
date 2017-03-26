@@ -47,12 +47,13 @@ You can view the youtube video here:
     - net wage
   5. Could view reports for all documents of their employees:
  <img src="https://github.com/Team-Ressurrection/Asp.NetMVCApp/blob/master/Screenshots/ReportsPage.png"/>
-    - All Labor contracts
-    - All Non-Labor contracts
-    - All personal insurance information for selfemployment people
-    - Total insurance expenses
-    - Total income taxes
-    - Total payments for employees
+   
+   - All Labor contracts
+   - All Non-Labor contracts
+   - All personal insurance information for selfemployment people
+   - Total insurance expenses
+   - Total income taxes
+   - Total payments for employees
 
 #### Registration
 You can register at our website in Register menu.
