@@ -226,9 +226,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\Base\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BillsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PaychecksController.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\Models\BillViewModel.cs" />
     <Compile Include="Areas\Admin\Models\EmployeesViewModel.cs" />
     <Compile Include="Areas\Admin\Models\PageViewModel.cs" />
     <Compile Include="Areas\Admin\Models\PaycheckViewModel.cs" />
@@ -293,6 +295,7 @@
     <Content Include="Areas\Admin\Views\Paychecks\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Paychecks\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Paychecks\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Bills\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
