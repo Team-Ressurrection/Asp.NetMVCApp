@@ -1,0 +1,17 @@
+{
+  "name": "Asp.NetMVCApp",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "http://github.com/heroku/dotnet-buildpack.git"
+    }
+  ]
+}
