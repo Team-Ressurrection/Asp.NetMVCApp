@@ -296,6 +296,8 @@
     <Content Include="Areas\Admin\Views\Paychecks\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Paychecks\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Bills\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Bills\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Bills\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
