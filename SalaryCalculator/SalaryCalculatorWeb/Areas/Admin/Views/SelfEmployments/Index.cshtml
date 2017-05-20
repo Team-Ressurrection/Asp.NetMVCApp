@@ -1,15 +1,15 @@
 ﻿@{
-    ViewBag.Title = "Remuneration Bills";
+    ViewBag.Title = "Self Employment insurance documents";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using SalaryCalculatorWeb.Areas.Admin.Models
-@model SalaryCalculatorWeb.Areas.Admin.Models.PageViewModel<BillViewModel>
+@model SalaryCalculatorWeb.Areas.Admin.Models.PageViewModel<SelfEmploymentViewModel>
 
-<h2>Remuneration Bills</h2>
+<h2>Self employment insurance documents</h2>
 <table class="table table-bordered table-hover table-responsive table-striped">
     <tr>
         <th>
-            Remuneration Bill Id
+            Self Employment Id
         </th>
         <th>
             Created Date
@@ -57,8 +57,8 @@
                 @Html.DisplayFor(modelItem => item.NetWage)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", "Bills", new { id = item.Id }, new { @class = "btn btn-warning btn-xs" })
-                @Html.ActionLink("Delete", "Delete", "Bills", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
+                @Html.ActionLink("Edit", "Edit", "SelfEmployments", new { id = item.Id }, new { @class = "btn btn-warning btn-xs" })
+                @Html.ActionLink("Delete", "Delete", "SelfEmployments", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
             </td>
         </tr>
     }
@@ -68,26 +68,26 @@
             @if (Model.Pager.CurrentPage > 1)
             {
                 <li>
-                    <a href="~/Admin/Bills/Index">First</a>
+                    <a href="~/Admin/SelfEmployments/Index">First</a>
                 </li>
                 <li>
-                    <a href="~/Admin/Bills/Index?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
+                    <a href="~/Admin/SelfEmployments/Index?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
                 </li>
             }
 
             @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
             {
                 <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
-                    <a href="~/Admin/Bills/Index?page=@page">@page</a>
+                    <a href="~/Admin/SelfEmployments/Index?page=@page">@page</a>
                 </li>}
 
             @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
             {
                 <li>
-                    <a href="~/Admin/Bills/Index?page=@(Model.Pager.CurrentPage + 1)">Next</a>
+                    <a href="~/Admin/SelfEmployments/Index?page=@(Model.Pager.CurrentPage + 1)">Next</a>
                 </li>
                 <li>
-                    <a href="~/Admin/Bills/Index?page=@(Model.Pager.TotalPages)">Last</a>
+                    <a href="~/Admin/SelfEmployments/Index?page=@(Model.Pager.TotalPages)">Last</a>
                 </li>
             }
         </ul>
